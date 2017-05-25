@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xar:template xmlns:xar="http://xaraya.com/2004/blocklayout">
+    <!-- License: GPL http://www.gnu.org/copyleft/gpl.html -->
+
+    <!-- Get the settings of this publication type -->
+    <xar:set name="settings">xarCoreCache::getCached('publications', 'settings_' . $object->properties['itemtype']->value)</xar:set>
+    
+    <!-- Load the stylesheet for this publication type -->
+    <xar:style method="import" module="publications" file="translation" title="Translation Stylesheet"/>
+    
+    <div class="xar-row">
+        <div class="xar-col-expanded" style="width: 100%;">
+            <div style="float: left">
+                <a class="xar-title" href="#xarModURL('publications','user','display',array('itemid' => $properties['id']->value))#">
+                    <xar:data-output property="$properties['title']" />
+                </a>
+            </div>
+    
+            <div style="float: right">
+                <!-- Edit icons if allowed -->
+                <xar:template file="editicons"/>
+            </div>
+            <div style="float: right">
+                <!-- Print button -->
+                <xar:template file="print"/>
+            </div>
+        </div>
+    </div>
+    <div class="xar-row">
+        <div class="xar-col" style="width: 48%; padding: 5px; vertical-align: top;">
+            <xar:data-output property="$properties['source']"/>
+        </div> 
+        <div class="xar-col" style="width: 48%; padding: 5px; vertical-align: top;">
+            <xar:data-output property="$properties['translation']"/>
+        </div> 
+    </div>
+</xar:template>

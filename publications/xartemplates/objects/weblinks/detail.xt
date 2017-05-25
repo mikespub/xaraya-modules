@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xar:template xmlns:xar="http://xaraya.com/2004/blocklayout">
+    <!-- License: GPL http://www.gnu.org/copyleft/gpl.html -->
+    <xar:template file="publinks" type="module" />
+    <!--
+    <xar:data-output type="categorynavigation" layout="trails" showchildren="1" module="publications" itemtype="$ptid" itemid="$id" cids="$cids" show_catcount="$settings['show_catcount']" showempty="0" />
+    -->
+    
+    <xar:set name="publication_state">
+        $properties['state']->value
+    </xar:set>
+
+    <xar:if condition="$publication_state lt 3 AND !xarSecurityCheck('ManagePublications',0)">
+        This item cannot be viewed
+    <xar:else />
+        <table border="0" cellpadding="3" cellspacing="0">
+            <tr>
+                <td align="left" colspan="2" class="xar-normal">
+                    <!-- <a class="xar-title" href="#$redirect#"> -->
+                    
+                    <a class="xar-title" href="#">
+                        <xar:data-output property="$properties['title']" />
+                    </a>
+
+                    <!-- Edit icons if allowed -->
+                    <xar:template file="editicons"/>
+            
+                    <!-- Print button -->
+                    <xar:template file="print"/>
+                <br />
+                </td>
+            </tr>
+            <tr>
+                <td align="right">
+                Web Site:
+                </td>
+                <td align="left">
+                    <xar:data-output property="$properties['website']" />
+                </td>
+            </tr>
+            <tr>
+                <td align="right">
+                Description:
+                </td>
+                <td align="left">
+                    <xar:data-output property="$properties['description']" />
+                </td>
+            </tr>
+            <xar:if condition="!empty($properties['source']->value)">
+                <tr>
+                    <td align="right">
+                        Source:
+                    </td>
+                    <td align="left">
+                        <xar:data-output property="$properties['source']" />
+                    </td>
+                </tr>
+            </xar:if>
+            <tr>
+                <td align="right">
+                    Added on:
+                </td>
+                <td align="left">
+                    <xar:data-output property="$properties['modified']" />
+                </td>
+            </tr>
+            <tr>
+                <td align="right">
+                    By:
+                </td>
+                <td align="left">
+                    <xar:if condition="!empty($profile)">
+                        <a href="#$profile#">
+                            <xar:data-output property="$properties['author']" />
+                        </a>
+                        <xar:else />
+                            <xar:data-output property="$properties['author']" />
+                    </xar:if>
+                </td>
+            </tr>
+            <xar:if condition="!empty($counter)">
+                <tr>
+                    <td align="right">
+                        Hits:
+                    </td>
+                    <td align="left">
+                        #$counter#
+                    </td>
+                </tr>
+            </xar:if>
+        </table>
+
+        <!-- Link to previous or next -->
+        <div class="xar-normal xar-align-right xar-padding-thick">
+            <xar:set name="prevpublication">xarCoreCache::getCached('Publications', 'prevpublication')</xar:set>
+            <xar:if condition="!empty($prevpublication)">
+                <xar:var name="prev">Previous</xar:var>
+                <a href="#xarModURL('publications', 'user', 'display', array('itemid' => $prevpublication['id']))#" title="#$prev#">
+                    <xar:img scope="theme" file="icons/go-previous.png" class="xar-icon" alt="$prev"/>
+                </a>
+            </xar:if>
+            &#160;
+            <xar:set name="nextpublication">xarCoreCache::getCached('Publications', 'nextpublication')</xar:set>
+            <xar:if condition="!empty($nextpublication)">
+                <xar:var name="next">Next</xar:var>
+                <a href="#xarModURL('publications', 'user', 'display', array('itemid' => $nextpublication['id']))#" title="#$next#">
+                    <xar:img scope="theme" file="icons/go-next.png" class="xar-icon" alt="$next"/>
+                </a>
+            </xar:if>
+        </div>
+    </xar:if>
+</xar:template>
