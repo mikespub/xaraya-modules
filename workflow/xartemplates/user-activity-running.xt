@@ -1,0 +1,42 @@
+<xar:template xmlns:xar="http://xaraya.com/2004/blocklayout">
+  <xar:template file="user_bar" type="module"/>
+  <div class="xar-mod-body">
+    <h3>
+      Running activity
+    </h3>
+    <div class="xar-norm-outline" style="padding: 0.5em 1em 0.5em; margin: auto;">
+      <table style="border-collapse: separate;">
+        <tr>
+          <th>
+            Process
+          </th>
+          <th>
+            Version
+          </th>
+          <th>
+            Activity
+          </th>
+        </tr>
+        <tr>
+          <td>#$procname#</td>
+          <td style="text-align: right;">#$procversion#</td>
+          <td>#$actname#</td>
+        </tr>
+      </table>
+      <xar:if condition="!empty($mid)">#$mid#</xar:if>
+      <xar:if condition="!empty($return_url)">
+        <p>
+          <a href="#$return_url#">
+            Return to previous page
+          </a>
+        </p>
+      </xar:if>
+      <xar:if condition="!empty($hooks) and count($hooks) gt 0">
+        <xar:foreach in="$hooks" key="$hookname" value="$hookoutput">
+        #$hookoutput#
+      </xar:foreach>
+      </xar:if>
+    </div>
+    <xar:template file="galaxfooter"/>
+  </div>
+</xar:template>

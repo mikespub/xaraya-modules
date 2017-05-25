@@ -1,0 +1,38 @@
+<xar:template xmlns:xar="http://xaraya.com/2004/blocklayout">
+<div>
+  <fieldset>
+    <legend>
+      <xar:if condition="$roleId gt 0">
+        Role details 
+      <xar:else/>
+        Add new role
+      </xar:if>
+    </legend>
+
+    <form action="&xar-modurl-workflow-admin-roles;" method="post">
+      <input type="hidden" name="pid" value="#$pid#"/>
+      <input type="hidden" name="roleId" value="#$info['roleId']#"/>
+      <input type="hidden" name="sort_mode" value="#$sort_mode#"/>
+      <input type="hidden" name="sort_mode2" value="#$sort_mode2#"/>
+      <input type="hidden" name="find" value="#$find#"/>
+      <input type="hidden" name="offset" value="#$offset#"/>
+      <div class="xar-form-input-wrapper">
+        <label class="xar-form-label">Name</label>
+        <input type="text" name="name" value="#$info['name']#"/>
+      </div>
+      <div class ="xar-form-input-wrapper">
+        <label class="xar-form-label">Description</label>
+        <textarea name="description" rows="4" cols="60">#$info['description']#</textarea>
+      </div>
+      <div class="xar-form-input-wrapper-after">
+        <xar:if condition="$roleId gt 0">
+          <input type="submit" name="save" value="#xarML('Update')#"/>
+          <xar:else/>
+          <input type="submit" name="save" value="#xarML('Save')#"/>
+        </xar:if>
+      </div>
+    </form>
+  </fieldset>
+</div>
+
+</xar:template>
