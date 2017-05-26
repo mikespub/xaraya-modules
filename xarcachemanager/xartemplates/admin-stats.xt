@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xar:template xmlns:xar="http://xaraya.com/2004/blocklayout">
+<!--  License: GPL http://www.gnu.org/copyleft/gpl.html  -->
+<xar:style scope="module" module="base" file="navtabs" />
+<div class="xar-mod-head"><span class="xar-mod-title">xarCacheManager Administration</span></div>
+<div class="xar-mod-body">
+  <xar:template type="module" file="admin-menu" module="xarcachemanager" />
+
+  <xar:if condition="$tab eq 'page'">
+    <h2>Page Cache Statistics</h2>
+  <xar:elseif condition="$tab eq 'block'"/>
+    <h2>Block Cache Statistics</h2>
+  <xar:elseif condition="$tab eq 'module'"/>
+    <h2>Module Cache Statistics</h2>
+  <xar:elseif condition="$tab eq 'object'"/>
+    <h2>Object Cache Statistics</h2>
+  <xar:elseif condition="$tab eq 'variable'"/>
+    <h2>Variable Cache Statistics</h2>
+  <xar:elseif condition="$tab eq 'autocache'"/>
+    <h2>Auto-Cache Statistics</h2>
+  <xar:else/>
+    <h2>Cache Statistics</h2>
+  </xar:if>
+
+    <xar:template type="module" file="stats-menu" module="xarcachemanager" />
+    
+    <div style="border: 1px solid #ccc; text-align: left; width: 100%; border-top: none; padding-left: 5px;">
+    <!-- Begin Overview Statistics -->
+    <br />
+    <xar:if condition="empty($tab) or $tab eq 'overview'">
+
+        <xar:template type="module" file="stats-overview" module="xarcachemanager" />
+
+    <!--  Begin Page / Block / Module / Object Statistics -->
+    <xar:elseif condition="$tab eq 'page' or $tab eq 'block' or $tab eq 'module' or $tab eq 'object' or $tab eq 'variable'" />
+
+        <xar:template type="module" file="stats-details" module="xarcachemanager" />
+
+    <!--  Begin Query Statistics -->
+    <xar:elseif condition="$tab eq 'query'" />
+
+        <h3>Query Cache Statistics</h3>
+        to be defined
+
+    <!--  Begin Auto-Cache Statistics -->
+    <xar:elseif condition="$tab eq 'autocache'" />
+
+        <xar:template type="module" file="stats-autocache" module="xarcachemanager" />
+
+    </xar:if>
+    </div>
+
+</div>
+</xar:template>
