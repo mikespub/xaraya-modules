@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<xar:template xmlns:xar="http://xaraya.com/2004/blocklayout">
+    <!-- License: GPL http://www.gnu.org/copyleft/gpl.html -->
+    <xar:template file="admin-mod-head"/>
+    <div class="xar-mod-body">
+        <h2>
+            Modify Forum Category
+        </h2>
+        <form action="#xarModURL('crispbb','admin','modifycat')#" method="post" enctype="application/x-www-form-urlencoded">
+            <fieldset class="xar-norm">
+                <legend>
+                    Category
+                </legend>
+                <xar:data-form object="$object" />
+            </fieldset>
+            <fieldset>
+                <div class="xar-row">
+                    <div class="xar-col">
+                    </div>
+                    <div class="xar-col">
+                        <input type="hidden" name="authid" id="authid" value="#xarSecGenAuthKey()#" />
+                        <input type="hidden" name="itemid" id="itemid" value="#$itemid#" />
+                        <input type="hidden" name="return_url" id="return_url" value="#$return_url#" />
+                        <input type="hidden" name="phase" id="phase" value="update" />
+                        <xar:var name="label">Update</xar:var>
+                        <xar:button type="submit" label="$label" />
+                    </div>
+                </div>
+            </fieldset>
+        </form>
+    </div>
+</xar:template>

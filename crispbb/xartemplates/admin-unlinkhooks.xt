@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<xar:template xmlns:xar="http://xaraya.com/2004/blocklayout">
+    <!-- License: GPL http://www.gnu.org/copyleft/gpl.html -->
+    <xar:template file="admin-mod-head"/>
+    <div class="xar-mod-body">
+        <h2>Delete Topic Associations</h2>
+        <form method="post" action="&xar-modurl-crispbb-admin-unlinkhooks;">
+            <input type="hidden" name="authid" id="authid" value="#$authid#" />
+            <input type="hidden" name="modid" id="modid" value="#$modid#" />
+            <input type="hidden" name="itemtype" id="itemtype" value="#$itemtype#" />
+            <input type="hidden" name="itemid" id="itemid" value="#$itemid#" />
+            <fieldset>
+                <legend>
+                    Confirm deletion
+             </legend>
+            <div class="xar-form-input-wrapper-before">
+        <xar:if condition="empty($modname)">
+                Confirm deleting all topic associations ?
+        <xar:elseif condition="empty($itemid)"/>
+                Confirm deleting all topic associations for module <strong>#$modname#</strong> ?
+        <xar:else/>
+            Are you sure you want to delete topic association for module <strong>#$modname#</strong> item <strong>#$itemid#</strong>?
+        </xar:if>
+            </div>
+            </fieldset>
+            <div class="xar-form-input-wrapper-after">
+                <xar:var name="label">Confirm</xar:var>
+                <xar:button type="submit" name="confirm" label="$label" />
+            </div>
+        </form>
+    </div>
+</xar:template>
