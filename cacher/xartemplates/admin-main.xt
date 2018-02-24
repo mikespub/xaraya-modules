@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xar:template xmlns:xar="http://xaraya.com/2004/blocklayout">
+    <!-- License: GPL http://www.gnu.org/copyleft/gpl.html -->
+    <xar:template file="admin-mod-head"/>
+    <div class="xar-mod-body">
+        <xar:var name="label">Official Icon</xar:var>
+        <img src="#xarTplGetImage('module-generic.png', 'base')#" alt="#$label#" width="96" height="96" class="xar-module-icon" />
+
+        <h2>
+            Overview
+        </h2>
+
+        <p>
+            The Cacher modules lets you define and manage file system based caches on your site.
+        </p>
+        <p>
+            You can define one or more file caches at different physical locations.
+        </p>
+        <p>
+            The module is based on Xaraya's file storage caching and includes functionality to:
+            <ul>
+                <li>Create, modify and delete cache definitions</li>
+                <li>Add or remove files from a cache</li>
+                <li>Update cache files when the original file changes</li>
+            </ul>
+        </p>
+        <div style="clear:both">&#160;</div>
+    </div>
+</xar:template>
