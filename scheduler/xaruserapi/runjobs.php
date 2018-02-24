@@ -76,7 +76,9 @@ function scheduler_userapi_runjobs($args)
     foreach ($jobs as $id => $job) {
 
         $jobname = $job['module'] . "_xar" . $job['type'] . "_" . $job['function'];
-    
+
+        $log[] = xarML('Starting: ') . $jobname;
+        
         if($job['job_trigger'] == 0) {
             // Ignore disabled jobs
             $log[] = xarML('Skipped: ') . $jobname;
@@ -184,7 +186,7 @@ function scheduler_userapi_runjobs($args)
 # Checks for jobs called by an external scheduler
 #
         } else {
-
+            
             $sourcetype = $job['source_type'];  // Localhost, IP with or without proxy, host name
             $source = $job['source'];           // IP or host name
 
@@ -194,11 +196,13 @@ function scheduler_userapi_runjobs($args)
                     if (empty($proxy) && !empty($ip) && $ip == '127.0.0.1') {
                         $isvalid = true;
                     }
+                    $log[] = xarML('Source type: localhost');
                     break;
                 case 2: // IP direct connection
                     if (empty($proxy) && !empty($ip) && $ip == $source) {
                         $isvalid = true;
                     }
+                    $log[] = xarML('Source type: IP direct connection');
                     break;
                 case 3: // IP behind proxy
                     if (!empty($proxy) && !empty($ip) && $ip == $source) {
@@ -212,12 +216,15 @@ function scheduler_userapi_runjobs($args)
                         if (empty($hostname)) {
                             $hostname = @gethostbyaddr($ip);
                         }
+                        $log[] = xarML('Source type: host #(1)', $hostname);
                         if (!empty($hostname) && $hostname == $source) {
                             $isvalid = true;
                         }
                     }
                     break;
             }
+            
+            // Try and get the host via the IP
             if (!$isvalid) {
                 if (!empty($ip)) {
                     $hostname = @gethostbyaddr($ip);
@@ -231,12 +238,13 @@ function scheduler_userapi_runjobs($args)
                     } else {
                         $isvalid = true;
                     }
-                    break;
                 }
             }
             if (!$isvalid) {
                 $log[] = xarML('Skipped: ') . $jobname;
                 continue;
+            } else {
+                $log[] = xarML('Host: ') . $hostname;
             }
         }
 
