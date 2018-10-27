@@ -7,3 +7,4 @@ git subtree pull -P xarcachemanager xaraya com.xaraya.modules.jamaica.xarcachema
 git subtree pull -P workflow xaraya com.xaraya.modules.jamaica.workflow.2.1
 git subtree pull -P cacher xaraya com.xaraya.modules.cacher
 git status
+git push
