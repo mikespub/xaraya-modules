@@ -26,7 +26,7 @@ function crispbb_user_forum_index()
 
     $data = array();
     $now = time();
-    $uid = xarUserGetVar('id');
+    $uid = xarUser::getVar('id');
     $tstatus = array(0,1,3,4); // open, closed, submitted, moved, locked topics
 
     // Get the forums
@@ -43,7 +43,7 @@ function crispbb_user_forum_index()
     }
 
     // Logged in user
-    if (xarUserIsLoggedIn()) {
+    if (xarUser::isLoggedIn()) {
         // Start Tracking
         $tracker = unserialize(xarModUserVars::get('crispbb', 'tracker_object'));
         $data['readurl'] = xarModURL('crispbb', 'user', 'forum_index', array('action' => 'read'));

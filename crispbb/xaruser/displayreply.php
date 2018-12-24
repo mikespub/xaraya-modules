@@ -43,14 +43,14 @@ function crispbb_user_displayreply($args)
     $data = $topic;
     $tid = $data['tid'];
     // Logged in user
-    if (xarUserIsLoggedIn()) {
+    if (xarUser::isLoggedIn()) {
         // Start Tracking
         $tracker = unserialize(xarModUserVars::get('crispbb', 'tracker_object'));
         $data['userpanel'] = $tracker->getUserPanelInfo();
     }
     $forumLevel = $data['forumLevel'];
     $privs = $data['privs'];
-    $uid = xarUserGetVar('id');
+    $uid = xarUser::getVar('id');
     $errorMsg = array();
     $invalid = array();
     $now = time();

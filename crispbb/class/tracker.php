@@ -1,5 +1,5 @@
 <?php
-class Tracker extends Object
+class Tracker extends xarObject
 {
     private $id;                // current user
     private $now;               // current time
@@ -29,7 +29,7 @@ class Tracker extends Object
     public function __destruct()
     {
         if (empty($this->init)) {
-            if (xarUserIsLoggedIn() && $this->id == xarUserGetVar('id')) {
+            if (xarUser::isLoggedIn() && $this->id == xarUser::getVar('id')) {
                 // store the object for this user
                 try {
                     xarModUserVars::set('crispbb', 'tracker_object', serialize($this), $this->id);
@@ -85,12 +85,12 @@ class Tracker extends Object
     }
     public function setUserData()
     {
-        if (!xarUserIsLoggedIn()) return true;
+        if (!xarUser::isLoggedIn()) return true;
         if (empty($this->now)) $this->setNow();
-        if (empty($this->id)) $this->id = xarUserGetVar('id');
-        $this->name = xarUserGetVar('name', $this->id);
-        $this->uname = xarUserGetVar('uname', $this->id);
-        if ($this->id == xarUserGetVar('id')) {
+        if (empty($this->id)) $this->id = xarUser::getVar('id');
+        $this->name = xarUser::getVar('name', $this->id);
+        $this->uname = xarUser::getVar('uname', $this->id);
+        if ($this->id == xarUser::getVar('id')) {
             // more than 15 minutes since last visit?
             if ($this->now - ($this->filter*60) > $this->visitend) {
                 // set lastvisit to time last visit ended
@@ -111,7 +111,7 @@ class Tracker extends Object
 
     public function getUserPanelInfo()
     {
-        if (!xarUserIsLoggedIn()) return false;
+        if (!xarUser::isLoggedIn()) return false;
         return array(
             'id' => $this->id,
             'name' => $this->name,

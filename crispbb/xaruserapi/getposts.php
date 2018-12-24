@@ -429,11 +429,11 @@ function crispbb_userapi_getposts($args)
         $query .= ' ORDER BY ' . $poststable . '.ptime ASC';
     }
 
-    $result =& $dbconn->SelectLimit($query, $numitems, $startnum-1, $bindvars);
+    $result = $dbconn->SelectLimit($query, $numitems, $startnum-1, $bindvars);
     if (!$result) return;
     $posts = array();
-    $uid = xarUserGetVar('id');
-    $loggedin = xarUserIsLoggedIn();
+    $uid = xarUser::getVar('id');
+    $loggedin = xarUser::isLoggedIn();
     $checkfailed = false;
     // module defaults
     $presets = xarMod::apiFunc('crispbb', 'user', 'getpresets',

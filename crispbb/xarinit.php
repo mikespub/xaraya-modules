@@ -314,7 +314,7 @@ function crispbb_init()
     }
 # --------------------------------------------------------
 #
-# Create Base Category
+# Create Base (Root) Category
 #
     $catName = 'crispBB Forums';
     try {
@@ -329,7 +329,7 @@ function crispbb_init()
         $categories = DataObjectMaster::getObject(array('name' => 'categories'));
         $fieldValues = array(
                 'name' => $catName,
-                'description' => xarML('crispBB Base Category'),
+                'description' => xarML('crispBB Root Category'),
                 'parent_id' => 1,
         );
         $basecid = $categories->createItem($fieldValues);
@@ -363,6 +363,7 @@ function crispbb_init()
     xarModVars::set($module, 'showquickreply', true);
     xarModVars::set($module, 'showpermissions', true);
     xarModVars::set($module, 'showsortbox', true);
+    xarModVars::set($module, 'editor', 'textarea');
 
 # --------------------------------------------------------
 #
