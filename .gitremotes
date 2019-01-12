@@ -1,0 +1,8 @@
+[remote "xaraya"]
+	url = https://github.com/xaraya/modules.git
+	fetch = +refs/heads/com.xaraya.modules.bermuda.publications:refs/remotes/xaraya/com.xaraya.modules.bermuda.publications
+	fetch = +refs/heads/com.xaraya.modules.jamaica.workflow.2.1:refs/remotes/xaraya/com.xaraya.modules.jamaica.workflow.2.1
+	fetch = +refs/heads/com.xaraya.modules.bermuda.scheduler:refs/remotes/xaraya/com.xaraya.modules.bermuda.scheduler
+	fetch = +refs/heads/com.xaraya.modules.jamaica.xarcachemanager:refs/remotes/xaraya/com.xaraya.modules.jamaica.xarcachemanager
+	fetch = +refs/heads/com.xaraya.modules.bermuda.crispbb:refs/remotes/xaraya/com.xaraya.modules.bermuda.crispbb
+	fetch = +refs/heads/com.xaraya.modules.cacher:refs/remotes/xaraya/com.xaraya.modules.cacher
