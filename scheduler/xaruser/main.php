@@ -31,7 +31,7 @@ function scheduler_user_main()
         {
             $diff = time() - $lastrun;
             $data['message'] = xarML('Last run was #(1) minutes #(2) seconds ago', intval($diff / 60), $diff % 60);
-            return xarTpl::module('base', 'user', 'message', $data);
+            return $data;
         }
         // Update the last run time
         xarModVars::set('scheduler','lastrun',$now);
@@ -40,7 +40,7 @@ function scheduler_user_main()
     xarModVars::set('scheduler','running',1);
     $data['output'] = xarMod::apiFunc('scheduler','user','runjobs');
     xarModVars::delete('scheduler','running');
-    if (xarIsParent('Administrators', xarUserGetVar('uname'))) {
+    if (xarIsParent('Administrators', xarUser::getVar('uname'))) {
         return $data;
     } else {
         return xarController::$response->NotFound();
