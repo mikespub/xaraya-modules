@@ -1,4 +1,5 @@
 #!/bin/sh
+#https://codeengineered.com/blog/how-to-install-git-subtree/
 #
 git subtree pull -P publications xaraya com.xaraya.modules.bermuda.publications
 git subtree pull -P crispbb xaraya com.xaraya.modules.bermuda.crispbb
