@@ -236,20 +236,18 @@ function publications_user_display($args)
 
             $pattern='/(action)="([^"\r\n]*)"/';
             $page = preg_replace_callback($pattern,
-                create_function(
-                    '$matches',
-                    'return $matches[1]."=\"".xarServer::getCurrentURL()."\"";'
-                ),
+                function($matches) {
+                    return $matches[1] = xarServer::getCurrentURL();
+                },
                 $page
             );
 
             // Find the URLs in links
             $pattern='/(href)="([^"\r\n]*)"/';
             $page = preg_replace_callback($pattern,
-                create_function(
-                    '$matches',
-                    'return $matches[1]."=\"".xarServer::getCurrentURL(array("child" => urlencode($matches[2])))."\"";'
-                ),
+                function($matches) {
+                    return $matches[1] = xarServer::getCurrentURL(array("child" => urlencode($matches[2])));
+                },
                 $page
             );
             
