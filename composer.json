@@ -1,6 +1,6 @@
 {
     "name": "xaraya/modules",
-    "description": "Xaraya Core web development framework",
+    "description": "Collection of modules to extend Xaraya's functionality",
     "license": "GPL-2.0-or-later",
     "extra": {
         "branch-alias": {
