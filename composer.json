@@ -1,0 +1,20 @@
+{
+    "name": "xaraya/modules",
+    "description": "Xaraya Core web development framework",
+    "license": "GPL-2.0-or-later",
+    "extra": {
+        "branch-alias": {
+            "dev-master": "2.4.x-dev"
+        }
+    },
+    "require": {},
+    "suggest": {},
+    "config": {
+        "optimize-autoloader": true,
+        "sort-packages": true
+    },
+    "autoload": {
+        "classmap": ["./"],
+        "exclude-from-classmap": ["/workflow/lib/", "/publications/class/lib/", "/vendor/"]
+    }
+}
