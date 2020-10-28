@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xar:template xmlns:xar="http://xaraya.com/2004/blocklayout">
+    <!-- License: GPL http://www.gnu.org/copyleft/gpl.html -->
+    
+    <div class="xar-mod-head">
+        <span class="xar-mod-title">
+            <xar:if condition="xarModVars::get('ckeditor','useModuleAlias')">
+                <xar:var scope="module" module="ckeditor" name="aliasname"/>
+            <xar:else />
+                <xar:mlstring>CKEditor Administration</xar:mlstring>
+            </xar:if>
+        </span>
+    </div>
+
+    <xar:template scope="module" file="admintabs"/>
+
+    <div class="xar-mod-body">
+        <h2>
+            <xar:mlstring>
+                Modify Configuration
+            </xar:mlstring>
+        </h2>
+   
+            <form method="post" action="&xar-modurl-ckeditor-admin-modifyconfig;" enctype="application/x-www-form-urlencoded">
+             
+                <xar:comment><fieldset>
+                    <legend>
+                        <xar:mlstring>
+                            General Options
+                        </xar:mlstring>
+                    </legend>
+                  
+                    <div class="xar-form-input-wrapper">
+                      <label for="editorversion" class="xar-form-label"><xar:mlstring>Editor Version</xar:mlstring></label>
+                        <xar:set name="options">
+                            array(
+                                array('id' => 'ckeditor', 'name' => xarML('CKEditor')),
+                                array('id' => 'fckeditor', 'name' => xarML('FCKEditor')),
+                            )
+                        </xar:set>
+                         <xar:set name="editorversion">xarModVars::get('ckeditor','editorversion')</xar:set>
+                        <xar:data-input type="dropdown" name="editorversion" value="$editorversion" options="$options"/>
+                    </div>
+
+		    </fieldset></xar:comment>
+
+		    <fieldset>
+		    <legend>Plugins Config</legend>
+
+<h3>PGRFileManager settings</h3>
+		    <xar:set name="pgrconfig">array(
+				'rootPath' => '',
+				'urlPath' => '',
+				'allowedExtensions' => 'Leave empty to allow all extensions',
+				/*'imagesExtensions' => '',*/
+				'fileMaxSize' => '',
+				'imageMaxHeight' => '',
+				'imageMaxWidth' => '',
+				'allowEdit' => ''
+			);</xar:set>
+
+		<xar:foreach in="$pgrconfig" key="$key" value="$note">
+			<xar:set name="pgrsetting">'PGRFileManager_'.$key</xar:set>
+		    <div class="xar-form-input-wrapper">
+                      <label for="#$pgrsetting#" class="xar-form-label">#$key#</label>
+                     
+                         <xar:set name="setting">xarModVars::get('ckeditor',$pgrsetting)</xar:set>
+			 <xar:if condition="$key eq 'allowEdit'">
+				<xar:set name="options">array('false' => 'false', 'true' => 'true')</xar:set>
+				<xar:data-input type="dropdown" options="$options" name="$pgrsetting" value="$setting" />
+			<xar:else />
+				<xar:data-input type="textbox" name="$pgrsetting" value="$setting" /> #$note#
+			</xar:if>
+                    </div><br />
+		</xar:foreach>
+
+                </fieldset>
+                <fieldset>
+                    <div class="xar-form-input-wrapper-after">
+                        <input type="hidden" name="authid" id="authid" value="#$authid#"/>
+                        <input type="hidden" name="phase" id="phase" value="update"/>
+                        <input type="submit" value="#xarML('Update CKEditor Configuration')#"/>
+                    </div>
+                </fieldset>
+            </form>
+     
+             
+    </div>
+</xar:template>
