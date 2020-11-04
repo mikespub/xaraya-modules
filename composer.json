@@ -15,6 +15,12 @@
     },
     "autoload": {
         "classmap": ["./"],
-        "exclude-from-classmap": ["/workflow/lib/", "/publications/class/lib/", "/vendor/"]
+        "exclude-from-classmap": [
+            "/ckeditor/class/",
+            "/ckeditor/xarblocks/",
+            "/publications/class/lib/",
+            "/workflow/lib/",
+            "/vendor/"
+        ]
     }
 }
