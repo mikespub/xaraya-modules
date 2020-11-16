@@ -1,0 +1,59 @@
+<object name="messages_user_settings">
+  <objectid>142</objectid>
+  <label>Messages</label>
+  <module_id>6</module_id>
+  <itemtype>1</itemtype>
+  <class>DataObject</class>
+  <filepath>auto</filepath>
+  <urlparam>itemid</urlparam>
+  <maxid>0</maxid>
+  <access>a:0:{}</access>
+  <isalias>false</isalias>
+  <datastore>module_variables</datastore>
+  <config>a:1:{s:0:"";a:1:{i:0;s:0:"";}}</config>
+  <sources>a:1:{s:0:&quot;&quot;;a:2:{i:0;s:0:&quot;&quot;;i:1;s:8:&quot;internal&quot;;}}</sources>
+  <relations>a:1:{i:0;a:2:{i:0;s:0:&quot;&quot;;i:1;s:0:&quot;&quot;;}}</relations>
+  <objects>a:1:{i:0;a:2:{i:0;s:0:&quot;&quot;;i:1;s:0:&quot;&quot;;}}</objects>
+  <properties>
+    <property name="user_sendemail">
+      <id>1623</id>
+      <label>Email me when I receive a new message</label>
+      <type>checkbox</type>
+      <defaultvalue></defaultvalue>
+      <source>module variable: messages</source>
+      <status>33</status>
+      <seq>2</seq>
+      <configuration></configuration>
+    </property>
+    <property name="enable_autoreply">
+      <id>1624</id>
+      <label>Enable my autoreply</label>
+      <type>checkbox</type>
+      <defaultvalue></defaultvalue>
+      <source>module variable: messages</source>
+      <status>33</status>
+      <seq>2</seq>
+      <configuration></configuration>
+    </property>
+    <property name="autoreply">
+      <id>1625</id>
+      <label>Autoreply text</label>
+      <type>textarea_medium</type>
+      <defaultvalue></defaultvalue>
+      <source>module variable: messages</source>
+      <status>33</status>
+      <seq>3</seq>
+      <configuration></configuration>
+    </property>
+    <property name="user_send_redirect">
+      <id>1626</id>
+      <label>Tab to open after sending message</label>
+      <type>dropdown</type>
+      <defaultvalue>1</defaultvalue>
+      <source>module variable: messages</source>
+      <status>33</status>
+      <seq>4</seq>
+      <configuration>a:3:{s:12:"display_rows";s:1:"0";s:14:"display_layout";s:7:"default";s:22:"initialization_options";s:38:"1,Inbox;2,Sent;3,Drafts;4,New Message;";}</configuration>
+    </property>
+  </properties>
+</object>
