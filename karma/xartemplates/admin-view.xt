@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xar:template xmlns:xar="http://xaraya.com/2004/blocklayout">
+    <xar:template file="admin-mod-head"/>
+    <div class="xar-mod-body">
+        <div class="xar-alt-outline" style="margin:2em; text-align:center; padding: 0 5px 0 5px;">
+            <xar:data-view object="$object" tplmodule="karma"/>
+        </div>
+    </div>
+</xar:template>
