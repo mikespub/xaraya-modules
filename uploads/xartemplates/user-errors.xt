@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xar:template xmlns:xar="http://xaraya.com/2004/blocklayout">
+    <!-- License: GPL http://www.gnu.org/copyleft/gpl.html -->
+    <div class="xar-mod-head">
+        <span class="xar-mod-title">Upload Error</span>
+    </div>
+    <div class="xar-mod-body">
+        <fieldset>
+            <legend>Problem Uploading</legend>
+            <xar:var name="label">System Message</xar:var>
+            <xar:img scope="theme" file="user-error.png" alt="$label" width="96" height="96" class="xar-module-icon"/>
+            <xar:if condition="!isset($layout)">
+                <div style="margin-top: 20px">No error message is available. 
+                <br />Please contact the system administrator.</div>
+            <xar:elseif condition="$layout eq 'dir_not_set'"/>
+                <div style="margin-top: 20px">
+                    The directory is not set.
+                </div>
+            <xar:elseif condition="$layout eq 'dir_not_found'"/>
+                <div style="margin-top: 20px">
+                    The location [#$location#] either does not exist or is not a valid directory.
+                </div>
+            <xar:elseif condition="$layout eq 'dir_not_writable'"/>
+                <div style="margin-top: 20px">
+                    The location [#$location#] cannot be written to - please check permissions and try again
+                </div>
+            <xar:elseif condition="$layout eq 'maxfilesize'"/>
+                <div style="margin-top: 20px; margin-left: 20px">
+                   File size exceeds the maximum allowable based on the server's settings.
+                   <br/> Maximun allowed file size: #$maxallowed#
+                </div>
+            <xar:elseif condition="$layout eq 'not_accessible'"/>
+                <div style="margin-top: 20px">
+                    The file you requested is not available.
+                </div>
+            <xar:elseif condition="$layout eq 'no_permission'"/>
+                <div style="margin-top: 20px">
+                    You are not allowed to access this file.
+                </div>
+            <xar:else />
+                <div style="margin-top: 20px">No error message is available. 
+                <br />Please contact the system administrator.</div>
+            </xar:if>
+        </fieldset>
+    </div>
+</xar:template>

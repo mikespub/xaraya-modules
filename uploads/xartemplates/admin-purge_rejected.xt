@@ -1,0 +1,53 @@
+<xar:template xmlns:xar="http://xaraya.com/2004/blocklayout">
+    <xar:template file="admin-mod-head"/>
+    <div class="xar-mod-body">
+        <h2>Purge Rejected Files</h2>
+                <xar:if condition="!count($fileList)">
+                    <p class="xar-norm xar-align-left">&#160;
+                        
+                            There are no files marked as rejected.
+                        
+                    </p>
+                <xar:else />
+                    <form action="#xarModUrl('uploads','admin','purge_rejected')#" method="post">
+                        <fieldset>
+                            <legend>
+                                Delete confirmation
+                            </legend>
+                            <div class="xar-form-input-wrapper">
+                                <label for="confirmdelete" class="xar-form-label" title="#xarML('Confirm deletion of this rejected file')#">
+                                    
+                                        Are you sure you want to delete the following files?
+                                    &#160;
+                                </label>
+
+                                <xar:var name="label">Delete</xar:var>
+                                <xar:button type="submit" name="submit" label="$label"/>
+                            </div>
+                            <div class="xar-form-input-wrapper-before">
+                                <ul>
+                                <xar:loop name="$fileList">
+                                    <!-- TODO: reformulate this -->
+                               <li style="list-type-style:none;">
+                                <a onclick="MyWindow=window.open('#xarModURL('uploads','user','file_properties')#&amp;fileId=#$loop:item['fileId']#',
+                                                                '#$loop:item['fileName']#',
+                                                                'toolbar=no,location=no,directories=no,status=no,menubar=no,scrollbars=yes,resizable=no,width=500,height=375,left=20,top=20');
+                                                                return false;">
+                                    #$loop:item['fileName']#
+                                </a>
+                               </li>
+                                </xar:loop>
+                                </ul>
+                            </div>
+                            </fieldset>
+                            <div class="xar-form-input-wrapper">
+                                <input type="hidden" name="authid" value="#$authid#"/>
+                                <input type="hidden" name="confirmation" value="1"/>
+
+                                <xar:var name="label">Cancel</xar:var>
+                                <xar:button type="cancel" label="$label"/>
+                            </div>
+                            </form>
+                </xar:if>
+    </div>
+</xar:template>

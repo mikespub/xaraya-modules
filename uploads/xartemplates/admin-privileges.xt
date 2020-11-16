@@ -1,0 +1,185 @@
+<xar:template xmlns:xar="http://xaraya.com/2004/blocklayout">
+    <xar:template file="admin-mod-head"/>
+    <div class="xar-mod-body">
+        <h2>
+            <xar:ml>
+                <xar:mlstring>                
+                    Select Access Modes for Privilege '#(1)'
+                </xar:mlstring>
+                <xar:mlvar>
+                    #$extname#
+                </xar:mlvar>
+            </xar:ml>
+        </h2>
+
+
+        <form method="post" action="#xarModURL('uploads', 'admin', 'privileges')#">
+            <input type="hidden" name="extpid" id="extpid" value="#$extpid#"/>
+            <input type="hidden" name="extname" id="extname" value="#$extname#"/>
+            <input type="hidden" name="extrealm" id="extrealm" value="#$extrealm#"/>
+            <input type="hidden" name="extmodule" id="extmodule" value="#$extmodule#"/>
+            <input type="hidden" name="extcomponent" id="extcomponent" value="#$extcomponent#"/>
+
+            <table border="1" cellpadding="8" cellspacing="0">
+                <tr>
+                    <th>
+                        
+                            MIME Type
+                        
+                    </th>
+                    <td>
+                        <select name="mimetype" id="mimetype" onchange="this.form.submit();">
+                            <xar:foreach in="$mimetypeList" key="$key" value="$type">
+                                <xar:if condition="isset($type['selected'])">
+                                    <option value="#$type['typeId']#" selected="selected">
+                                        #$type['typeName']#
+                                    </option>
+                                <xar:else />
+                                    <option value="#$type['typeId']#">
+                                        #$type['typeName']#
+                                    </option>
+                                </xar:if>
+                            </xar:foreach>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <th>
+                        
+                            MIME SubType
+                        
+                    </th>
+                    <td>
+                        <select name="subtype" id="subtypeList" onchange="this.form.submit();">
+                            <xar:foreach in="$subtypeList" key="$key" value="$subtype">
+                                <xar:if condition="isset($subtype['selected'])">
+                                    <option value="#$subtype['subtypeId']#" selected="selected">
+                                        #$subtype['subtypeName']#
+                                    </option>
+                                <xar:else />
+                                    <option value="#$subtype['subtypeId']#">
+                                        #$subtype['subtypeName']#
+                                    </option>
+                                </xar:if>
+                            </xar:foreach>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <th>
+                        
+                            User
+                        
+                    </th>
+                    <td>
+                        <select name="userId" id="userNameList" onchange="this.form.submit();">
+                            <xar:foreach in="$userNameList" key="$userId" value="$user">
+                                <xar:if condition="isset($user['selected'])">
+                                    <option value="#$userId#" selected="selected">
+                                        #$user['userName']#
+                                    </option>
+                                <xar:else />
+                                    <option value="#$userId#">
+                                        #$user['userName']#
+                                    </option>
+                                </xar:if>
+                            </xar:foreach>
+                        </select>
+                        <input type="text" name="userName" id="userName" value="#$userName#" size="15" onchange="submit()"/>
+                    </td>
+                </tr>
+                <tr>
+                    <th>
+                        
+                            File
+                        
+                    </th>
+                    <td>
+                        <select name="fileId" id="fileList" onchange="this.form.submit();">
+                            <xar:foreach in="$fileList" key="$fileId" value="$file">
+                                <xar:if condition="isset($file['selected'])">
+                                    <option value="#$fileId#" selected="selected">
+                                        #$file['fileName']#
+                                    </option>
+                                <xar:else />
+                                    <option value="#$fileId#">
+                                        #$file['fileName']#
+                                    </option>
+                                </xar:if>
+                            </xar:foreach>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <th valign="top" align="right">
+                        Access Level
+                    </th>
+                    <td>
+                        <select name="extlevel" id="extlevel">
+                            <xar:if condition="$extlevel eq 0">
+                                <option value="0" selected="selected">No Access</option>
+                            <xar:else />
+                                <option value="0">No Access</option>
+                            </xar:if>
+                            <xar:if condition="$extlevel eq 100">
+                                <option value="100" selected="selected">Overview</option>
+                            <xar:else />
+                                <option value="100">Overview</option>
+                            </xar:if>
+                            <xar:if condition="$extlevel eq 200">
+                                <option value="200" selected="selected">Read</option>
+                            <xar:else />
+                                <option value="200">Read</option>
+                            </xar:if>
+                            <xar:if condition="$extlevel eq 300">
+                                <option value="300" selected="selected">Submit (Comment)</option>
+                            <xar:else />
+                                <option value="300">Submit (Comment)</option>
+                            </xar:if>
+                            <xar:if condition="$extlevel eq 500">
+                                <option value="500" selected="selected">Edit / Approve</option>
+                            <xar:else />
+                                <option value="500">Edit / Approve</option>
+                            </xar:if>
+                            <xar:if condition="$extlevel eq 700">
+                                <option value="700" selected="selected">Delete</option>
+                            <xar:else />
+                                <option value="700">Delete</option>
+                            </xar:if>
+                            <xar:if condition="$extlevel eq 800">
+                                <option value="800" selected="selected">Admin</option>
+                            <xar:else />
+                                <option value="800">Admin</option>
+                            </xar:if>
+                        </select>
+                    </td>
+                </tr>
+
+                    <tr>
+                        <td colspan="2" align="center">
+                            <xar:var name="label">Refresh</xar:var>
+                            <xar:button type="submit" label="$label"/>
+                        </td>
+                    </tr>
+            </table>
+
+            <br />
+            <xar:ml>
+                <xar:mlstring>
+                    There are #(1) items matching these selection criteria at the moment
+                </xar:mlstring>
+                <xar:mlvar>
+                    #$numitems#
+                </xar:mlvar>
+            </xar:ml>
+            <br />
+            <hr />
+            <p>
+            (Instance Definition #$extinstance#)
+            </p>
+            <xar:var name="label">Finish and apply to privilege</xar:var>
+            <xar:button type="submit" label="$label"/>
+        </form>
+
+    </div>
+</xar:template>

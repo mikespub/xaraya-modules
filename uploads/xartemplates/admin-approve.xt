@@ -1,0 +1,28 @@
+<xar:template xmlns:xar="http://xaraya.com/2004/blocklayout">
+    <xar:template file="admin-mod-head"/>
+    <div class="xar-mod-body">
+        <h2>Uploads Module Overview</h2>
+
+            <form action="#xarModURL('uploads','admin','approvefinal')#" method="post">
+            <fieldset>
+                <legend>
+                    Approval
+                </legend>
+                    <div class="xar-form-input-wrapper">
+                        <label for="approval" class="xar-form-label">
+                            Are you sure?
+                        </label>
+                    </div>
+            </fieldset>
+
+            <div class="xar-form-input-wrapper">
+                <input type="hidden" name="authid" value="#$authid#"/>
+                <input type="hidden" name="ulid" value="#$ulid#"/>
+                <input type="hidden" name="ulhash" value="#$ulhash#"/>
+
+                <xar:var name="label">Approve</xar:var>
+                <xar:button type="submit" label="$label"/>
+            </div>
+            </form>
+    </div>
+</xar:template >

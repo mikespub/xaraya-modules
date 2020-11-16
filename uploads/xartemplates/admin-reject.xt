@@ -1,0 +1,35 @@
+<xar:template xmlns:xar="http://xaraya.com/2004/blocklayout">
+    <xar:template file="admin-mod-head"/>
+    <div class="xar-mod-body">
+        <h2>Confirm Delete</h2><br />
+        <div style="margin: auto;">
+
+            <table summary="Uploads" width="100%" border="0" cellpadding="2" cellspacing="1" class="xar-accent">
+                <tr>
+                    <th>Source Module</th>
+                    <th>Upload Code</th>
+                    <th>Mod Item ID</th>
+                    <th>Uploaded by</th>
+                    <th>User Given File Name</th>
+                    <th>Current File Name</th>
+                    <th>Actions</th>
+                </tr>
+                <xar:loop name="$items">
+                    <tr>
+                        <td class="xar-norm">#$loop:item['ulmod']#</td>
+                        <td class="xar-norm">#ulid:#$loop:item['ulid']##</td>
+                        <td class="xar-norm">#$loop:item['ulmodid']#</td>
+                        <td class="xar-norm">#$loop:item['uluid']#</td>
+                        <td class="xar-norm">#$loop:item['ulfile']#</td>
+                        <td class="xar-norm">#$loop:item['ulhash']#</td>
+                        <td class="xar-norm">
+                            <a href="#xarModURL('uploads', 'admin', 'confirmdelete', array('ulid'=>$loop:item['ulid'], 'authid' => $authid))#">
+                                Confirm Delete\
+                            </a>
+                        </td>
+                    </tr>
+                </xar:loop>
+            </table>
+        </div>
+    </div>
+</xar:template>

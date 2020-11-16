@@ -1,0 +1,263 @@
+<xar:template xmlns:xar="http://xaraya.com/2004/blocklayout">
+    <xar:template file="admin-mod-head"/>
+    <div class="xar-mod-body">
+        <h2>View File Associations</h2>
+
+        <xar:if condition="!empty($fileId)">
+            <xar:javascript filename="openDialog.js"/>
+            <h3>
+                <xar:if condition="!empty($fileinfo[$fileId])">
+                    <xar:set name="fileName">$fileinfo[$fileId]['fileName']</xar:set>
+                <xar:else/>
+                    <xar:set name="fileName">''</xar:set>
+                </xar:if>
+                <xar:set name="fileLink">'PropertiesDialog(\&#39;' . xarModURL('uploads','user','file_properties', array('fileId' => $fileId)) . '\&#39;); return false;'</xar:set>
+                For File <a style="cursor:pointer;" onclick="#$fileLink#">[#$fileId#] #$fileName#</a>
+            </h3>
+        </xar:if>
+
+        <xar:if condition="empty($missing)">
+            <p><a href="#xarModURL('uploads','admin','assoc',array('action' => 'missing'))#">Check Missing Files</a></p>
+        <xar:else/>
+            <p><strong>Missing Files in Associations</strong></p>
+            <ul>
+            <xar:foreach in="$missing" key="$id" value="$num">
+                <li>
+                    <a href="#xarModURL('uploads','admin','assoc',array('fileId' => $id))#">
+                        <xar:ml>
+                            <xar:mlstring>File #(1) - #(2) association(s)</xar:mlstring>
+                            <xar:mlvar>#$id#</xar:mlvar>
+                            <xar:mlvar>#$num#</xar:mlvar>
+                        </xar:ml>
+                    </a>
+                </li>
+            </xar:foreach>
+            </ul>
+        </xar:if>
+
+        <div style="margin: auto;">
+        <xar:if condition="empty($modid)">
+            <table border="0" cellpadding="2" cellspacing="1" class="xar-accent xar-accent-outline">
+                <tr>
+                    <th valign="center" width="30%">
+                        <strong>Module Name</strong>
+                    </th>
+                    <th align="center" valign="center" width="15%">
+                        <strong>Module<br />Items</strong>
+                    </th>
+                    <th align="center" valign="center" width="15%">
+                        <strong>Distinct<br />Files</strong>
+                    </th>
+                    <th align="center" valign="center" width="15%">
+                        <strong>Total<br />Associations</strong>
+                    </th>
+                    <th align="center" valign="center" width="25%">
+                        <strong>Action</strong>
+                    </th>
+                </tr>
+
+
+                <xar:if condition="empty($moditems) or count($moditems) eq '0'">
+                    <tr>
+                        <td colspan="5" align="center">
+                            <p>                            
+                                There are currently no file associations in the database...                            
+                            </p>
+
+                        </td>
+                    </tr>
+                <xar:else />
+                    <tr>
+                        <td colspan="5">
+                            <div class="xar-norm-outline" style="margin-left: 1em; margin-right: 1em; width: auto;border-style: dotted none none none;"></div>
+                        </td>
+                    </tr>
+                    <xar:foreach in="$moditems" value="$moditem">
+                        <tr>
+                            <td valign="center" width="30%">
+                                <a href="#$moditem['link']#">#$moditem['name']#</a>
+                            </td>
+                            <td align="center" valign="center" width="15%">
+                                #$moditem['numitems']#
+                            </td>
+                            <td align="center" valign="center" width="15%">
+                                #$moditem['numfiles']#
+                            </td>
+                            <td align="center" valign="center" width="15%">
+                                #$moditem['numlinks']#
+                            </td>
+                            <td align="center" valign="center" width="25%">
+                                <p><a href="#$moditem['rescan']#"><strong>Rescan</strong></a>
+                                |
+                                <a href="#$moditem['delete']#"><strong>Delete</strong></a>
+                                </p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="5">
+                                <div class="xar-norm-outline" style=" margin-left: 1em; margin-right: 1em; width: auto;border-style: dotted none none none;"></div>
+                            </td>
+                        </tr>
+                    </xar:foreach>
+                </xar:if>
+                <tr>
+                    <td valign="center" width="30%">
+                        <strong>Grand Total</strong>
+                    </td>
+                    <td align="center" valign="center" width="15%">
+                        <strong>#$numitems#</strong>
+                    </td>
+                    <td align="center" valign="center" width="15%">
+                        <strong>-</strong>
+                    </td>
+                    <td align="center" valign="center" width="15%">
+                        <strong>#$numlinks#</strong>
+                    </td>
+                    <td align="center" valign="center" width="25%">
+                        <a href="#$rescan#">Rescan All</a>
+                        <xar:comment>
+                        |
+                        <a href="#$delete#">Delete All</a>
+                        </xar:comment>
+                    </td>
+                </tr>
+            </table>
+            <p>
+                
+                By clicking on <strong>Delete</strong> you can delete all file associations with a particular
+                module. Clicking on a module will take you to that module's statistics page containing
+                the figures for each of that module's items that have files associated with them.
+                From there you can delete all file associations with a particular item.
+                
+            </p>
+        <xar:else/>
+            <h3>
+                <xar:ml>
+                    <xar:mlstring>In Module #(1)</xar:mlstring>
+                    <xar:mlvar>#$modname#</xar:mlvar>
+                </xar:ml>
+            </h3>
+
+            <xar:if condition="!empty($action) and $action eq 'delete'">
+                <form method="post" action="&xar-modurl-uploads-admin-assoc;">
+                    <p><strong>Are you sure you want to remove the file associations in these module items ?</strong></p>
+                    <input type="hidden" name="modid" value="#$modid#"/>
+                    <input type="hidden" name="itemtype" value="#$itemtype#"/>
+                    <input type="hidden" name="itemid" value="#$itemid#"/>
+                    <input type="hidden" name="fileId" value="#$fileId#"/>
+                    <input type="hidden" name="action" value="delete"/>
+                    <input type="hidden" name="authid" value="#$authid#"/>
+                    <xar:var name="label">Confirm</xar:var>
+                    <xar:button type="submit" name="confirm" label="$label"/>
+                    <xar:var name="label">Cancel</xar:var>
+                    <xar:button type="cancel" label="$label"/>
+                </form>
+            </xar:if>
+
+            <table border="0" width="100%" cellpadding="0" cellspacing="0">
+                <tr>
+                    <th valign="center" width="50%">
+                        <xar:if condition="empty($sortlink['itemid'])">
+                            <strong>Item Id</strong>
+                        <xar:else/>
+                            <a href="#$sortlink['itemid']#"><strong>Item Id</strong></a>
+                        </xar:if>
+                    </th>
+                    <th align="center" valign="center" width="25%">
+                        <strong>File<br />Associations</strong>
+                    </th>
+                    <th align="center" valign="center" width="25%">
+                        <strong>Action</strong>
+                    </th>
+                </tr>
+
+                <tr>
+                    <td colspan="3">
+                        &#160;
+                    </td>
+                </tr>
+
+                <xar:if condition="empty($moditems) or count($moditems) eq '0'">
+                    <tr>
+                        <td colspan="3" align="center">
+                            <br />
+                            
+                                There are currently no file associations to this module...
+                            
+                            <br />
+                            <br />
+                        </td>
+                    </tr>
+                <xar:else />
+                    <tr>
+                        <td colspan="3">
+                            <div class="xar-norm-outline" style="margin-left: 1em; margin-right: 1em; width: auto;border-style: dotted none none none;"></div>
+                        </td>
+                    </tr>
+                    <xar:foreach in="$moditems" key="$itemid" value="$moditem">
+                        <tr>
+                            <xar:if condition="!empty($moditem['title']) AND !empty($moditem['link'])">
+                                <td valign="center" width="50%">
+                                    #$itemid#&#160;<a href="#$moditem['link']#">#$moditem['title']# </a>
+                                </td>
+                            <xar:else/>
+                                <td align="center" valign="center" width="50%">
+                                    #$itemid#
+                                </td>
+                            </xar:if>
+                            <td align="center" valign="center" width="25%">
+                            <xar:foreach in="$moditem['filelist']" value="$fileId">
+                              <a href="#xarModURL('uploads','admin','assoc', array('fileId' => $fileId))#">
+                              <xar:if condition="!empty($fileinfo[$fileId])">
+                                  #$fileinfo[$fileId]['fileName']#
+                              <xar:else/>
+                                #$fileId#
+                              </xar:if>
+                              </a><br/>
+                            </xar:foreach>
+                            </td>
+                            <td align="center" valign="center" width="25%">
+                                <a href="#$moditem['rescan']#"><strong>Rescan</strong></a>
+                                |
+                                <a href="#$moditem['delete']#"><strong>Delete</strong></a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="3">
+                            <div class="xar-norm-outline" style="margin-left: 1em; margin-right: 1em; width: auto;border-style: dotted none none none;"></div>
+                            </td>
+                        </tr>
+                    </xar:foreach>
+                    <xar:if condition="!empty($pager)">
+                    <tr>
+                        <td colspan="3" align="center">
+                            #$pager#
+                        </td>
+                    </tr>
+                    </xar:if>
+                </xar:if>
+                <tr>
+                    <td valign="center" width="50%">
+                        <strong>Grand Total</strong>:
+                    </td>
+                    <td align="center" valign="center" width="25%">
+                        <strong>#$numlinks#</strong>
+                    </td>
+                    <td align="center" valign="center" width="25%">
+                        <a href="#$rescan#">Rescan All</a>
+                        |
+                        <a href="#$delete#">Delete All</a>
+                    </td>
+                </tr>
+
+            </table>
+            <p>
+                
+                    By clicking on <strong>Delete</strong> you can delete all file associations with a particular
+                    module's item.
+                
+            </p>
+        </xar:if>
+        </div>
+    </div>
+</xar:template >
