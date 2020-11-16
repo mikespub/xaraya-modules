@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xar:template xmlns:xar="http://xaraya.com/2004/blocklayout">
+    <xar:template file="user-mod-head"/>
+    
+    <div class="xar-mod-body">
+        <!--Psspl:Check the condition for paypal gateway.-->
+        <xar:if condition="$gateway.id eq 6 or $gateway.id eq 2 or $gateway.id eq 9">
+            <xar:if condition="$gateway.id eq 6">
+                <xar:var name="page_title">PayPal Standard</xar:var>
+                
+            </xar:if>    
+            <xar:if condition="$gateway.id eq 2">
+                <xar:var name="page_title">Saferpay Transaction Details</xar:var>
+                
+            </xar:if>
+            <xar:if condition="$gateway.id eq 9">
+                <xar:var name="page_title">GestPay Transaction Details</xar:var>
+                
+            </xar:if>    
+        <xar:else/>
+            <xar:var name="page_title">Payment by&#160;#$paymentmethod['name']#&#160;<img src="#xarTplGetImage($paymentmethod['icon'])#" alt="#$paymentmethod['name']#"/></xar:var>
+        </xar:if>    
+        <xar:template file="xar-mod-user-page-head" type="module"/>
+       
+        <form method="post" action="#xarModURL('payments','user','phase3')#">
+            <div style="margin-top: 10px">
+                <!--Psspl: Display the response of payment transaction -->
+                <xar:if condition="xarModVars::get('payments','runpayments')">
+                    #$status#
+                <xar:elseif condition="xarModVars::get('payments','savetodb')"/>
+                    Thank you! Your payment will be processed shortly.
+                </xar:if>
+            </div>
+            <div style="clear:both">&#160;</div>
+        </form>
+    </div>
+</xar:template>

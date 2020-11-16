@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xar:template xmlns:xar="http://xaraya.com/2004/blocklayout">
+    <xar:template file="user-mod-head"/>
+
+    <div class="xar-mod-body">
+        <xar:var name="page_title">View ISO2002 Payments</xar:var>
+        <xar:template file="xar-mod-user-page-head" type="module"/>
+        
+        <form method="post" action="#xarServer::getCurrentURL()#" class="form-inline" >
+            <xar:data-input type="timeframe" name="period" value="$period" frames="past" show="dropdown,calendar"/>
+            <input type="hidden" name="refresh" value="1"/>
+            <xar:var name="label">Refresh</xar:var>
+            <xar:button label="$label" />
+        </form>
+
+        <fieldset>
+            <xar:data-input type="listing" 
+                            object="$object" 
+                            fieldlist="transaction_date,payment_type,address_1:Address,currency,amount,processed"
+                            tplmodule="payments"
+                            show_bulk="true"
+                            />
+        </fieldset>
+    </div>
+</xar:template>

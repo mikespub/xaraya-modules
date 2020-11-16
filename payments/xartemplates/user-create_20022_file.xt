@@ -1,0 +1,271 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xar:template xmlns:xar="http://xaraya.com/2004/blocklayout">
+
+<!-- Begin document tag -->
+  <xar:ISO20022Document>
+  
+<!-- Begin transaction tag -->
+    <xar:isoelement name="CstmrCdtTrfInitn">
+    
+<!-- Begin group header -->
+      <xar:isoelement name="GrpHdr">
+        <xar:isoelement name="MsgId">#$message_identifier#</xar:isoelement>
+        <xar:isoelement name="CreDtTm">#date('Y-m-d\TH:i:sP')#</xar:isoelement>
+        <xar:isoelement name="NbOfTxs">#$number_of_transactions#</xar:isoelement>
+        <xar:isoelement name="CtrlSum">#$control_sum#</xar:isoelement>
+        <xar:isoelement name="InitgPty">
+            <xar:isoelement name="Nm">#$debit_account->properties['account_holder']->value#</xar:isoelement>
+            <xar:isoelement name="CtctDtls">
+                <xar:isoelement name="Nm">LedgerPayments</xar:isoelement>
+                <xar:isoelement name="Othr">1.0.0</xar:isoelement>
+            </xar:isoelement>
+        </xar:isoelement>
+      </xar:isoelement>
+<!-- End group header -->
+
+<!-- Main loop for each payment -->
+      <xar:set name="index">0</xar:set>
+      <xar:foreach in="$items" value="$item">
+
+<!-- Begin payment info -->
+      <xar:isoelement name="PmtInf">
+  
+        <!-- General -->
+        <!-- Payment ID -->
+        <!-- This has the form time() + userID + index -->
+        <xar:set name="index">$index + 1</xar:set>
+        <xar:set name="payment_id">$group_reference . "-" . $index</xar:set>
+        <xar:isoelement name="PmtInfId">#$payment_id#</xar:isoelement>
+        
+        <xar:isoelement name="PmtMtd">#$payment_method#</xar:isoelement>
+        <xar:isoelement name="BtchBookg">#$batch_booking#</xar:isoelement>
+
+          <!-- Category purpose -->
+          <xar:if condition="$item['payment_type'] eq 6">
+            <xar:isoelement name="PmtTpInf">
+              <xar:isoelement name="CtgyPurp">
+                <xar:isoelement name="Cd">SALA</xar:isoelement>
+              </xar:isoelement>
+            </xar:isoelement>
+          </xar:if>
+
+          <!-- Requested execution date, the same for all payments -->
+          <xar:isoelement name="ReqdExctnDt">#date('Y-m-d', $item['transaction_date'])#</xar:isoelement>
+          
+          <!-- Debtor -->
+          <xar:isoelement name="Dbtr">
+            <xar:isoelement name="Nm">#$item['sender_account']#</xar:isoelement>
+          </xar:isoelement>
+
+          <!-- Debtor account -->
+          <xar:isoelement name="DbtrAcct">
+            <xar:isoelement name="Id">
+              <xar:set name="debit_iban">str_replace(' ','',$item['sender_iban'])</xar:set>
+              <xar:isoelement name="IBAN">#$debit_iban#</xar:isoelement>
+            </xar:isoelement>
+            <xar:if condition="$item['payment_type'] eq 6">
+              <xar:isoelement name="Tp">
+                <xar:isoelement name="Prtry">CND</xar:isoelement>
+              </xar:isoelement>
+            </xar:if>
+          </xar:isoelement>
+          
+          <!-- Debtor Agent -->
+          <xar:isoelement name="DbtrAgt">
+            <xar:isoelement name="FinInstnId">
+              <xar:if condition="$item['payment_type'] eq 1">
+                <!-- orange payment slip -->
+                <xar:isoelement name="BIC">#$item['sender_bic']#</xar:isoelement>
+              <xar:elseif condition="$item['payment_type'] eq 2.2"/>
+                <xar:isoelement name="ClrSysMmbId">
+                    <xar:isoelement name="ClrSysId">
+                      <xar:isoelement name="Cd">CHBCC</xar:isoelement>
+                    </xar:isoelement>
+                    <xar:isoelement name="MmbId">#$item['sender_clearing']#</xar:isoelement>
+                </xar:isoelement>
+              <xar:elseif condition="$item['payment_type'] eq 3"/>
+                <xar:isoelement name="ClrSysMmbId">
+                    <xar:isoelement name="ClrSysId">
+                      <xar:isoelement name="Cd">CHBCC</xar:isoelement>
+                    </xar:isoelement>
+                    <xar:isoelement name="MmbId">#$item['sender_clearing']#</xar:isoelement>
+                </xar:isoelement>
+              <xar:elseif condition="$item['payment_type'] eq 6"/>
+                <xar:isoelement name="BIC">#$item['sender_bic']#</xar:isoelement>
+              </xar:if>
+            </xar:isoelement>
+          </xar:isoelement>
+    
+          <!-- Ultimate Debtor -->
+          <xar:if condition="$item['payment_type'] eq 3">
+            <xar:isoelement name="UltmtDbtr">
+              <xar:isoelement name="Nm">#$item['sender_account']#</xar:isoelement>
+              <xar:isoelement name="PstlAdr">
+                <xar:isoelement name="StrtNm">#$debit_address[1]#</xar:isoelement>
+                <!-- Unused for now
+                <xar:isoelement name="BldgNb"></xar:isoelement>
+                -->
+                <xar:isoelement name="PstCd">#$debit_address[3]#</xar:isoelement>
+                <xar:isoelement name="TwnNm">#$debit_address[2]#</xar:isoelement>
+                <xar:isoelement name="Ctry">#$debit_address[5]#</xar:isoelement>
+              </xar:isoelement>
+            </xar:isoelement>
+          </xar:if>
+        
+          <!-- Set some vars -->
+          <xar:if condition="$item['payment_type'] eq '1'">
+            <xar:set name="payment_type">'CH01'</xar:set>
+          <xar:elseif condition="$item['payment_type'] eq '2.1'"/>
+            <xar:set name="payment_type">'CH02'</xar:set>
+          <xar:elseif condition="$item['payment_type'] eq '2.2'"/>
+            <xar:set name="payment_type">'CH03'</xar:set>
+          <xar:elseif condition="$item['payment_type'] eq '6'"/>
+            <!-- Salary payments are a variation of type 3 -->
+            <xar:set name="payment_type">'3'</xar:set>
+          <xar:else/>
+            <xar:set name="payment_type">$item['payment_type']</xar:set>
+          </xar:if>
+
+<!-- Begin transaction info -->
+            <xar:isoelement name="CdtTrfTxInf">
+
+              <!-- Payment ID information -->
+              <xar:isoelement name="PmtId">
+                <xar:isoelement name="InstrId">#$item['id']#</xar:isoelement>
+                <xar:isoelement name="EndToEndId">#$item['sender_reference']#</xar:isoelement>
+              </xar:isoelement>
+              
+              <!-- Payment type information -->
+              <xar:if condition="($item['payment_type'] eq 1) OR ($item['payment_type'] eq 2.2)">
+                <xar:isoelement name="PmtTpInf">
+                  <xar:isoelement name="LclInstrm">
+                    <xar:isoelement name="Prtry">#$payment_type#</xar:isoelement>
+                  </xar:isoelement>
+                </xar:isoelement>
+              </xar:if>
+              
+              <!-- Amount -->
+              <xar:isoelement name="Amt">
+                <xar:isoelement name="InstdAmt"><xar:attribute name="Ccy">$item['currency']</xar:attribute>#$item['amount']#</xar:isoelement>
+              </xar:isoelement>
+
+              <!-- Creditor agent -->
+              <xar:if condition="$item['payment_type'] eq 2.2">
+                <xar:isoelement name="CdtrAgt">
+                  <xar:isoelement name="FinInstnId">
+                    <xar:set name="inst_address">explode(PHP_EOL, $item['financial_institution'])</xar:set>
+                    <xar:set name="inst_name">xarVarPrepForDisplay(trim($inst_address[0]))</xar:set>
+                    <xar:isoelement name="Nm">#$inst_name#</xar:isoelement>
+                    <xar:isoelement name="Othr">
+                        <xar:isoelement name="Id">#$item['post_account']#</xar:isoelement>
+                    </xar:isoelement>
+                  </xar:isoelement>
+                </xar:isoelement>
+              <xar:elseif condition="$item['payment_type'] eq 3"/>
+                <xar:isoelement name="CdtrAgt">
+                  <xar:isoelement name="FinInstnId">
+                    <xar:isoelement name="BIC">#$item['bic']#</xar:isoelement>
+                  </xar:isoelement>
+                </xar:isoelement>
+              <xar:elseif condition="$item['payment_type'] eq 6"/>
+                <xar:isoelement name="CdtrAgt">
+                  <xar:isoelement name="FinInstnId">
+                    <xar:isoelement name="ClrSysMmbId">
+                      <xar:isoelement name="ClrSysId">
+                        <xar:isoelement name="Cd">CHBCC</xar:isoelement>
+                      </xar:isoelement>
+                      <xar:isoelement name="MmbId">700</xar:isoelement>
+                    </xar:isoelement>
+                  </xar:isoelement>
+                </xar:isoelement>
+              </xar:if>
+
+              <!-- Creditor -->
+              <xar:if condition="($item['payment_type'] eq 2.2) OR ($item['payment_type'] eq 3)">
+                <xar:isoelement name="Cdtr">
+                  <xar:isoelement name="Nm">#xarVarPrepForDisplay($item['address_1'])#</xar:isoelement>
+                  <xar:isoelement name="PstlAdr">
+                    <xar:isoelement name="StrtNm">#xarVarPrepForDisplay($item['address_2'])#</xar:isoelement>
+                    <!-- unused for now
+                    <xar:isoelement name="BldgNb"></xar:isoelement>
+                    <xar:isoelement name="PstCd"></xar:isoelement>
+                     -->
+                    <xar:isoelement name="TwnNm">#xarVarPrepForDisplay($item['address_3'])#</xar:isoelement>
+                    <xar:isoelement name="Ctry">#xarVarPrepForDisplay($item['country_code'])#</xar:isoelement>
+                  </xar:isoelement>
+                </xar:isoelement>
+              <xar:elseif condition="$item['payment_type'] eq 6"/>
+                <xar:isoelement name="Cdtr">
+                  <xar:isoelement name="Nm">#xarVarPrepForDisplay($item['address_1'])#</xar:isoelement>
+                  <xar:isoelement name="PstlAdr">
+                    <xar:isoelement name="StrtNm">#xarVarPrepForDisplay($item['address_2'])#</xar:isoelement>
+                    <!--unused for now
+                    <xar:isoelement name="BldgNb"></xar:isoelement>
+                    <xar:isoelement name="PstCd"></xar:isoelement>
+                     -->
+                    <xar:isoelement name="TwnNm">#xarVarPrepForDisplay($item['address_3'])#</xar:isoelement>
+                    <xar:isoelement name="Ctry">#xarVarPrepForDisplay($item['country_code'])#</xar:isoelement>
+                  </xar:isoelement>
+                </xar:isoelement>
+              </xar:if>
+                            
+              <!-- Creditor account -->
+              <xar:isoelement name="CdtrAcct">
+                <xar:isoelement name="Id">
+                  <xar:if condition="$item['payment_type'] eq 1">
+                    <xar:isoelement name="Othr">
+                      <xar:set name="account">$transaction->properties['reference_number']->transformAccount($item['post_account'])</xar:set>
+                      <xar:isoelement name="Id">#$account#</xar:isoelement>
+                    </xar:isoelement>
+                  <xar:elseif condition="($item['payment_type'] eq 2.2) OR ($item['payment_type'] eq 3)"/>
+                    <xar:set name="credit_iban">str_replace(' ','',$item['iban'])</xar:set>
+                    <xar:isoelement name="IBAN">#$credit_iban#</xar:isoelement>
+                  <xar:elseif condition="$item['payment_type'] eq 6"/>
+                    <xar:set name="credit_iban">str_replace(' ','',$item['iban'])</xar:set>
+                    <xar:isoelement name="IBAN">#$credit_iban#</xar:isoelement>
+                  </xar:if>
+                </xar:isoelement>
+              </xar:isoelement>
+              
+              <!-- Ultimate creditor -->
+              <xar:if condition="$item['payment_type'] eq 3">
+                <xar:isoelement name="UltmtCdtr">
+                  <xar:isoelement name="Nm">#xarVarPrepForDisplay($item['address_1'])#</xar:isoelement>
+                </xar:isoelement>
+              </xar:if>
+              
+              <!-- Purpose -->
+              <xar:if condition="$item['payment_type'] eq 6">
+                <xar:isoelement name="Purp">
+                  <xar:isoelement name="Cd">SALA</xar:isoelement>
+                </xar:isoelement>
+              </xar:if>
+
+              <!-- Remittance information -->
+              <xar:isoelement name="RmtInf">
+                <xar:if condition="$item['payment_type'] eq 1">
+                  <!-- Structured -->
+                  <xar:isoelement name="Strd">
+                    <xar:isoelement name="CdtrRefInf">
+                      <xar:set name="reference">str_replace(' ','',$item['reference_number'])</xar:set>
+                      <xar:isoelement name="Ref">#$reference#</xar:isoelement>
+                    </xar:isoelement>
+                  </xar:isoelement>
+                <xar:elseif condition="($item['payment_type'] eq 2.2) OR ($item['payment_type'] eq 6)"/>
+                  <!-- Unstructured -->
+                  <xar:isoelement name="Ustrd">#$item['reason']#</xar:isoelement>
+                </xar:if>
+              </xar:isoelement>
+              
+<!-- End transaction info -->
+            </xar:isoelement>
+            
+<!-- End payment info -->
+        </xar:isoelement>
+<!-- End main loop -->
+      </xar:foreach>
+<!-- End transaction tag -->
+    </xar:isoelement>
+<!-- End document tag -->
+  </xar:ISO20022Document>
+</xar:template>
