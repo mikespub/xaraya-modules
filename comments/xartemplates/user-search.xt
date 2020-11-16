@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xar:template xmlns:xar="http://xaraya.com/2004/blocklayout">
+<!-- License: GPL http://www.gnu.org/copyleft/gpl.html -->
+    <h2>
+        Search in Comments
+    </h2>
+    <xar:if condition="!empty($package['comments'])">
+        <br />
+        <h3>
+            Comments Found
+            :
+        </h3>
+        <xar:template file="view-threaded" type="module"/>
+    </xar:if>
+    <xar:if condition="!empty($receipt['status'])">
+        <h3>
+            No comments found matching your criteria.
+        </h3>
+    </xar:if>
+    <br />
+    Search on
+    :
+    <br />
+    <xar:if condition="$header['title'] eq '1'">
+        <input type="checkbox" name="header[title]" value="1" checked="checked"/>
+        <xar:else />
+        <input type="checkbox" name="header[title]" value="1"/>
+    </xar:if>
+    <label for="header[title]">
+        Title
+    </label>
+    <br />
+    <xar:if condition="$header['text'] eq '1'">
+        <input type="checkbox" name="header[text]" value="1" checked="checked"/>
+        <xar:else />
+        <input type="checkbox" name="header[text]" value="1"/>
+    </xar:if>
+    <label for="header[text]">
+        Text
+    </label>
+    <br />
+    <xar:if condition="$header['author'] eq '1'">
+        <input type="checkbox" name="header[author]" value="1" checked="checked"/>
+        <xar:else />
+        <input type="checkbox" name="header[author]" value="1"/>
+    </xar:if>
+        Author
+    <br />
+    <br />
+</xar:template>

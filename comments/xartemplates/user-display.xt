@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xar:template xmlns:xar="http://xaraya.com/2004/blocklayout">
+    <!-- License: GPL http://www.gnu.org/copyleft/gpl.html -->
+    <xar:style scope="module" module="comments" file="comments"/>
+    <!--
+        [andyv] i see that we have at least 3 possible situations here,
+        so we should deal with them in a context-sensitive manner as follows:
+
+        1. no real comments posted
+            - display 'No Comments' note
+            - hide sorting options box
+            - display 'Post New Comment' box
+
+        2. at least 1 comment exists and needs to be displayed
+            - display sorting options box (for now.. perhaps needs be simpler for a single comment?)
+            - display 'Post New Comment' box
+
+        3. comments exist - user has selected 'No Comments' in 'Style' options
+            - display 'Comments Disabled' + count of total comments
+            - hide sorting options box
+            - hide 'Post New Comment' box
+            TODO: shouldn't this option be 'sticky' from user POV?
+            If yes, a user needs a way back to display comments again.
+
+    -->
+
+    <xar:sec mask="ReadComments" catch="false">
+        <xar:if condition="!isset($comments)">
+            <xar:set name="comments">array()</xar:set>
+        </xar:if>
+        <xar:set name="number_of_comments">count($comments)</xar:set>
+        <xar:if condition="$package['settings']['render'] ne 'nocomments'">
+            <!--
+                If pubsub is hooked to comments, allow subscribing here to be informed of new comments
+            -->
+            <!--
+                <xar:if condition="xarModIsAvailable('pubsub') and xarModIsHooked('pubsub','comments')">
+                    <xar:set name="extrainfo">array('module' => 'comments', 'id' => 0, 'extra' => $header['moduleid'].'-'.$header['itemtype'].'-'.$header['objectid'])</xar:set>
+                    <xar:module main="false" module="pubsub" func="displayicon" extrainfo="$extrainfo" layout="text"/>
+                </xar:if>
+            -->
+            <xar:if condition="$number_of_comments eq 0">
+                <p>
+                    There are no comments attached to this item yet.
+                </p>
+                <xar:if condition="!isset($header['selected_id'])">
+                    <xar:if condition="!$noposting">
+                        <h3>Post a comment</h3>
+                        <xar:template file="input-box" type="module"/>
+                    </xar:if>
+                <xar:elseif condition="!empty($header['objectlink']) and !empty($header['objecttitle'])"/>
+                    <p>
+                        Return to
+                        <a href="#$header['objectlink']#">#$header['objecttitle']#</a>
+                    </p>
+                </xar:if>
+            <xar:else/>
+                <!--<xar:if condition="!isset($header['selected_id'])">
+                    <xar:template file="option_bar" type="module"/>
+                </xar:if>-->
+                <xar:if condition="$package['settings']['render'] eq 'nested'">
+                    <xar:template file="view-nested" type="module"/>
+                <xar:elseif condition="$package['settings']['render'] eq 'threaded'"/>
+                    <xar:template file="view-threaded" type="module"/>
+                <xar:elseif condition="$package['settings']['render'] eq 'flat'"/>
+                    <xar:template file="view-flat" type="module"/>
+                </xar:if>
+                <xar:if condition="!isset($header['selected_id'])">
+                    <xar:if condition="!$noposting">
+                        <h3>Post a comment</h3>
+                        <xar:template file="input-box" type="module"/>
+                    </xar:if>
+                <xar:elseif condition="!empty($header['objectlink']) and !empty($header['objecttitle'])"/>
+                    <p>
+                        Return to
+                        <a href="#$header['objectlink']#">#$header['objecttitle']#</a>
+                    </p>
+                </xar:if>
+            </xar:if>
+        <xar:else />
+            <p>
+                Comments display and submission are currently disabled.
+                <xar:if condition="$number_of_comments ne 0">
+                    Total number of attached comments: #$number_of_comments#
+                <xar:else />
+                    There are no comments attached to this item.
+                </xar:if>
+            </p>
+        </xar:if>
+    </xar:sec>
+</xar:template>

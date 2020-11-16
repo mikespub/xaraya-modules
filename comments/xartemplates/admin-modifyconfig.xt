@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<xar:template xmlns:xar="http://xaraya.com/2004/blocklayout">
+    <!-- License: GPL http://www.gnu.org/copyleft/gpl.html -->
+    <!-- common admin menu for this module - remove link to the current function -->
+    <xar:style scope="module" module="comments" file="comments" />
+    <xar:template file="admin-mod-head"/>
+    <div class="xar-mod-body">
+        <h2>Modify Default Configuration</h2>
+
+        <form method="post" action="#xarServer::getCurrentURL()#">
+            <fieldset>
+                <legend>Modify content Configuration</legend>
+                <div id="mod_settings">
+                    <h4>General:</h4>
+                    <xar:data-form object="$module_settings" />
+                </div>
+                <xar:data-form object="$object" itemid="0" template="module_settings" />
+            </fieldset>
+
+            <input type="hidden" name="objectid" value="#$object->objectid#" />
+            <input type="hidden" name="itemid" value="0" />
+            <input type="hidden" name="return_url" value="#xarServer::getCurrentURL()#" />
+            <xar:template file="update-button" module="base" />
+        </form>
+    </div>
+</xar:template>

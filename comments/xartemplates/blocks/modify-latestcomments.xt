@@ -1,0 +1,285 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xar:template xmlns:xar="http://xaraya.com/2004/blocklayout">
+<div style="clear: both; padding-top: 10px;">
+  <span style="float: left; width: 100%; text-align: left;">
+    <b>
+      Special Options
+    </b>
+    <p> <xar:ml><xar:mlstring>(please see the <a href="#(1)#notes">notes</a> below)</xar:mlstring><xar:mlvar>#xarServer::getCurrentURL()#</xar:mlvar></xar:ml> </p>
+  </span>
+</div>
+
+<div style="clear: both; padding-top: 10px;">
+  <span style="float: left; width: 20%; text-align: right;">
+    Number of comments to display
+  </span>
+  <span style="float: right; width: 78%; text-align: left;">
+    <input type="text" name="howmany" value="#$howmany#" size="3" maxlength="3" tabindex="1"/>
+  </span>
+</div>
+<div style="clear: both; padding-top: 10px;">
+  <span style="float: left; width: 20%; text-align: right;">
+    Truncate long titles to no more than
+  </span>
+  <span style="float: right; width: 78%; text-align: left;">
+    <input type="text" name="truncate" value="#$truncate#" size="3" maxlength="3" tabindex="2"/>
+    characters
+  </span>
+</div>
+<div style="clear: both; padding-top: 10px;">
+  <span style="float: left; width: 20%; text-align: right;">
+    Include comments from the following modules
+  </span>
+  <span style="float: right; width: 78%; text-align: left;">
+    <select name="modid[]" tabindex="3" multiple="multiple" size="3">
+      <xar:foreach in="$modlist" key="$key" value="$value">
+        <xar:if condition="in_array($key,$modid)">
+          <option value="#$key#" selected="selected">#$value#</option>
+        <xar:else/>
+          <option value="#$key#">#$value#</option>
+        </xar:if>
+      </xar:foreach>
+    </select>
+  </span>
+</div>
+<div style="clear: both; padding-top: 10px;">
+  <span style="float: left; width: 20%; text-align: right;">
+    Comment title
+  </span>
+  <span style="float: right; width: 78%; text-align: left;">
+    <select tabindex="5" name="addcomment">
+      <xar:if condition="$addcomment eq '0'">
+        <option value="0" selected="selected">
+          Don't show
+        </option>
+      <xar:else/>
+        <option value="0">
+          Don't show
+        </option>
+      </xar:if>
+      <xar:if condition="$addcomment eq '1'">
+        <option value="1" selected="selected">
+          Show without link
+        </option>
+        <xar:else/>
+        <option value="1">
+          Show without link
+        </option>
+      </xar:if>
+      <xar:if condition="$addcomment eq '20'">
+        <option value="20" selected="selected">
+          Show with link to comment alone
+        </option>
+        <xar:else/>
+        <option value="20">
+          Show with link to comment alone
+        </option>
+      </xar:if>
+      <xar:if condition="$addcomment eq '21'">
+        <option value="21" selected="selected">
+          Show with link to object*
+        </option>
+        <xar:else/>
+        <option value="21">
+          Show with link to object*
+        </option>
+      </xar:if>
+    </select>
+  </span>
+</div>
+<div style="clear: both; padding-top: 10px;">
+  <span style="float: left; width: 20%; text-align: right;">
+    Author name
+  </span>
+  <span style="float: right; width: 78%; text-align: left;">
+    <select name="addauthor" tabindex="6">
+      <xar:if condition="$addauthor eq '0'">
+        <option value="0" selected="selected">
+          Don't show
+        </option>
+        <xar:else/>
+        <option value="0">
+          Don't show
+        </option>
+      </xar:if>
+      <xar:if condition="$addauthor eq '1'">
+        <option value="1" selected="selected">
+          Show without link
+        </option>
+        <xar:else/>
+        <option value="1">
+          Show without link
+        </option>
+      </xar:if>
+      <xar:if condition="$addauthor eq '21'">
+        <option value="21" selected="selected" disabled="disabled">
+          Show with link to author info**
+        </option>
+        <xar:else/>
+        <option value="21" disabled="disabled">
+          Show with link to author info**
+        </option>
+      </xar:if>
+      <xar:if condition="$addauthor eq '22'">
+        <option value="22" selected="selected" disabled="disabled">
+          Show with link to author email**
+        </option>
+        <xar:else/>
+        <option value="22" disabled="disabled">
+          Show with link to author email**
+        </option>
+      </xar:if>
+    </select>
+  </span>
+</div>
+<div style="clear: both; padding-top: 10px;">
+  <span style="float: left; width: 20%; text-align: right;">
+    Module name
+  </span>
+  <span style="float: right; width: 78%; text-align: left;">
+    <select name="addmodule" tabindex="7">
+      <xar:if condition="$addmodule eq '0'">
+        <option value="0" selected="selected">
+          Don't show
+        </option>
+        <xar:else/>
+        <option value="0">
+          Don't show
+        </option>
+      </xar:if>
+      <xar:if condition="$addmodule eq '1'">
+        <option value="1" selected="selected">
+          Show without link
+        </option>
+        <xar:else/>
+        <option value="1">
+          Show without link
+        </option>
+      </xar:if>
+      <xar:if condition="$addmodule eq '2'">
+        <option value="2" selected="selected">
+          Show with link to module*
+        </option>
+        <xar:else/>
+        <option value="2">
+          Show with link to module*
+        </option>
+      </xar:if>
+    </select>
+  </span>
+</div>
+<div style="clear: both; padding-top: 10px;">
+  <span style="float: left; width: 20%; text-align: right;">
+    Object title* (e.g. article title)
+  </span>
+  <span style="float: right; width: 78%; text-align: left;">
+    <select name="addobject" tabindex="8">
+      <xar:if condition="$addobject eq '0'">
+        <option value="0" selected="selected">
+          Don't show
+        </option>
+        <xar:else/>
+        <option value="0">
+          Don't show
+        </option>
+      </xar:if>
+      <xar:if condition="$addobject eq '1'">
+        <option value="1" selected="selected">
+          Show without link*
+        </option>
+        <xar:else/>
+        <option value="1">
+          Show without link*
+        </option>
+      </xar:if>
+      <xar:if condition="$addobject eq '20'">
+        <option value="20" selected="selected">
+          Show with link to object*
+        </option>
+        <xar:else/>
+        <option value="20">
+          Show with link to object*
+        </option>
+      </xar:if>
+      <xar:if condition="$addobject eq '21'">
+        <option value="21" selected="selected">
+          Show with link to comment***
+        </option>
+        <xar:else/>
+        <option value="21">
+          Show with link to comment***
+        </option>
+      </xar:if>
+    </select>
+  </span>
+</div>
+<div style="clear: both; padding-top: 10px;">
+  <span style="float: left; width: 20%; text-align: right;">
+    Add date
+  </span>
+  <span style="float: right; width: 78%; text-align: left;">
+    <input type="hidden" name="adddate" value="off"/>
+    <xar:if condition="$adddate eq 'on'">
+      <input type="checkbox" name="adddate" value="on" checked="checked" tabindex="9"/>
+      <xar:else/>
+      <input type="checkbox" name="adddate" value="on" tabindex="9"/>
+    </xar:if>
+  </span>
+</div>
+<div style="clear: both; padding-top: 10px;">
+  <span style="float: left; width: 20%; text-align: right;">
+    Add separator between comments posted in different days****
+  </span>
+  <span style="float: right; width: 78%; text-align: left;">
+    <input type="hidden" name="adddaysep" value="off"/>
+    <xar:if condition="$adddaysep eq 'on'">
+      <input type="checkbox" name="adddaysep" value="on" checked="checked" tabindex="10"/>
+      <xar:else/>
+      <input type="checkbox" name="adddaysep" value="on" tabindex="10"/>
+    </xar:if>
+  </span>
+</div>
+<div style="clear: both; padding-top: 10px;">
+  <span style="float: left; width: 20%; text-align: right;">
+    Add link to older comments
+  </span>
+  <span style="float: right; width: 78%; text-align: left;">
+    <input type="hidden" name="addprevious" value="off"/>
+    <xar:if condition="$addprevious eq 'on'">
+      <input type="checkbox" name="addprevious" value="on" checked="checked" tabindex="11"/>
+      <xar:else/>
+      <input type="checkbox" name="addprevious" value="on" tabindex="11"/>
+    </xar:if>
+
+  </span>
+</div>
+<div style="clear: both; padding-top: 10px;">
+  <span style="float: left; width: 100%; text-align: left;">
+    <a name="notes">
+      <b>Notes</b>
+    </a>
+  </span>
+</div>
+
+<div style="clear: both; padding-top: 10px;">
+  <span style="float: left; width: 100%; text-align: left;">
+    *Not all modules may support this
+  </span>
+</div>
+<div style="clear: both; padding-top: 10px;">
+  <span style="float: left; width: 100%; text-align: left;">
+    **Option not yet implemented
+  </span>
+</div>
+<div style="clear: both; padding-top: 10px;">
+  <span style="float: left; width: 100%; text-align: left;">
+    ***Relevant only when comments are displayed in flat or nested mode
+  </span>
+</div>
+<div style="clear: both; padding-top: 10px;">
+  <span style="float: left; width: 100%; text-align: left;">
+    ****The separator will place "Today", "Yesterday", or the day of the week whenever
+      appropriate
+  </span>
+</div>
+</xar:template>

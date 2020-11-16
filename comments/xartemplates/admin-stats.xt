@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xar:template xmlns:xar="http://xaraya.com/2004/blocklayout">
+    <!-- License: GPL http://www.gnu.org/copyleft/gpl.html -->
+    <xar:template file="admin-mod-head"/>
+    <div class="xar-mod-body">
+        <h2>
+            Comments Module Statistics
+        </h2>
+
+        <div class="xar-align-center">
+            <table border="0" cellpadding="2" cellspacing="1">
+                <tr>
+                    <th class="xar-valign-middle">
+                        <b>Module<br />Name</b>
+                    </th>
+                    <th class="xar-valign-middle xar-align-center">
+                        <b>Module<br />Items</b>
+                    </th>
+                    <th class="xar-valign-middle xar-align-center">
+                        <b>Total<br />Comments</b>
+                    </th>
+                    <th class="xar-valign-middle xar-align-center">
+                        <b>Inactive<br />Comments</b>
+                    </th>
+                    <th class="xar-valign-middle xar-align-center">
+                        <b>Action</b>
+                    </th>
+                </tr>
+
+                <xar:if condition="!isset($moditems) or empty($moditems) or count($moditems) eq '0'">
+                    <tr>
+                        <td colspan="5" align="center">
+                            <br />
+                            There are currently no comments in the database...
+                            <br />
+                            <br />
+                        </td>
+                    </tr>
+                <xar:else />
+
+                    <xar:loop name="$moditems">
+                        <tr>
+                            <td class="xar-valign-middle">
+                                <a href="#$loop:item['module_url']#">#$loop:item['modname']#</a>
+                            </td>
+                            <td class="xar-valign-middle xar-align-center">
+                                #$loop:item['items']#
+                            </td>
+                            <td class="xar-valign-middle xar-align-center">
+                                #$loop:item['total']#
+                            </td>
+                            <td class="xar-valign-middle xar-align-center">
+                                #$loop:item['inactive']#
+                            </td>
+                            <td class="xar-valign-middle xar-align-center">
+                                <a href="#$loop:item['delete_url']#"><b>Delete</b></a>
+                            </td>
+                        </tr>
+
+                    </xar:loop>
+                    <tr>
+                        <td class="xar-valign-middle">
+                            <b>Totals</b>
+                        </td>
+                        <td class="xar-valign-middle xar-align-center" valign="center">
+                            <b>#$gt_items#</b>
+                        </td>
+                        <td class="xar-valign-middle xar-align-center">
+                            <b>#$gt_total#</b>
+                        </td>
+                        <td class="xar-valign-middle xar-align-center">
+                            <b>#$gt_inactive#</b>
+                        </td>
+                        <td class="xar-valign-middle xar-align-center">
+                            <a href="#$delete_all_url#">Delete All</a>
+                        </td>
+                    </tr>
+
+                </xar:if>
+               </table>
+                <p class="xar-accent xar-norm-outline">
+                    By clicking on <b>Delete</b> you can delete all comments associated with a particular
+                    module. Clicking on a module will take you to that module's statistics page containing
+                    the figures for each of that module's items that have comments associated with them.
+                    From there you can delete all comments associated with a particular item.
+               </p>
+        </div>
+    </div>
+</xar:template>
