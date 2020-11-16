@@ -1,0 +1,22 @@
+<menu>
+    <menuitems>
+        <menuitem>
+            <includes>
+                <includeitem>main</includeitem>
+                <includeitem>overview</includeitem>
+            </includes>
+            <target>main</target>
+            <title>Short documentation of this module</title>
+            <label>Overview</label>
+        </menuitem>
+        <menuitem>
+            <mask>ManageWurfl</mask>
+            <includes>
+                <includeitem>test</includeitem>
+            </includes>
+            <target>test</target>
+            <title>Query the WURFL database</title>
+            <label>Test</label>
+        </menuitem>
+    </menuitems>
+</menu>
