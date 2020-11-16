@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xar:template xmlns:xar="http://xaraya.com/2004/blocklayout">
+    <xar:template file="admin-mod-head"/>
+    <div class="xar-mod-body">
+        <h2>View Events</h2>
+        <fieldset>
+            <legend>
+                Add Subscriptions
+            </legend>
+            
+            <xar:data-input type="listing" object="$object" tplmodule="pubsub"/>
+<!--
+            <table width="100%" border="0" cellspacing="0" cellpadding="2">
+                <tr>
+                    <th>
+                        Module Name
+                    </th>
+                    <th>
+                        Item Type
+                    </th>
+                    <th>
+                        Category
+                    </th>
+                    <th>
+                        Subscriptions
+                    </th>
+                    <th>
+                        Action
+                    </th>
+                </tr>
+                <xar:if condition="count($items) gt 0">
+                    <xar:foreach in="$items" value="$item">
+                        <tr>
+                            <td>
+                                #$item['modname']#
+                            </td>
+                            <td>
+                                #$item['itemtype']#
+                            </td>
+                            <td>
+                                #$item['catname']#
+                            </td>
+                            <td>
+                                #$item['numsubscriptions']#
+                            </td>
+                            <td>
+                                <a href="&xar-modurl-pubsub-admin-view_subscriptions;&amp;event_id=#$item['id']#">Subscriptions</a>
+                            </td>
+                        </tr>
+                    </xar:foreach>
+                <xar:else />
+                    <tr>
+                      <td colspan="5" align="left">
+                      <br />
+                      <strong>No subscriptions found</strong>
+                      </td>
+                    </tr>
+                </xar:if>
+            </table>
+-->
+        </fieldset>
+
+        <form action="&xar-modurl-pubsub-admin-new_subscription;" method="post">
+        <fieldset>
+            <legend>
+                Add Subscriptions
+            </legend>
+
+            <div class="xar-form-input-wrapper">
+                <label class="xar-form-label">
+                   Module Name
+                </label>
+                <xar:data-input name="sub_module" type="19" />
+            </div>
+            <div class="xar-form-input-wrapper">
+                <label class="xar-form-label">
+                    Item Type
+                </label>
+                <input type="text" name="sub_itemtype"/>
+            </div>
+            <div class="xar-form-input-wrapper">
+                <label class="xar-form-label">
+                    Category
+                </label>
+                <xar:set name="categories">xarMod::apiFunc('categories','user','getcat')</xar:set>
+                <select name="sub_category">
+                        <xar:foreach in="$categories" value="$category">
+                            <xar:set name="indent">$category['indentation'] - 1</xar:set>
+                            <xar:set name="indent">str_repeat("&#160;&#160;&#160;", $indent)</xar:set>
+
+                            <option value="#$category['cid']#">#$indent# #$category['name']#</option>
+                        </xar:foreach>
+                 </select>
+            </div>
+            <div class="xar-form-input-wrapper">
+                <label class="xar-form-label">
+                    Send HTML email?
+                </label>
+                <input type="checkbox" name="sub_htmlmail" checked="checked" />
+            </div>
+            <div class="xar-form-input-wrapper">
+                <label class="xar-form-label">
+                    Email Addresses
+                </label>
+                <textarea name="sub_email" cols="55" rows="6"></textarea>
+            </div>
+            </fieldset>
+            <div class="xar-form-input-wrapper-after">
+                <xar:var name="label">Add Subscription</xar:var>
+                <xar:button type="submit" label="$label"/>
+            </div>
+        </form>
+
+    </div>
+    <!-- add the pager here -->
+    #$pager#
+</xar:template>
