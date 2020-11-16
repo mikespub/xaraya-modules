@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xar:template xmlns:xar="http://xaraya.com/2004/blocklayout">
+    <!-- License: GPL http://www.gnu.org/copyleft/gpl.html -->
+    <xar:template file="admin-mod-head"/>
+    <div class="xar-mod-body">
+        <xar:if condition="empty($confirm)">   
+            <form action="#xarServer::getCurrentURL()#" method="post">
+                <fieldset>
+                    Choose a module to check:&#160;
+                    <xar:data-input type="dropdown" name="item" options="$items" firstline="0,All"/>
+                </fieldset>
+                <fieldset>
+                    <input type="hidden" name="confirm" value="1"/>
+                    <xar:button type="submit" label="Go"/>
+                </fieldset>
+            </form>
+        <xar:else />
+            <fieldset>
+                <xar:if condition="!empty($items)">
+                    Checked templates of the following modules:
+                    <ul>
+                        <xar:foreach in="$items" value="$item">
+                            <li>
+                                #$item['name']#
+                            </li>
+                        </xar:foreach>
+                    </ul>
+                <xar:else />
+                    No module templates were checked
+                </xar:if>
+            </fieldset>
+            <xar:var name="label">Back</xar:var>
+            <xar:button type="cancel" label="$label"/>
+            <xar:var name="label">Back to Scans</xar:var>
+            <xar:set name="target">xarModURL('xarayatesting','admin','othertests')</xar:set>
+            <xar:button type="link" target="$target" label="$label"/>
+        </xar:if>
+    </div>
+</xar:template>

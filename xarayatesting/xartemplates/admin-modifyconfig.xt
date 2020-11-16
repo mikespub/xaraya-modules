@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xar:template xmlns:xar="http://xaraya.com/2004/blocklayout">
+    <!-- License: GPL http://www.gnu.org/copyleft/gpl.html -->>
+    <xar:style scope="module" module="base" file="navtabs"/>
+    <xar:template file="admin-mod-head"/>
+    <div class="xar-mod-body">
+        <h2>
+            <xar:mlstring>
+                Modify XarayaTesting Configuration
+            </xar:mlstring>
+        </h2>
+        <div>
+            <dl class="xar-tabs">
+                <dt class="help">
+                    <xar:mlstring>
+                        Actions:
+                    </xar:mlstring>
+                </dt>
+                <xar:if condition="$tab eq 'general'">
+                    <dd class="active">
+                        <a href="&xar-modurl-xarayatesting-admin-modifyconfig;&amp;tab=general">
+                            <xar:mlstring>
+                                General
+                            </xar:mlstring>
+                        </a>
+                    </dd>
+                    <xar:else />
+                    <dd>
+                        <a href="&xar-modurl-xarayatesting-admin-modifyconfig;&amp;tab=general">
+                            <xar:mlstring>
+                                General
+                            </xar:mlstring>
+                        </a>
+                    </dd>
+                </xar:if>
+                <xar:if condition="$tab eq 'tab2'">
+                    <dd class="active">
+                        <a href="&xar-modurl-xarayatesting-admin-modifyconfig;&amp;tab=tab2">
+                            <xar:mlstring>
+                                Tab2
+                            </xar:mlstring>
+                        </a>
+                    </dd>
+                    <xar:else />
+                    <dd>
+                        <a href="&xar-modurl-xarayatesting-admin-modifyconfig;&amp;tab=tab2">
+                            <xar:mlstring>
+                                Tab2
+                            </xar:mlstring>
+                        </a>
+                    </dd>
+                </xar:if>
+                <xar:if condition="$tab eq 'tab3'">
+                    <dd class="active">
+                        <a href="&xar-modurl-xarayatesting-admin-modifyconfig;&amp;tab=tab3">
+                            <xar:mlstring>
+                                Tab3
+                            </xar:mlstring>
+                        </a>
+                    </dd>
+                    <xar:else />
+                    <dd>
+                        <a href="&xar-modurl-xarayatesting-admin-modifyconfig;&amp;tab=tab3">
+                            <xar:mlstring>
+                                Tab3
+                            </xar:mlstring>
+                        </a>
+                    </dd>
+                </xar:if>
+            </dl>
+        </div>
+        <xar:comment>
+             - - - - - - - - - - - - - - - - - - - Begin General Options  - - - - - - - - - - - - - - - - - - -
+        </xar:comment>
+        <xar:if condition="$tab eq 'general'">
+            <form method="post" action="&xar-modurl-xarayatesting-admin-modifyconfig;" enctype="application/x-www-form-urlencoded">
+                <xar:data-form object="$module_settings"/>
+                <input type="hidden" name="tab" id="tab" value="#$tab#"/>
+                <xar:template file="update-button" module="base" />
+            </form>
+            <xar:comment>
+                 - - - - - - - - - - - - - - - - - - - Begin Tab2 Options  - - - - - - - - - - - - - - - - - - -
+            </xar:comment>
+            <xar:elseif condition="$tab eq 'tab2'"/>
+            <xar:comment>
+                 - - - - - - - - - - - - - - - - - - - Begin Tab3 Options  - - - - - - - - - - - - - - - - - - -
+            </xar:comment>
+            <xar:elseif condition="$tab eq 'tab3'"/>
+        </xar:if>
+    </div>
+</xar:template>

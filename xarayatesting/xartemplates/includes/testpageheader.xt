@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xar:template xmlns:xar="http://xaraya.com/2004/blocklayout">
+    <!-- License: GPL http://www.gnu.org/copyleft/gpl.html -->
+    <xar:style scope="module" module="base" file="navtabs"/>
+    <div>
+        <dl class="xar-tabs">
+            <dt class="help">
+                Core:
+            </dt>
+            <xar:set name="core">
+                array(
+                    'core.testxarblock'      => 'xarBlock',
+                    'core.testxarcache'      => 'xarCache',
+                    'core.testxarcore'       => 'xarCore',
+                    'core.testxardb'         => 'xarDB',
+                    'core.testxarevents'     => 'xarEvents',
+                    'core.testxarexceptions' => 'xarExceptions',
+                    'core.testxarlog'        => 'xarLog',
+                    'core.testxarmod'        => 'xarMod',
+                    'core.testxarmls'        => 'xarMLS',
+                    'core.testxarserver'     => 'xarServer',
+                    'core.testxarsession'    => 'xarSession',
+                    'core.testxartemplate'   => 'xarTemplate',
+                    'core.testxaruser'       => 'xarUser',
+                    'core.testxarvar'        => 'xarVar',
+                )
+            </xar:set>
+
+            <ul class="xar-tabs xar-alt xar-norm-outline">
+                <xar:foreach in="$core" key="$key" value="$value">
+                    <xar:if condition="$tab eq $key">
+                        <xar:set name="tabclass">'xar-tab-active'</xar:set>
+                        <xar:set name="linkclass">'xar-accent xar-accent-outline'</xar:set>
+                    <xar:else />
+                        <xar:set name="tabclass">'xar-tab'</xar:set>
+                        <xar:set name="linkclass">'xar-norm xar-norm-outline'</xar:set>
+                    </xar:if>
+                    <li class="#$tabclass#">
+                        <a href="#xarModURL('xarayatesting','admin','testpage',array('tab'=>$key))#" class="#$linkclass#">
+                            #$value#
+                        </a>
+                    </li>
+                </xar:foreach>
+            </ul>
+        </dl>
+    </div>
+    <div>
+        <dl class="xar-tabs">
+            <dt class="help">
+                Libraries:
+            </dt>
+            <xar:set name="libraries">
+                array(
+                    'libraries.testblocklayout' => 'BlockLayout',
+                    'libraries.testcreole'      => 'Creole',
+                )
+            </xar:set>
+            <ul class="xar-tabs xar-alt xar-norm-outline">
+                <xar:foreach in="$libraries" key="$key" value="$value">
+                    <xar:if condition="$tab eq $key">
+                        <xar:set name="tabclass">'xar-tab-active'</xar:set>
+                        <xar:set name="linkclass">'xar-accent xar-accent-outline'</xar:set>
+                    <xar:else />
+                        <xar:set name="tabclass">'xar-tab'</xar:set>
+                        <xar:set name="linkclass">'xar-norm xar-norm-outline'</xar:set>
+                    </xar:if>
+                    <li class="#$tabclass#">
+                        <a href="#xarModURL('xarayatesting','admin','testpage',array('tab'=>$key))#" class="#$linkclass#">
+                            #$value#
+                        </a>
+                    </li>
+                </xar:foreach>
+            </ul>
+        </dl>
+    </div>
+    <div>
+        <dl class="xar-tabs">
+            <dt class="help">
+                Core Modules:
+            </dt>
+            <ul class="xar-tabs xar-alt xar-norm-outline">
+                <xar:foreach in="$coremodules" key="$key" value="$value">
+                    <xar:set name="modulename">#$value['name']#</xar:set>
+                    <xar:set name="ucmodulename">ucfirst($modulename)</xar:set>
+                    <xar:if condition="$tab eq $modulename">
+                        <xar:set name="tabclass">'xar-tab-active'</xar:set>
+                        <xar:set name="linkclass">'xar-accent xar-accent-outline'</xar:set>
+                    <xar:else />
+                        <xar:set name="tabclass">'xar-tab'</xar:set>
+                        <xar:set name="linkclass">'xar-norm xar-norm-outline'</xar:set>
+                    </xar:if>
+                    <li class="#$tabclass#">
+                        <a href="#xarModURL('xarayatesting','admin','testpage',array('tab'=>$key))#" class="#$linkclass#">
+                            #$ucmodulename#
+                        </a>
+                    </li>
+                </xar:foreach>
+            </ul>
+        </dl>
+    </div>
+    <div>
+        <dl class="xar-tabs">
+            <dt class="help">
+                Other Modules:
+            </dt>
+            <ul class="xar-tabs xar-alt xar-norm-outline">
+                <xar:foreach in="$modules" key="$key" value="$value">
+                    <xar:set name="modulename">#$value['name']#</xar:set>
+                    <xar:set name="ucmodulename">ucfirst($modulename)</xar:set>
+                    <xar:if condition="$tab eq $modulename">
+                        <xar:set name="tabclass">'xar-tab-active'</xar:set>
+                        <xar:set name="linkclass">'xar-accent xar-accent-outline'</xar:set>
+                    <xar:else />
+                        <xar:set name="tabclass">'xar-tab'</xar:set>
+                        <xar:set name="linkclass">'xar-norm xar-norm-outline'</xar:set>
+                    </xar:if>
+                    <li class="#$tabclass#">
+                        <a href="#xarModURL('xarayatesting','admin','testpage',array('tab'=>$key))#" class="#$linkclass#">
+                            #$ucmodulename#
+                        </a>
+                    </li>
+                </xar:foreach>
+            </ul>
+        </dl>
+    </div>
+</xar:template>

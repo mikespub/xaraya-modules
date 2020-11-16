@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xar:template xmlns:xar="http://xaraya.com/2004/blocklayout">
+    <!-- License: GPL http://www.gnu.org/copyleft/gpl.html -->
+    <xar:template file="admin-mod-head"/>
+    <div class="xar-mod-body">
+        <fieldset>
+            <xar:if condition="!empty($items)">
+                Modules that need to upgrade:
+                <ul>
+                    <xar:foreach in="$items" value="$item">
+                        <li>
+                            #$item['name']#
+                        </li>
+                    </xar:foreach>
+                </ul>
+            <xar:else />
+                No modules need to be upgraded
+            </xar:if>
+        </fieldset>
+        <xar:var name="label">Back</xar:var>
+        <xar:button type="cancel" label="$label"/>
+    </div>
+</xar:template>
