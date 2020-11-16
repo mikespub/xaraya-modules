@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xar:template xmlns:xar="http://xaraya.com/2004/blocklayout">
+    <!-- License: GPL http://www.gnu.org/copyleft/gpl.html -->
+    <xar:template file="user-mod-head"/>
+
+    <div class="xar-mod-body">
+        <h2>Notify File Release - Select Extension</h2>
+        <xar:template type="module" file="user-menu" />
+        Enter your extension ID below and select the extension type, so the system can begin the release notification process.
+        <form action="#xarModURL('release', 'user', 'addnotes')#" method="post" enctype="application/x-www-form-urlencoded">
+            <input type="hidden" name="authid" id="authid" value="#$authid#" />
+            <input type="hidden" name="phase" id="phase" value="start" />
+
+            <fieldset class="formelements xar-norm">
+            <legend>Extension Information</legend>
+                <p>
+                    <label for="rid" class="xar-form-label">
+                        <span class="help" title="#xarML('Enter the ID of your extension')#">
+                            Extension ID
+                        </span>
+                        </label>
+                    <input type="text" name="rid" id="rid" value="#$rid#" size="5" maxlength="5" tabindex="1" />
+                    <xar:if condition="!empty($regname)">
+                    &#160; #$regname#
+                    </xar:if>
+                </p>
+                <p>
+                    <label for="rid" class="xar-form-label">
+                        <span class="help" title="#xarML('Select the type of your extension')#">
+                            Extension Type
+                        </span>
+                        </label>
+
+                       <select name="exttype" id="exttype">
+                         <xar:foreach in="$exttypes" key="$k" value="$v">
+                         <xar:if condition="$k ne 0">
+                             <xar:if condition="$exttype eq $k">
+                                    <option value="#$k#" selected="selected">#$v#</option>
+                             <xar:else />
+                                    <option value="#$k#">#$v#</option>
+                             </xar:if>
+                         </xar:if>
+                        </xar:foreach>
+                     </select>
+                </p>
+                <xar:if condition="!empty($m)">
+                <span class="xar-error">#$m#</span>
+                </xar:if>
+            </fieldset>
+            <p>
+                <xar:var name="label">Begin Release Notification</xar:var>
+                <xar:button type="submit" label="$label" tabindex="6" />
+            </p>
+        </form>
+    </div>
+</xar:template>

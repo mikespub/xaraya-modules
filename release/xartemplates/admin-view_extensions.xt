@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xar:template xmlns:xar="http://xaraya.com/2004/blocklayout">
+    <!-- License: GPL http://www.gnu.org/copyleft/gpl.html -->
+    <xar:template file="admin-mod-head"/>
+
+    <div class="xar-mod-body">
+        <h2>View Extensions</h2>
+        
+        <xar:data-input type="listing" 
+                        object="$object"
+                        fieldlist="name,extension_id,extension_type,author,state"
+                        />
+        <!--
+        <table width="100%" border="1" cellspacing="0" cellpadding="4">
+            <tr>
+                <th>
+                    ID
+                </th>
+                <th>
+                    Name
+                 </th>
+                <th>
+                    Options
+                </th>
+            </tr>
+            <xar:loop name="$items">
+                <tr>
+                    <td>
+                        #$loop:item['rid']#
+                    </td>
+                    <td>
+                        #$loop:item['regname']#
+                    </td>
+                    <td align="center">
+                        <xar:if condition="empty($loop:item['editurl'])">
+                             #$loop:item['edittitle']#
+                        <xar:else />
+                             <a href="#$loop:item['editurl']#">#$loop:item['edittitle']#</a>
+                        </xar:if>
+                        |
+                        <xar:if condition="empty($loop:item['deleteurl'])">
+                            #$loop:item['deletetitle']#
+                        <xar:else />
+                            <a href="#$loop:item['deleteurl']#">#$loop:item['deletetitle']#</a>
+                        </xar:if>
+                    </td>
+                </tr>
+            </xar:loop>
+        </table>
+    -->
+    </div>
+</xar:template>

@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xar:template xmlns:xar="http://xaraya.com/2004/blocklayout">
+    <!-- License: GPL http://www.gnu.org/copyleft/gpl.html -->
+    <xar:template file="user-mod-head"/>
+
+    <div class="xar-mod-body">
+        <h2>Notify Release - Details</h2>
+        <xar:template type="module" file="user-menu" />
+        <form action="#xarModURL('release', 'user', 'addnotes')#" method="post" enctype="application/x-www-form-urlencoded">
+            <input type="hidden" name="authid" id="authid" value="#$authid#" />
+            <input type="hidden" name="phase" id="phase" value="preview" />
+            <input type="hidden" name="rid" id="rid" value="#$rid#" />
+            <input type="hidden" name="eid" id="eid" value="#$eid#" />
+            <input type="hidden" name="regname" id="regname" value="#$regname#" />
+            <input type="hidden" name="version" id="version" value="#$version#" />
+            <input type="hidden" name="pricecheck" id="pricecheck" value="#$pricecheck#" />
+            <input type="hidden" name="democheck" id="democheck" value="#$democheck#" />
+            <input type="hidden" name="supportcheck" id="supportcheck" value="#$supportcheck#" />
+
+            <fieldset class="formelements xar-norm">
+                <legend>Release details</legend>
+
+                <p class="param">
+                    <label for="extensionid" class="xar-form-label">
+                        Extension ID
+                    </label>
+                    #$rid#
+                </p>
+                <p>
+                     <label for="extensionname" class="xar-form-label">
+                        Extension Registered Name
+                    </label>
+                    #$regname# 
+                </p>
+
+                <p>
+                     <label for="versionnumber" class="xar-form-label">
+                        Version Number
+                    </label>
+                    #$version#
+                </p>
+                <p>
+                    <label for="dllink" class="xar-form-label">
+                        <span class="help" title="#xarML('Enter the download link for your release.')#">
+                            Download Link
+                        </span>
+                    </label>
+                    <input type="text" name="dllink" value="" size="30" maxlength="100" />
+                </p>
+
+                <xar:if condition="$democheck eq '2'">
+                <p>
+                   <label for="demolink" class="xar-form-label">
+                        <span class="help" title="#xarML('Enter the link to the demonstration for your release.')#">
+                            Demo Link
+                        </span>
+                    </label>
+                    <input type="text" name="demolink" value="" size="30" maxlength="100" />
+                </p>
+                </xar:if>
+                <xar:if condition="$supportcheck eq '2'">
+                 <p>
+                   <label for="supportlink" class="xar-form-label">
+                        <span class="help" title="#xarML('Enter the support link for your release.')#">
+                            Supported Link
+                        </span>
+                    </label>
+                    <input type="text" name="supportlink" value="" size="30" maxlength="100" />
+                </p>
+                </xar:if>
+                <xar:if condition="$pricecheck eq '2'">
+                 <p>
+                   <label for="price" class="xar-form-label">
+                        <span class="help" title="#xarML('Enter the the price.')#">
+                            Price
+                        </span>
+                    </label>
+                    <input type="text" name="price" value="" size="10" maxlength="100" />
+                </p>
+                </xar:if>
+                <p>
+                    <label for="rstate" class="xar-form-label">
+                        <span class="help" title="#xarML('Current development status of your extension')#">
+                           Extension Status:
+                         </span>
+                    </label>
+                    <select name="rstate" id="rstate" size="1">
+                        <xar:foreach in="$stateoptions" value="$v" key="$k">
+                            <option name="rstate.#$k#" value="#$k#">#$v#</option>
+                        </xar:foreach>
+                    </select>
+                </p>
+            
+                <p>
+                    <label for="rstate" class="xar-form-label">
+                        <span class="help" title="#xarML('Do you want this listed on the new release RSS feed?')#">
+                           Add to Latest Release list and RSS Feed ?
+                         </span>
+                    </label>
+                    <xar:if condition="$usefeed eq '1'">
+                        <input type="checkbox" name="usefeedchecked" id="usefeedchecked" value="1" checked="checked"/>
+                    <xar:else/>
+                        <input type="checkbox" name="usefeedchecked" id="usefeedchecked" value="1" />
+                    </xar:if>
+                 </p>
+                <p class="xar-clearleft">
+                    <label for="changelog" class="xar-form-label">
+                        <span class="help" title="#xarML('Enter your changelog for the release')#">
+                            ChangeLog
+                        </span>
+                    </label>
+                    <div class="xar-form-input-wrapper">
+                        <textarea name="changelog" cols="60" rows="5" class="xar-normal"></textarea>
+                    </div>
+                </p>
+                <p>
+                    <label for="notes" class="xar-form-label">
+                        <span class="help" title="#xarML('Enter your changelog for the release')#">
+                            Additional Notes
+                        </span>
+                    </label>
+                    <div class="xar-form-input-wrapper">
+                        <textarea name="notes" cols="60" rows="5" class="xar-normal"></textarea>
+                    </div>
+                </p>
+           </fieldset>
+            <p>
+                <xar:var name="label">Continue</xar:var>
+                <xar:button type="submit" label="$label" tabindex="6" />
+            </p>
+        </form>
+    </div>
+</xar:template>

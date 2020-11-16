@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xar:template xmlns:xar="http://xaraya.com/2004/blocklayout">
+    <!-- License: GPL http://www.gnu.org/copyleft/gpl.html -->
+    <xar:template file="user-mod-head"/>
+
+    <div class="xar-mod-body">
+      <h2>View Modules and Themes</h2>
+
+      <div style="margin-top:20px; margin-bottom:40px;">
+
+      <span style="float:left; text-align:left; width:15%;">
+        <strong>Filter By:</strong>
+      </span>
+      <span style="float:left; text-align:left; width:85%;">
+
+      <form action="#xarModURL('release', 'user', 'viewnotes')#" method="post" enctype="application/x-www-form-urlencoded">
+          <input type="radio" name="phase" id="phase" value="certified"  />
+          Certified
+          &#160;&#160;<input type="radio" name="phase" id="phase" value="price"  />
+          Commercial
+          &#160;&#160;<input type="radio" name="phase" id="phase" value="free"  />
+          Free
+          &#160;&#160;<input type="radio" name="phase" id="phase" value="supported"  />
+          Supported
+        &#160;&#160;                
+        <xar:var name="label">Refresh</xar:var>
+        <xar:button type="submit" label="$label" tabindex="6" />
+      </form>
+      </span>
+    </div>
+    <xar:if condition="isset($phase)">
+    <xar:set name="displayphase">ucfirst($phase)</xar:set>
+      <div style="clear:both; text-align:left; margin-top:20px;margin-bottom:20px;width:100%;">
+      <xar:ml>
+          <xar:mlstring>Currently displaying filtered by: <b>#(1)</b></xar:mlstring>
+          <xar:mlvar>#$displayphase#</xar:mlvar>
+      </xar:ml>
+      </div>
+    </xar:if>
+
+      <xar:if condition="!empty($message)">
+          <b>#$message#</b>
+      <xar:else />        
+        <xar:loop name="$items">
+          <div class="xar-alt" style="margin: 0px 3px 6px 3px;padding: 1px;text-align: left;">
+            <div class="xar-norm" style="padding: 3px;">
+             <xar:foreach in="$exttypes" key="$k" value="$v">
+                   <xar:if condition="$k ne 0">
+                             <xar:if condition="$loop:item['exttype'] eq $k">
+                                    [#$v#]
+                             </xar:if>
+                         </xar:if>
+             </xar:foreach>
+              <h1><a class="xar-title" href="#$loop:item['displaylink']#">#$loop:item['regname']#</a></h1>
+              <div class="xar-accent" style="padding: 2px;">
+                <span class="xar-sub">
+                  Author: 
+                  <a href="#$loop:item['contacturl']#">#$loop:item['realname']#</a>
+                  on
+                  #xarLocaleFormatDate('%d %B %Y %H:%M:%S %Z', $loop:item['time'])#
+                      <xar:if condition="!empty($loop:item['counter'])">
+                        (#$loop:item['hitcount']# Reads)
+                      </xar:if>
+                </span>
+              </div>
+              <b>Version:</b>&#160;&#160; #$loop:item['version']#
+                 <p>#$loop:item['desc']#</p>
+              <div align="right">
+                <a href="#$loop:item['displaylink']#">Read More</a>
+                <xar:if condition="!empty($loop:item['comments'])">
+                  -- #$loop:item['comments']# Comments
+                </xar:if>
+              </div>
+            </div>
+          </div>
+        </xar:loop>
+    <p>
+    <!-- add the pager here -->
+    #$pager#
+    </p>
+      </xar:if>
+    </div>
+</xar:template>

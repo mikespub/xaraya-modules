@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xar:template xmlns:xar="http://xaraya.com/2004/blocklayout">
+    <!-- License: GPL http://www.gnu.org/copyleft/gpl.html -->
+    <xar:set name="releaselink">
+        xarModURL('release','user','viewnotes') 
+    </xar:set>
+    <xar:if condition="count($items) ge 1">
+        <ul>
+            <xar:foreach in="$items" value="$item">
+                <xar:if condition="empty($item['link'])">
+                    <li>
+                        #xarVarPrepForDisplay($item['rid'])# 
+                    </li>
+                    <xar:else />
+                    <li>
+                        <a href="#$item['link']#">
+                            #xarVarPrepForDisplay(ucfirst($item['regname']))# V#xarVarPrepForDisplay($item['version'])#
+                        </a>
+                    </li>
+                </xar:if>
+            </xar:foreach>
+        </ul>
+        <p class="fc-text-c">
+            <a href="#$releaselink#">
+                
+                    Browse All Releases 
+                
+            </a>
+        </p>
+        <xar:else />
+        <p class="fc-text-c">
+            
+                No Release to Display 
+            
+        </p>
+    </xar:if>
+</xar:template>

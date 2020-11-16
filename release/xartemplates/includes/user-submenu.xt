@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xar:template xmlns:xar="http://xaraya.com/2004/blocklayout">
+    <!-- License: GPL http://www.gnu.org/copyleft/gpl.html -->
+    <xar:style scope="module" module="base" file="navtabs" />
+
+    <xar:set name="request">xarRequestGetInfo()</xar:set>
+    <xar:set name="activetab">#$request.2#</xar:set>
+    <xar:set name="activemod">#$request.1#</xar:set>
+
+    <div>
+      <dl class="xar-tabs">
+        <dt class="help" title="#xarML('Extension Display - Choice your view or action.')#">
+           View:
+        </dt>
+        <xar:set name="tabclass">($activetab=='view')?'active':''</xar:set>
+            <dd class="#$tabclass#">
+                <a href="&xar-modurl-release-user-view;" title="#xarML('View listing of all registered extension projects')#">
+                    View Extension List
+                </a>
+            </dd>
+        <xar:set name="tabclass">($activetab=='display')?'active':''</xar:set>
+            <dd class="#$tabclass#">
+                <a href="&xar-modurl-release-user-display;&amp;eid=#$eid#" title="#xarML('Summary View of Extension Information')#">
+                    Extension Summary
+                </a>
+            </dd>
+        <xar:set name="tabclass">($activetab=='display')?'active':''</xar:set>
+            <dd class="#$tabclass#">
+                <a href="#xarModUrl('release', 'user', 'display', array('eid' => $eid, 'phase' => 'version', 'tab'=>'versions'))#" title="#xarML('Get a registered ID for your extension project')#">
+                    File Releases
+                </a>
+            </dd>
+        <xar:set name="tabclass">($activetab=='addnotes')?'active':''</xar:set>
+            <dd class="#$tabclass#">
+                <a href="&xar-modurl-release-user-addnotes;" title="#xarML('Announce a project extension file release')#">
+                    Documentation
+                </a>
+            </dd>
+        <xar:set name="tabclass">($activetab=='main' and $activemod =='search')?'active':''</xar:set>
+            <dd class="#$tabclass#">
+                <a href="&xar-modurl-search-user-main;&amp;displname=1&amp;regid=1&amp;regname=1&amp;desc=1&amp;authorsearch=1" title="#xarML('Search Project Extensions')#">
+                    News
+                </a>
+            </dd>
+        <xar:set name="tabclass">($activetab=='main' and $activemod=='release')?'active':''</xar:set>
+            <dd class="#$tabclass#">
+                <a href="&xar-modurl-release-user-main;" title="#xarML('Help with extension project registration or releases')#">
+                    Bugs and FRs
+                </a>
+            </dd>
+
+       </dl>
+    </div>
+</xar:template>

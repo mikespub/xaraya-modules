@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xar:template xmlns:xar="http://xaraya.com/2004/blocklayout">
+    <!-- License: GPL http://www.gnu.org/copyleft/gpl.html -->
+    <xar:template file="user-mod-head"/>
+
+    <script type="text/javascript" src="modules/base/xartemplates/functions.js"></script>
+    <script type="text/javascript">
+    <!--
+        // Enter name of mandatory fields
+        var fieldRequired = Array("version");
+        // Enter field description to appear in the dialog box
+        var fieldDescription = Array("Version");
+    //-->
+    </script>
+
+
+    <div class="xar-mod-body">
+        <h2>Notify Release - Basic Details</h2>
+        <xar:template type="module" file="user-menu" />
+        <form action="#xarModURL('release', 'user', 'addnotes')#" method="post" enctype="application/x-www-form-urlencoded" onsubmit="return formCheck(this, fieldRequired, fieldDescription);">
+            <input type="hidden" name="authid" id="authid" value="#$authid#" />
+            <input type="hidden" name="phase" id="phase" value="getdetails" />
+            <input type="hidden" name="rid" id="rid" value="#$rid#" />
+            <input type="hidden" name="eid" id="eid" value="#$eid#" />        
+            <input type="hidden" name="regname" id="regname" value="#$regname#" />
+ 
+            <fieldset class="formelements xar-norm">
+            <legend>Extension basic details</legend>
+
+                <p class="param">
+                    <label for="extensionid" class="xar-form-label">
+                        Extension ID
+                    </label>
+                    #$rid#
+                </p>
+                <p class="param">
+                    <label for="registeredname" class="xar-form-label">
+                        Extension Registered Name
+                    </label>
+                    #$regname#
+                </p>
+                <p>
+                    <label for="version" class="xar-form-label">
+                       <span class="help" title="#xarML('Enter the new version number for this release.')#">
+                           New Version Number
+                       </span>
+                    </label>
+                    <input type="text" name="version" value="" size="10" maxlength="100" />
+                </p>
+                <p>
+                    <label for="pricecheck" class="xar-form-label">
+                        <span class="help" title="#xarML('Is this a commercial or free extension and release?')#">
+                            Commercial or Free?
+                        </span>
+                    </label>
+                    <select name="pricecheck" id="pricecheck">
+                        <xar:if condition="$pricecheck eq '2'">
+                            <option value="1">Free</option>
+                            <option value="2" selected="selected">Commercial</option>
+                        <xar:else />
+                            <option value="1" selected="selected">Free</option>
+                            <option value="2">Commercial</option>
+                        </xar:if>
+                    </select>
+                </p>
+                <p>
+                    <label for="democheck" class="xar-form-label">
+                        <span class="help" title="#xarML('Do you have a demonstration of the release?')#">
+                            Have a Demo?
+                        </span>
+                    </label>
+                    <select name="democheck" id="democheck">
+                        <xar:if condition="$democheck eq '2'">
+                            <option value="1">No</option>
+                            <option value="2" selected="selected">Yes</option>
+                        <xar:else />
+                            <option value="1" selected="selected">No</option>
+                            <option value="2">Yes</option>
+                        </xar:if>
+                    </select>
+                </p>
+                    <xar:comment>Temp Fix</xar:comment>
+                    <xar:if condition="!isset($supportcheck)">
+                        <xar:set name='supportcheck'>'1'</xar:set>
+                    </xar:if>
+                    <p>
+                    <label for="supportcheck" class="xar-form-label">
+                        <span class="help" title="#xarML('Do you have a demonstration of the release?')#">
+                            Is this Extension Supported?
+                        </span>
+                    </label>
+                    <select name="supportcheck" id="supportcheck">
+                         <xar:if condition="$supportcheck eq '2'">
+                             <option value="1">No</option>
+                             <option value="2" selected="selected">Yes</option>
+                         <xar:else />
+                             <option value="1" selected="selected">No</option>
+                             <option value="2">Yes</option>
+                         </xar:if>
+                    </select>
+                </p>
+            </fieldset>
+            <p>
+                <xar:var name="label">Continue</xar:var>
+                <xar:button type="submit" label="$label" tabindex="6" />
+            </p>
+        </form>
+    </div>
+</xar:template>

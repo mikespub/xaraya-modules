@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xar:template xmlns:xar="http://xaraya.com/2004/blocklayout">
+    <!-- License: GPL http://www.gnu.org/copyleft/gpl.html -->
+    <xar:template file="admin-mod-head"/>
+
+    <div class="xar-mod-body">
+        <h2>Modify Configuration</h2>
+        <form method="post" id="post" action="#xarModUrl('release', 'admin', 'modifyconfig')#" enctype="application/x-www-form-urlencoded">
+            <fieldset>
+                <legend>General Settings</legend>
+                <xar:data-form object="$module_settings"/>
+            </fieldset>
+            <xar:if condition="!empty($hooks)">
+                <fieldset>
+                    <legend>Enabled Hooks</legend>
+                    #$hooks#
+                </fieldset>
+            </xar:if>
+
+            <input type="hidden" name="tab" id="tab" value="#$tab#"/>
+            <xar:template file="update-button" module="base" />
+        </form>
+    </div>
+</xar:template>

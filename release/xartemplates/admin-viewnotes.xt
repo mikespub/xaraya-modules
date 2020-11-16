@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xar:template xmlns:xar="http://xaraya.com/2004/blocklayout">
+    <!-- License: GPL http://www.gnu.org/copyleft/gpl.html -->
+    <xar:template file="admin-mod-head"/>
+
+    <div class="xar-mod-body">
+      <h2>View Release Information</h2>
+      <b>Filter By:</b>
+      <br /><br />
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+              <td width="30%">
+                  <a href="#xarModURL('release', 'admin', 'viewnotes')#">Pending</a><br /><br />
+              </td>
+          </tr>
+          <tr>
+              <td width="30%">
+                  Certification Status:<br />
+                  &#160;&#160;<a href="#xarModURL('release', 'admin', 'viewnotes', array('phase' => 'certified', 'filter' => '2'))#">Certified</a> <br />
+                  &#160;&#160;<a href="#xarModURL('release', 'admin', 'viewnotes', array('phase' => 'certified', 'filter' => '1'))#">Non-Certified</a>
+              </td>
+              <td width="30%">
+                  Price:<br />
+                  &#160;&#160;<a href="#xarModURL('release', 'admin', 'viewnotes', array('phase' => 'price', 'filter' => '2'))#">Commercial</a> <br />
+                  &#160;&#160;<a href="#xarModURL('release', 'admin', 'viewnotes', array('phase' => 'price', 'filter' => '1'))#">Free</a>
+              </td>
+              <td width="30%">
+                  Support:<br />
+                  &#160;&#160;<a href="#xarModURL('release', 'admin', 'viewnotes', array('phase' => 'supported', 'filter' => '2'))#">Supported</a> <br />
+                  &#160;&#160;<a href="#xarModURL('release', 'admin', 'viewnotes', array('phase' => 'supported', 'filter' => '1'))#">Not Supported</a> 
+              </td>
+          </tr>
+      </table>
+
+     <xar:if condition="isset($phase)">
+         <xar:set name="displayphase">ucfirst($phasedesc)</xar:set>
+          <div style="clear:both; text-align:left; margin-top:20px;margin-bottom:20px;width:100%;">
+              <xar:ml>
+                  <xar:mlstring>
+                    Currently displaying filtered by: <b>#(1)</b>
+                  </xar:mlstring>
+                  <xar:mlvar>#$displayphase#</xar:mlvar>
+              </xar:ml>
+          </div>
+     </xar:if>
+
+      <xar:if condition="!empty($message)">
+          <b>#$message#</b>
+      <xar:else />
+        <table width="100%" border="0" cellspacing="0" cellpadding="4">
+          <tr>
+            <th>
+                    Type
+                </th>
+            <th>
+                    Name
+                </th>
+            <th>
+                    Description
+                </th>
+            <th>
+                    Options
+                </th>
+            </tr>
+          <xar:loop name="$items">
+              <xar:if condition="(($loop:index + 1) % 2)">
+              <xar:set name="$rowclass">'xar-norm'</xar:set>
+            <xar:else/>
+              <xar:set name="$rowclass">'xar-alt'</xar:set>
+            </xar:if>
+            <tr>
+              <td class="#$rowclass#">
+                  <xar:foreach in="$exttypes" key="$k" value="$v">
+                      <xar:if condition="$loop:item['exttype'] eq $k">
+                          #$v#
+                      </xar:if>
+                  </xar:foreach>
+              </td>
+              <td class="#$rowclass#">
+                      #$loop:item['regname']#
+                  </td>
+              <td class="#$rowclass#">
+                      #$loop:item['desc']#
+                  </td>
+                  <td align="center" class="#$rowclass#">
+                <xar:if condition="empty($loop:item['editurl'])">
+                  #$loop:item['edittitle']#
+                <xar:else />
+                  <a href="#$loop:item['editurl']#">#$loop:item['edittitle']#</a>
+                </xar:if>
+                |
+                <xar:if condition="empty($loop:item['deleteurl'])">
+                  #$loop:item['deletetitle']#
+                <xar:else />
+                  <a href="#$loop:item['deleteurl']#">#$loop:item['deletetitle']#</a>
+                </xar:if>
+              </td>
+            </tr>
+          </xar:loop>
+        </table>
+      <br />
+      <!-- add the pager here -->
+      #$pager#
+      </xar:if>
+    </div>
+</xar:template>
