@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xar:template xmlns:xar="http://xaraya.com/2004/blocklayout">
+    <div class="xar-mod-head"><span class="xar-mod-title">Workflow Administration</span></div>
+    <div class="xar-mod-body">
+      <xar:template module="workflow" type="module" file="admin-menu"/>
+
+      <!-- Include the monitoring navigation -->
+      <xar:template module="workflow" file="monitor_bar" type="module"/>
+
+      <form style="margin-left: 1em;" action="#xarModURL('workflow','admin','monitor_processes')#" method="post">
+          <fieldset>
+            <legend>List of processes (#$cant#)</legend>
+              <input type="hidden" name="offset" value="#$offset#"/>
+              <input type="hidden" name="sort_mode" value="#$sort_mode#"/>
+              <table>
+                <tr>
+                  <td><small>process</small></td>
+                  <td><small>active</small></td>
+                  <td><small>valid</small></td>
+                  <td><small>description</small></td>
+                  <td>&#160;</td>
+                </tr>
+
+                <tr>
+                  <td>
+                    <select name="filter_process">
+                      <xar:if condition="'' eq $filter_process">
+                        <option selected="selected" value="">All</option>
+                        <xar:else/>
+                        <option value="">All</option>
+                      </xar:if>
+                      <xar:foreach in="$all_procs" key="$ix">
+                        <xar:if condition="$all_procs[$ix]['pId'] eq $filter_process">
+                          <option selected="selected" value="#$all_procs[$ix]['pId']#">#$all_procs[$ix]['name']# #$all_procs[$ix]['version']#</option>
+                          <xar:else/>
+                          <option value="#$all_procs[$ix]['pId']#">#$all_procs[$ix]['name']# #$all_procs[$ix]['version']#</option>
+                        </xar:if>
+                      </xar:foreach>
+                    </select>
+                  </td>
+                  <td>
+                    <select name="filter_active">
+                      <xar:if condition="'' eq $filter_active">
+                        <option selected="selected" value="">All</option>
+                        <xar:else/>
+                        <option value="">All</option>
+                      </xar:if>
+                      <xar:if condition="1 eq $filter_active">
+                        <option value="1" selected="selected">Active</option>
+                        <xar:else/>
+                        <option value="1">Active</option>
+                      </xar:if>
+                      <xar:if condition="0 eq $filter_active">
+                        <option value="0" selected="selected">Inactive</option>
+                        <xar:else/>
+                        <option value="0">Inactive</option>
+                      </xar:if>
+                    </select>
+                  </td>
+                  <td>
+                    <select name="filter_valid">
+                      <xar:if condition="'' eq $filter_valid">
+                        <option selected="selected" value="">All</option>
+                        <xar:else/>
+                        <option value="">All</option>
+                      </xar:if>
+                      <xar:if condition="1 eq $filter_valid">
+                        <option selected="selected" value="1">Valid</option>
+                        <xar:else/>
+                        <option value="1">Valid</option>
+                      </xar:if>
+                      <xar:if condition="0 eq $filter_valid">
+                        <option selected="selected" value="0">Invalid</option>
+                        <xar:else/>
+                        <option value="0">Invalid</option>
+                      </xar:if>
+                    </select>
+                  </td>
+                  <td><input size="8" type="text" name="find" value="#$find#"/></td>
+                  <td><input type="submit" name="filter" value="#xarML('filter')#"/></td>
+                </tr>
+              </table>
+
+              <table style="border-collapse: separate; width: 99%;">
+                <xar:if condition="!empty($items) and count($items) gt 0">
+                  <tr>
+                    <th><a class="tableheading" href="#xarServer::getCurrentURL(array('sort_mode' => 'name_asc'))#">Process</a></th>
+                    <th>Activities</th>
+                    <th><a class="tableheading" href="#xarServer::getCurrentURL(array('sort_mode' => 'isActive_asc'))#">Active</a></th>
+                    <th><a class="tableheading" href="#xarServer::getCurrentURL(array('sort_mode' => 'isValid_asc'))#">Valid</a></th>
+                    <th>Instances</th>
+                    <th>Duration of completed processes - min/avg/max</th>
+                  </tr>
+                  <xar:foreach in="$items" key="$ix">
+                    <tr>
+                      <td>
+                        <a class="link" href="#xarModURL('workflow','admin','processes',array('pid' => $items[$ix]['pId']))#">#$items[$ix]['name']# #$items[$ix]['version']#</a>
+                      </td>
+                      <td style="text-align:right;">
+                        <a href="#xarModURL('workflow','admin','monitor_activities',array('filter_process' => $items[$ix]['pId']))#" class="link">#$items[$ix]['activities']#</a>
+                      </td>
+                      <td style="text-align:center;">
+                        <xar:if condition="$items[$ix]['isActive']">
+                          <img src="#sys::code()#modules/workflow/lib/galaxia/img/icons/refresh2.gif" alt=" (#xarML('active')#) " title="#xarML('active process')#"/>
+                          <xar:else/>
+                          &#160;
+                        </xar:if>
+                      </td>
+                      <td style="text-align:center;">
+                        <xar:if condition="$items[$ix]['isValid'] eq 0">
+                          <img src="#sys::code()#modules/workflow/lib/galaxia/img/icons/red_dot.gif" alt="(#xarML('invalid')#)" title="#xarML('invalid process')#"/>
+                          <xar:else/>
+                          <img src="#sys::code()#modules/workflow/lib/galaxia/img/icons/green_dot.gif" alt="(#xarML('valid')#)" title="#xarML('valid process')#"/>
+                        </xar:if>
+
+                      </td>
+
+                      <td style="text-align:right;">
+                        <table >
+                          <tr>
+                            <td style="text-align:right;"><a style="color:green;" href="#xarModURL('workflow','admin','monitor_instances',array('filter_process' => $items[$ix]['pId'], 'filter_status' => 'active'))#">#$items[$ix]['active_instances']#</a></td>
+                            <td style="text-align:right;"><a style="color:black;" href="#xarModURL('workflow','admin','monitor_instances',array('filter_process' => $items[$ix]['pId'], 'filter_status' => 'completed'))#">#$items[$ix]['completed_instances']#</a></td>
+                            <td style="text-align:right;"><a style="color:grey;" href="#xarModURL('workflow','admin','monitor_instances',array('filter_process' => $items[$ix]['pId'], 'filter_status' => 'aborted'))#">#$items[$ix]['aborted_instances']#</a></td>
+                            <td style="text-align:right;"><a style="color:red;" href="#xarModURL('workflow','admin','monitor_instances',array('filter_process' => $items[$ix]['pId'], 'filter_status' => 'exception'))#">#$items[$ix]['exception_instances']#</a></td>
+                          </tr>
+                        </table>
+                      </td>
+
+                      <td style="text-align:left;">
+                        <xar:if condition="!empty($items[$ix]['duration'])">
+                          <xar:if condition="!empty($items[$ix]['timescale']['min'])"><img src="#sys::code()#modules/workflow/xarimages/bluepixel.gif" class="xar-noborder" width="#$items[$ix]['timescale']['min']#" height="10" alt="minimum" title="minimum = #$items[$ix]['duration']['min']#"/></xar:if>
+                          <xar:if condition="!empty($items[$ix]['timescale']['avg'])"><img src="#sys::code()#modules/workflow/xarimages/greenpixel.gif" class="xar-noborder" width="#$items[$ix]['timescale']['avg']#" height="10" alt="average" title="average = #$items[$ix]['duration']['avg']#"/></xar:if>
+                          <xar:if condition="!empty($items[$ix]['timescale']['max'])"><img src="#sys::code()#modules/workflow/xarimages/redpixel.gif" class="xar-noborder" width="#$items[$ix]['timescale']['max']#" height="10" alt="maximum" title="maximum = #$items[$ix]['duration']['max']#"/></xar:if>
+                          #$items[$ix]['duration']['avg']#
+                        </xar:if>
+                      </td>
+                    </tr>
+                  </xar:foreach>
+                  <xar:else/>
+                  <tr>
+                    <td colspan="6">
+                      No processes found
+                    </td>
+                  </tr>
+                </xar:if>
+              </table>
+          </fieldset>
+        </form>
+
+        <xar:template file="pager"/>
+        <xar:template file="monitor_stats" type="module"/>
+        <xar:template file="galaxfooter"/>
+
+    </div>
+</xar:template>

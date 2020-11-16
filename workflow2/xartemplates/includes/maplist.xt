@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xar:template xmlns:xar="http://xaraya.com/2004/blocklayout">
+    <div>
+      <fieldset>
+        <legend>List of mappings</legend>
+        <form action="&xar-modurl-workflow-admin-roles;" method="post">
+          <div>
+            <input type="hidden" name="pid" value="#$pid#"/>
+            <input type="hidden" name="offset" value="#$offset#"/>
+            <input type="hidden" name="sort_mode2" value="#$sort_mode2#"/>
+            <input type="hidden" name="sort_mode" value="#$sort_mode#"/>
+            Find:<input size="8" type="text" name="find" value="#$find#"/>
+            <input type="submit" name="filter" value="#xarML('find')#"/>
+          </div>
+        </form>
+        <form action="&xar-modurl-workflow-admin-roles;" method="post">
+          <div>
+            <input type="hidden" name="pid" value="#$pid#"/>
+            <input type="hidden" name="offset" value="#$offset#"/>
+            <input type="hidden" name="find" value="#$find#"/>
+            <input type="hidden" name="sort_mode" value="#$sort_mode#"/>
+            <input type="hidden" name="sort_mode2" value="#$sort_mode2#"/>
+          </div>
+          <table class="xar-halfwidth" style="border-collapse: separate;">
+            <tr>
+              <xar:if condition="$sort_mode eq 'name_desc'">
+                <th>
+                  <a href="&xar-modurl-workflow-admin-roles;&amp;pid=#$pid#&amp;find=#$find#&amp;offset=#$offset#&amp;sort_mode=name_asc">
+                    Role
+                  </a>
+                </th>
+              <xar:else/>
+                <th>
+                  <a href="&xar-modurl-workflow-admin-roles;&amp;pid=#$pid#&amp;find=#$find#&amp;offset=#$offset#&amp;sort_mode=name_desc">
+                    Role
+                  </a>
+                </th>
+              </xar:if>
+              <xar:if condition="$sort_mode eq 'user_desc'">
+                <th>
+                  <a href="&xar-modurl-workflow-admin-roles;&amp;pid=#$pid#&amp;find=#$find#&amp;offset=#$offset#&amp;sort_mode=user_asc">
+                    User
+                  </a>
+                </th>
+              <xar:else/>
+                <th>
+                  <a href="&xar-modurl-workflow-admin-roles;&amp;pid=#$pid#&amp;find=#$find#&amp;offset=#$offset#&amp;sort_mode=user_desc">
+                    User
+                  </a>
+                </th>
+              </xar:if>
+            </tr>
+            <xar:if condition="!empty($mapitems) and count($mapitems) gt 0">
+              <xar:foreach in="$mapitems" key="$ix">
+                <xar:set name="rowclass">'xar-norm'</xar:set>
+                <xar:if condition="$ix % 2">
+                  <xar:set name="rowclass">'xar-alt'</xar:set>
+                </xar:if>
+                <tr class="#$rowclass#">
+                  <td>
+                      <xar:if condition="isset($mapitems[$ix]['roleId'])">
+                          <input type="checkbox" name="map[#$mapitems[$ix]['userId']#:::#$mapitems[$ix]['roleId']#]"/>
+                      </xar:if>&#160;
+                    #$mapitems[$ix]['name']#
+                  </td>
+                  <td>
+                    <xar:if condition="$mapitems[$ix]['user'] eq ''">
+                      "Anonymous"
+                    <xar:elseif condition="$mapitems[$ix]['login'] eq $mapitems[$ix]['user']"/>
+                      #$mapitems[$ix]['user']#
+                    <xar:else/>
+                      [#$mapitems[$ix]['login']#] #$mapitems[$ix]['user']#
+                    </xar:if>
+                  </td>
+                </tr>
+              </xar:foreach>
+            <xar:else/>
+              <tr><td colspan="3">No mappings defined yet</td>
+              </tr>
+            </xar:if>
+          </table>
+          <div class="xar-form-input-wrapper-after">
+              <xar:var name="label">Delete selected</xar:var>
+              <xar:button type="submit" name="delete_map" label="$label"/>
+          </div>
+        </form>
+      </fieldset>
+      <!-- Show the pager -->
+      <xar:template file="pager"/>
+    </div>
+</xar:template>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xar:template xmlns:xar="http://xaraya.com/2004/blocklayout">
+    <div class="xar-mod-head">
+      <span class="xar-mod-title">
+        Workflow Module
+      </span>
+      <xar:template file="user_bar" type="module"/>
+    </div>
+  <div class="xar-mod-body">
+    <h3>
+      Activity Completed
+    </h3>
+    <div class="xar-norm-outline" style="padding: 0.5em 1em 0.5em; margin: auto;">
+      <table style="border-collapse: separate;">
+        <tr>
+          <th>
+            Process
+          </th>
+          <th>
+            Version
+          </th>
+          <th>
+            Activity
+          </th>
+        </tr>
+        <tr>
+          <td>#$procname#</td>
+          <td style="text-align: right;">#$procversion#</td>
+          <td>#$actname#</td>
+        </tr>
+      </table>
+    </div>
+    <xar:template file="galaxfooter"/>
+  </div>
+</xar:template>

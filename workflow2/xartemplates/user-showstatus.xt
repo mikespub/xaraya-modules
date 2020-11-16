@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xar:template xmlns:xar="http://xaraya.com/2004/blocklayout">
+    <!-- This is the template which will be shown when there is
+         a xar:workflow-status tag somewhere in the code
+         The ideas is to use a layout attribute in the tag to select the proper layout
+    -->
+    <xar:if condition="empty($layout) or $layout eq 'default'">
+      <xar:if condition="empty($title)">
+        <xar:set name="title">'Workflow processes initiated by me'</xar:set>
+      </xar:if>
+      <fieldset>
+        <legend>
+          #$title#
+        </legend>
+        <!-- Include the default layout for the xar:workflow-status tag -->
+        <xar:template file="workflowlist"/>
+      </fieldset>
+    <xar:else/>
+      <!-- Layout apparently had a value -->
+      Trying to use layout : #$layout#
+      Not implemented yet
+      This layout is undefined - please specify it in modules/workflow/xartemplates/user-showstatus.xd
+    </xar:if>
+</xar:template>

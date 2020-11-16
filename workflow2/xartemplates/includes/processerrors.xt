@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xar:template xmlns:xar="http://xaraya.com/2004/blocklayout">
+  <xar:if condition="$pid gt 0">
+<!-- If this process is incomplete show a list of things which need fixing befor the process is valid -->
+    <fieldset>
+      <legend>
+        <xar:if condition="$proc_info['isValid']">
+          <xar:var name="validtext">
+            valid
+          </xar:var>
+          <img src="#sys::code()#modules/workflow/lib/galaxia/img/icons/green_dot.gif" alt="#xarML('valid')#" title="#xarML('valid')#"/>
+          <xar:else/>
+          <xar:var name="validtext">
+            invalid
+          </xar:var>
+          <img src="#sys::code()#modules/workflow/lib/galaxia/img/icons/red_dot.gif" alt="#xarML('invalid')#" title="#xarML('invalid')#"/>
+        </xar:if>
+        This process is: 
+        <xar:var name="validtext"/>
+      </legend>
+      <xar:if condition="count($errors) gt 0">
+        <xar:loop name="$errors" key="$ix">
+          <xar:set name="rowclass">'xar-norm'</xar:set>
+          <xar:if condition="$loop:index % 2">
+            <xar:set name="rowclass">'xar-alt'</xar:set>
+          </xar:if>
+          <small class="#$rowclass#">#$loop:item#</small>
+          <br/>
+        </xar:loop>
+        <xar:else/>
+        <small class="xar-norm">
+          No process errors detected
+        </small>
+      </xar:if>
+    </fieldset>
+  </xar:if>
+</xar:template>
