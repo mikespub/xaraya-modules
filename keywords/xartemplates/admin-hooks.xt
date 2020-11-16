@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xar:template xmlns:xar="http://xaraya.com/2004/blocklayout">
+    <!-- License: GPL http://www.gnu.org/copyleft/gpl.html -->
+    <xar:template type="module" module="keywords" file="admin-mod-head"/>
+    <div class="xar-mod-body">
+        <h2>Configure Keywords Hooks</h2>
+        <xar:set name="url">#xarModURL('keywords','admin','hooks')#</xar:set>
+        <xar:module main="false" module="modules" type="admin" func="hooks" curhook="keywords" return_url="$url"/>
+    </div>
+</xar:template>

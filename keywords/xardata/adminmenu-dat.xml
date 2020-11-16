@@ -1,0 +1,39 @@
+<menu>
+    <menuitems>
+        <menuitem>
+            <includes>
+                <includeitem>main</includeitem>
+                <includeitem>overview</includeitem>
+            </includes>
+            <target>main</target>
+            <label>Overview</label>
+        </menuitem>
+        <menuitem>
+            <mask>ManageKeywords</mask>
+            <includes>
+                <includeitem>view</includeitem>
+            </includes>
+            <target>view</target>
+            <title>Overview of keywords listings</title>
+            <label>View Keywords</label>
+        </menuitem>
+        <menuitem>
+            <mask>ManageKeywords</mask>
+            <includes>
+                <includeitem>hooks</includeitem>
+            </includes>
+            <target>hooks</target>
+            <title>Configure hooks from this module</title>
+            <label>Manage Hooks</label>
+        </menuitem>
+        <menuitem>
+            <mask>AdminKeywords</mask>
+            <includes>
+                <includeitem>modifyconfig</includeitem>
+            </includes>
+            <target>modifyconfig</target>
+            <title>Modify the configuration settings of this module</title>
+            <label>Modify Configuration</label>
+        </menuitem>
+    </menuitems>
+</menu>

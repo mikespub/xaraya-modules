@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xar:template xmlns:xar="http://xaraya.com/2004/blocklayout">
+    <xar:template file="user-mod-head"/>
+    <div class="xar-mod-body">
+        <h2>Search in Keywords</h2>
+        <xar:if condition="!empty($keys) AND (count($keys) gt 0)">
+            <fieldset>
+                <legend>Keywords Found</legend>
+                <ul>
+                    <xar:foreach in="$keys" key="$id" value="$item">
+                        <li><a href="#xarModURL('keywords', 'user', 'view', array('keyword' => $item['keyword']))#">#$item['keyword']#</a> (#$item['count']#)</li>
+                    </xar:foreach>
+                </ul>
+            </fieldset>
+        <xar:else/>
+            <p>
+                <xar:ml>
+                    <xar:mlstring>
+                        No keywords found that matched "#(1)"
+                    </xar:mlstring>
+                    <xar:mlvar>
+                        #$search#
+                    </xar:mlvar>
+                </xar:ml>
+            </p>
+        </xar:if>
+    </div>
+</xar:template>
