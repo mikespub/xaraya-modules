@@ -1,0 +1,23 @@
+<menu>
+    <menuitems>
+    <!--
+        <menuitem>
+            <includes>
+                <includeitem>main</includeitem>
+                <includeitem>overview</includeitem>
+            </includes>
+            <target>main</target>
+            <label>Overview</label>
+        </menuitem>
+    -->
+        <menuitem>
+            <mask>AdminMime</mask>
+            <includes>
+            <includeitem>view</includeitem>
+            </includes>
+            <target>view</target>
+            <title>Manage the master tables of this module</title>
+            <label>Master Tables</label>
+        </menuitem>
+  </menuitems>
+</menu>
