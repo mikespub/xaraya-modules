@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xar:template xmlns:xar="http://xaraya.com/2004/blocklayout">
+<!-- License: GPL http://www.gnu.org/copyleft/gpl.html -->
+    <xar:template file="admin-mod-head"/>
+    <div class="xar-mod-body">
+        <h2>View Statistics</h2><br />
+        <xar:if condition="empty($modid)">
+            <table class="xar-fullwidth">
+                <tr>
+                    <th>
+                        Module Name
+                    </th>
+                    <th>
+                        Module Items
+                    </th>
+                    <th>
+                        Total Ratings
+                    </th>
+                    <th>
+                        Action
+                    </th>
+                </tr>
+                <xar:if condition="empty($moditems) or count($moditems) eq '0'">
+                    <tr>
+                        <td colspan="4" align="center">
+                            
+                                There are currently no ratings in the database...
+                            
+                        </td>
+                    </tr>
+                <xar:else />
+                    <xar:foreach in="$moditems" value="$moditem">
+                        <tr>
+                               <td class="xar-align-center">
+                                <a href="#$moditem['link']#">#$moditem['name']#</a>
+                            </td>
+                                <td class="xar-align-center">
+                                #$moditem['numitems']#
+                            </td>
+                                <td class="xar-align-center">
+                                #$moditem['numratings']#
+                            </td>
+                                <td class="xar-align-center">
+                                <a href="#$moditem['delete']#"><b>Delete</b></a>
+                            </td>
+                        </tr>
+                    </xar:foreach>
+                    <tr>
+                            <td class="xar-align-center">
+                            <b>Grand Total</b>
+                        </td>
+                            <td class="xar-align-center">
+                            <b>#$numitems#</b>
+                        </td>
+                            <td class="xar-align-center">
+                            <b>#$numratings#</b>
+                        </td>
+                            <td class="xar-align-center">
+                            <a href="#$delete#">Delete All</a>
+                        </td>
+                    </tr>
+                </xar:if>
+                <tr>
+                    <td colspan="4">
+                            <div class="xar-accent xar-norm-outline xar-padding-thick">
+                            
+                                By clicking on <b>Delete</b> you can delete all ratings associated with a particular
+                                module. Clicking on a module will take you to that module's statistics page containing
+                                the figures for each of that module's items that have ratings associated with them.
+                                From there you can delete all ratings associated with a particular item.
+                            
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        <xar:else/>
+                <h3>
+                    <xar:ml><xar:mlstring>Module #(1)</xar:mlstring><xar:mlvar>#$modname#</xar:mlvar></xar:ml>
+                </h3>
+                <table class="xar-fullwidth">
+                    <tr>
+                        <th>
+                            <xar:if condition="empty($sortlink['itemid'])">
+                                Item Id
+                            <xar:else/>
+                                <a href="#$sortlink['itemid']#">Item Id</a>
+                            </xar:if>
+                        </th>
+                        <th>
+                            <xar:if condition="empty($sortlink['numratings'])">
+                                Total Ratings
+                            <xar:else/>
+                                <a href="#$sortlink['numratings']#">Total Ratings</a>
+                            </xar:if>
+                        </th>
+                        <th>
+                            <xar:if condition="empty($sortlink['rating'])">
+                                Current Rating
+                            <xar:else/>
+                                <a href="#$sortlink['rating']#">Current Rating</a>
+                            </xar:if>
+                        </th>
+                        <th>
+                            Action
+                        </th>
+                    </tr>
+                    <xar:if condition="empty($moditems) or count($moditems) eq '0'">
+                        <tr>
+                            <td colspan="4" align="center">
+                                
+                                    There are currently no ratings attached to this module...
+                                
+                            </td>
+                        </tr>
+                    <xar:else />
+                        <xar:foreach in="$moditems" key="$itemid" value="$moditem">
+                            <tr>
+                                <td class="xar-align-center">
+                                    #$itemid#
+                                </td>
+                                <td class="xar-align-center">
+                                    #$moditem['numratings']#
+                                </td>
+                                <td class="xar-align-center">
+                                    #$moditem['rating']#
+                                </td>
+                                <td class="xar-align-center">
+                                    <a href="#$moditem['delete']#"><b>Delete</b></a>
+                                </td>
+                            </tr>
+                        </xar:foreach>
+                        <tr>
+                            <td class="xar-align-center">
+                                <b>Grand Total</b>:
+                            </td>
+                            <td class="xar-align-center">
+                                <b>#$numratings#</b>
+                            </td>
+                            <td class="xar-align-center">
+                                <b>N/A</b>
+                            </td>
+                            <td class="xar-align-center">
+                                <a href="#$delete#">Delete All</a>
+                            </td>
+                        </tr>
+                    </xar:if>
+                    <tr>
+                        <td colspan="4">
+                            <div class="xar-accent xar-norm-outline xar-padding-thick">
+                                
+                                    By clicking on <b>Delete</b> you can delete all ratings associated with a particular
+                                    module's item.
+                                
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+        </xar:if>
+    </div>
+</xar:template>
