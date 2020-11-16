@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xar:template xmlns:xar="http://xaraya.com/2004/blocklayout">
+    <xar:template file="admin-mod-head"/>
+    <div class="xar-mod-body">
+        <h2>Batch Operations</h2>
+        <xar:template file="admin-settings" type="module"/>
+        <h4>Possible operations</h4>
+        <p>
+          <ol>
+            <li>Generating / updating skeletons for core and all extensions</li>
+            <li>Generating the translation for core and all extensions
+
+            </li>
+            <li>Packaging the generated translations in a downloadable archives</li>
+          </ol>
+          To generate all skeletons for all modules, use the button below:
+        </p>
+
+        <form method="post" name="post" id="post" action="#xarModURL('translations', 'admin', 'generate_skels_result')#">
+            <input type="hidden" name="dnType" value="3"/>
+            <input type="hidden" name="dnName" value="modules"/>
+            <input type="hidden" name="extid" value="1"/>
+            <input type="hidden" name="dnTypeAll" value="true"/>
+            <xar:var name="label">Generate all module skeletons</xar:var>
+            <xar:button type="submit" label="$label"/>
+        </form>
+    </div>
+</xar:template>

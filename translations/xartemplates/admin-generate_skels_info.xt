@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xar:template xmlns:xar="http://xaraya.com/2004/blocklayout">
+    <!-- License: GPL http://www.gnu.org/copyleft/gpl.html -->
+    <xar:template file="admin-mod-head"/>
+    <div class="xar-mod-body">
+        <h2>Generate Skels</h2>
+        <xar:template file="admin-settings" type="module"/>
+
+        <!-- Show progress -->
+        <xar:template type="module" file="druidbar"/>
+        <h4>
+          <xar:ml>
+            <xar:mlstring>Generating a skeleton for #(1) #(2)</xar:mlstring>
+            <xar:mlvar>#$dnTypeText#</xar:mlvar>
+            <xar:mlvar>#$dnName#</xar:mlvar>
+          </xar:ml>
+        </h4>
+    
+        <p>
+        Now we're going to generate skels, this operation could take several minutes. Just take a break!
+        </p>
+        <form method="post" name="post" id="post" action="#xarModURL('translations', 'admin', 'generate_skels_result')#">
+            <input type="hidden" id="dnType" name="dnType" value="#$dnType#"/>
+            <input type="hidden" id="dnName" name="dnName" value="#$dnName#"/>
+            <input type="hidden" id="extid" name="extid" value="#$extid#"/>
+            <input type="hidden" id="authid" name="authid" value="#xarSecGenAuthKey()#"/>
+            
+            <xar:var name="label">Go</xar:var>
+            <xar:button type="submit" label="$label"/>
+        </form>
+        <br />
+        <xar:template type="module" file="opbar"/>
+    </div>
+</xar:template>

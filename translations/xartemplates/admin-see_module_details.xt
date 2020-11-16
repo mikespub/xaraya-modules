@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xar:template xmlns:xar="http://xaraya.com/2004/blocklayout">
+#$druidbar#
+<br />
+Module name: #$displayname#<br />
+Module original name: #$name#<br />
+Module version: #$version#<br />
+<br />
+Make a choice:<br />
+<br />
+#$opbar#
+</xar:template>

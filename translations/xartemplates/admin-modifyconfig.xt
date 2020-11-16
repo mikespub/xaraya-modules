@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xar:template xmlns:xar="http://xaraya.com/2004/blocklayout">
+    <!-- License: GPL http://www.gnu.org/copyleft/gpl.html -->
+    <xar:base-include-javascript module="base" filename="formcheck.js"/>
+    <xar:style file="navtabs" module="base" scope="module"/>
+    <xar:template file="admin-mod-head"/>
+    <div class="xar-mod-page-head">
+        <h2>Modify Translations Configuration</h2>
+    </div>
+    <div class="xar-mod-body">
+        <xar:set name="xmldata">'modifyconfig'</xar:set>
+        <xar:template type="module" module="base" file="admin-menu-skel"/>
+
+        <!-- Begin Display Options -->
+        <xar:if condition="$tab eq 'general'">
+            <form action="#xarServer::getCurrentURL()#" method="post" onsubmit="return xar_base_formCheck(this, base_fieldRequired, base_fieldDescription);" enctype="application/x-www-form-urlencoded">
+                <h3>
+                    General Options
+                </h3>
+                <fieldset>
+                    <legend>General Settings</legend>
+                    <xar:data-form object="$module_settings" />
+                </fieldset>
+                <input type="hidden" name="tab" id="tab" value="#$tab#"/>
+                <xar:template file="update-button" module="base" />
+            </form>
+        <xar:elseif condition="$tab eq 'display'"/>
+            <form action="#xarModURL('translations','admin','updateconfig')#" method="post" onsubmit="return xar_base_formCheck(this, base_fieldRequired, base_fieldDescription);" enctype="application/x-www-form-urlencoded">
+                <fieldset>
+                    <legend>Display during translation</legend>
+
+                    <p class="xar-form-input-wrapper-before">
+                        While translating you will be confronted with a lot of information. The settings below allow you to configure if references to the English string are added to the skeleton and how they are displayed during translation.
+                    </p>
+
+                  <div class="xar-form-input-wrapper-after">
+                        <xar:if condition="$showcontext">
+                            <input id="showcontext" type="checkbox" name="showcontext" checked="checked"/>
+                        <xar:else/>
+                            <input id="showcontext" type="checkbox" name="showcontext"/>
+                        </xar:if>
+                        <label for="showcontext" title="#xarML('Show a bit of context for the translation. This could be helpfull for determining the exact translation')#">
+                            Show a context
+                        </label>
+                 </div>
+                 <div class="xar-form-input-wrapper">
+                    <label for="maxreferences" class="xar-form-label" title="#xarML('References per translation string')#">
+                        References per translation string
+                    </label>:
+                    <input type="text" name="maxreferences" value="#$maxreferences#" size="3" maxlength="3"/>
+                    <small> (0 generates no references.)</small>
+                </div>
+
+                    <div class="xar-form-input-wrapper">
+                    <label for="maxcodelines" class="xar-form-label" title="#xarML('Number of lines to display as context')#">
+                        Number of lines around each 
+                    </label>:
+                    <input type="text" name="maxcodelines" value="#$maxcodelines#" size="3" maxlength="3"/>
+                </div>
+                </fieldset>
+                <input type="hidden" name="tab" id="tab" value="#$tab#"/>
+                <xar:template file="update-button" module="base" />
+            </form>
+
+        <!-- Begin Release Options -->
+        <xar:elseif condition="$tab eq 'release'"/>
+            <form action="#xarModURL('translations','admin','updateconfig')#" method="post" onsubmit="return xar_base_formCheck(this, base_fieldRequired, base_fieldDescription);" enctype="application/x-www-form-urlencoded">
+                <fieldset>
+                    <legend>Translations storage</legend>
+                    <p class="xar-form-input-wrapper-before">
+                    The translated information for Xaraya and her modules can be stored in different back-ends. The following back-ends are supported:</p>
+
+                <div class="xar-form-input-wrapper">
+                    <label for="releasebackend" class="xar-form-label" title="#xarML('Release Backend')#">
+                        Release Backend
+                    </label>:
+                    <xar:set name="options">
+                        array(
+                            array('id' => 'xml', 'name' => xarML('XML (good for interoperability)')),
+                            array('id' => 'php', 'name' => xarML('PHP (good for programmed access)')),
+                        )
+                    </xar:set>
+                    <xar:set name="value">
+                        xarModVars::get('translations', 'release_backend_type')
+                    </xar:set>                    
+                    <xar:data-input type="dropdown" name="releasebackend" value="$value" options="$options"/>
+                    &#160;(only PHP allowed for now)
+                </div>
+                </fieldset>
+                <input type="hidden" name="tab" id="tab" value="#$tab#"/>
+                <xar:template file="update-button" module="base" />
+            </form>
+        </xar:if>
+    </div>
+</xar:template>
