@@ -1,0 +1,91 @@
+<xar:template xmlns:xar="http://xaraya.com/2004/blocklayout">
+<xar:comment> License: GPL http://www.gnu.org/copyleft/gpl.html </xar:comment>
+<xar:style scope="module" module="sitetools" file="forms" />
+
+<div class="xar-mod-head">
+    <span class="xar-mod-title">
+        <xar:mlstring>SiteTools Administration</xar:mlstring>
+    </span>
+</div>
+<div class="xar-mod-body">
+    <xar:template type="module" file="admin-menu" />
+    <h2>
+        <xar:mlstring>Clear Cache Files</xar:mlstring>
+    </h2>
+    <xar:if condition="$delfin eq false">
+        <xar:set name="confirmbutton"><xar:mlstring>Confirm deletion</xar:mlstring></xar:set>
+        <xar:set name="adocache"><xar:mlstring>ADODB Cache?</xar:mlstring></xar:set>
+        <xar:set name="rsscache"><xar:mlstring>RSS Cache?</xar:mlstring></xar:set>
+        <xar:set name="templcache"><xar:mlstring>Template Cache?</xar:mlstring></xar:set>
+        <xar:set name="confirmtxt"><xar:mlstring>Please choose the cache files you wish to delete and check directory paths.</xar:mlstring></xar:set>
+        <xar:set name="adopathc">$adopath</xar:set>
+        <xar:set name="rsspathc">$rsspath</xar:set>
+        <xar:set name="templpathc">$templpath</xar:set>
+        <xar:set name="allfiles"><xar:mlstring>All files and subdirs in </xar:mlstring></xar:set>
+        <xar:set name="configpage"><xar:mlstring>CLICK to set cache paths in SiteTools Configuration</xar:mlstring></xar:set>
+        <xar:set name="response"><xar:mlstring>Check your selection before continuing.</xar:mlstring></xar:set>
+
+    <form action="&xar-modurl-sitetools-admin-deletecache;" method="post" enctype="application/x-www-form-urlencoded">
+        <input type="hidden" name="authid" id="authid" value="#$authid#" />
+        <input type="hidden" name="confirm" id="confirm" value="true" />
+        <fieldset>
+            <legend><xar:mlstring>Available Caches</xar:mlstring></legend>
+            <div class="xar-form-input-wrapper-after">
+                #$confirmtxt#
+            </div>
+            <div class="xar-form-input-wrapper">
+                <label for="delado" class="xar-form-label" title="#xarML('Check to delete your ADODB cache files in path ')# #$adopathc#">
+                    #$adocache#
+                </label>
+                <xar:if condition="!empty($delado)">
+                    <input type="checkbox" value="1" name="delado" checked="checked" />
+                <xar:else />
+                    <input type="checkbox" value="1" name="delado" />
+                </xar:if>
+                #$allfiles# <strong>#$adopathc#</strong>
+            </div>
+
+            <div class="xar-form-input-wrapper">
+                <label for="delrss" class="xar-form-label" title="#xarML('Check to delete your RSS cache files in path ')# #$rsspathc#">
+                    #$rsscache#
+                </label>
+                <xar:if condition="!empty($delrss)">
+                    <input type="checkbox" value="1" name="delrss" checked="checked" />
+                <xar:else />
+                    <input type="checkbox" value="1" name="delrss" />
+                </xar:if>
+                 #$allfiles# <strong>#$rsspathc#</strong>
+            </div>
+
+            <div class="xar-form-input-wrapper">
+                <label for="deltempl" class="xar-form-label" title="#xarML('Check to delete your Template cache files in path ')# #$templpathc#">
+                    #$templcache#
+                </label>
+                <xar:if condition="!empty($deltempl)">
+                    <input type="checkbox" value="1" name="deltempl" checked="checked" />
+                <xar:else />
+                    <input type="checkbox" value="1" name="deltempl" />
+                </xar:if>
+                #$allfiles# <strong>#$templpathc#</strong>
+            </div>
+        </fieldset>
+        <fieldset>
+            <div class="xar-form-input-wrapper-after">
+                <input type="submit" value="#$confirmbutton#"  />
+            </div>
+            <div class="xar-form-input-wrapper-after">
+                  #$response#
+            </div>
+            <div class="xar-form-input-wrapper-after">
+                 <a href="&xar-modurl-sitetools-admin-modifyconfig;">#$configpage#</a>
+            </div>
+        </fieldset>
+    </form>
+     <xar:elseif condition="$delfin eq true" />
+    <xar:set name="response"><xar:mlstring>Cache files successfully deleted!</xar:mlstring></xar:set>
+        <div class="xar-form-input-wrapper-after">
+              #$response#
+        </div>
+    </xar:if>
+</div>
+</xar:template>

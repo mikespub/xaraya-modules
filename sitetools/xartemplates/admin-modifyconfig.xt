@@ -1,0 +1,196 @@
+<xar:template xmlns:xar="http://xaraya.com/2004/blocklayout">
+<xar:set name="updatebutton"><xar:mlstring>Update configuration</xar:mlstring></xar:set>
+<xar:set name="adocachel"><xar:mlstring>ADOdb Cache Path:</xar:mlstring></xar:set>
+<xar:set name="rsscachel"><xar:mlstring>RSS Cache Path:</xar:mlstring></xar:set>
+<xar:set name="templcachel"><xar:mlstring>Template Cache Path:</xar:mlstring></xar:set>
+<xar:set name="backuppathl"><xar:mlstring>Backup Path:</xar:mlstring></xar:set>
+<xar:set name="timestampl"><xar:mlstring>Use timestamp in backup filename:</xar:mlstring></xar:set>
+<xar:set name="dbprefixl"><xar:mlstring>Use database prefix in backup table create sql:</xar:mlstring></xar:set>
+
+<xar:set name="lineopl"><xar:mlstring>Line termination type:</xar:mlstring></xar:set>
+<xar:set name="cacheoptions"><xar:mlstring>Cache Options</xar:mlstring></xar:set>
+<xar:set name="backupoptions"><xar:mlstring>Backup Options</xar:mlstring></xar:set>
+<xar:set name="updatenote"><xar:mlstring>The default cache paths are entered below. 
+                Change them only if you have changed default cache directory paths.
+                Note there is no trailing slash in the path names.</xar:mlstring></xar:set>
+<xar:set name="backupnote"><xar:mlstring>Check the following carefully, and correct them if necessary.</xar:mlstring></xar:set>
+<xar:set name="defado"><xar:mlstring>Default ADOdb Cache path is </xar:mlstring></xar:set>
+<xar:set name="defrss"><xar:mlstring>Default RSS Cache path is </xar:mlstring></xar:set>
+<xar:set name="deftem"><xar:mlstring>Default Template Cache path is </xar:mlstring></xar:set>
+<xar:set name="bkup"><xar:mlstring>Relative path from your root document directory to the backup directory on your server, where backup files will be created. It must be writeable chmod 777. No trailing slash.</xar:mlstring></xar:set>
+<xar:set name="tshelp"><xar:mlstring>If checked a time stamp will be added to the backup file name.</xar:mlstring></xar:set>
+<xar:set name="dbprefixhelp"><xar:mlstring>If checked the database name will prefix all table names in the backup file sql table create statements.</xar:mlstring></xar:set>
+<xar:set name="lineoption1"><xar:mlstring>*nix (default)</xar:mlstring></xar:set>
+<xar:set name="lineoption2"><xar:mlstring>Windows</xar:mlstring></xar:set>
+<xar:set name="lineoption3"><xar:mlstring>Macintosh</xar:mlstring></xar:set>
+<xar:set name="linehelp"><xar:mlstring>Line terminator - dependent on your database server environment. The *nix option should be fine for most systems. Older systems may require specific selection.</xar:mlstring></xar:set>
+<xar:set name="colnumhelp"><xar:mlstring>Number of columns used to list database tables</xar:mlstring></xar:set>
+<xar:set name="colnumberlabel"><xar:mlstring>No. of columns in database table display:</xar:mlstring></xar:set>
+<xar:set name="defaultbktypel"><xar:mlstring>Default Backup Type used with Scheduler:</xar:mlstring></xar:set>
+<xar:set name="bkdefaulthelp"><xar:mlstring>This is the default backup type, used by default with the Scheduler module.</xar:mlstring></xar:set>
+<xar:set name="bkoption1"><xar:mlstring>*Full backup - complete inserts (default)</xar:mlstring></xar:set>
+<xar:set name="bkoption2"><xar:mlstring>Full backup - standard inserts</xar:mlstring></xar:set>
+<xar:set name="bkoption3"><xar:mlstring>Structure only</xar:mlstring></xar:set>
+
+<xar:set name="schedulingoptions"><xar:mlstring>Scheduling Options</xar:mlstring></xar:set>
+<xar:set name="schedulingoff"><xar:mlstring>not scheduled</xar:mlstring></xar:set>
+<xar:set name="schedulinghelp"><xar:mlstring>Specify how often this job should be executed</xar:mlstring></xar:set>
+<xar:set name="schedulingnote"><xar:mlstring>Please note that if you stop the scheduler or if it isn&#92;t triggered, these jobs will not be executed.</xar:mlstring></xar:set>
+
+<div class="xar-mod-head">
+    <span class="xar-mod-title"><xar:mlstring>Site Tools Administration</xar:mlstring></span>
+</div>
+<div class="xar-mod-body">
+    <xar:template type="module" file="admin-menu" />
+    <h2><xar:mlstring>Modify Configuration</xar:mlstring></h2>
+    <form action="&xar-modurl-sitetools-admin-updateconfig;" method="post" enctype="application/x-www-form-urlencoded">
+        <input type="hidden" name="authid" id="authid" value="#$authid#" />
+
+        <fieldset>
+            <legend>#$cacheoptions#</legend>
+            <div class="xar-form-input-wrapper-after">
+                #$updatenote#
+            </div>
+
+            <div class="xar-form-input-wrapper">
+                <label for="adopath" class="xar-form-label" title="#$defado# #$defadopath#">
+                        #$adocachel#
+                </label>
+                <input type="text" name="adopath" id="adopath" size="40" maxlength="128" value="#$adopath#" />
+            </div>
+
+            <div class="xar-form-input-wrapper">
+                <label for="rsspath" class="xar-form-label" title="#$defrss# #$defrsspath#">
+                    #$rsscachel#
+                </label>
+                <input type="text" name="rsspath" id="rsspath" size="40" maxlength="128" value="#$rsspath#" />
+            </div>
+
+            <div class="xar-form-input-wrapper">
+                <label for="templpath" class="xar-form-label" title="#$deftem# #$deftemplpath#">
+                       #$templcachel#
+                </label>
+                <input type="text" name="templpath" id="templpath" size="40" maxlength="128" value="#$templpath#" />
+            </div>
+       </fieldset>
+       <fieldset>
+           <legend>#$backupoptions#</legend>
+               <div class="xar-form-input-wrapper">
+                   <label for="backuppath" class="xar-form-label" title="#$bkup#">
+                       #$backuppathl#
+                   </label>
+                   <input type="text" name="backuppath" id="backuppath" size="60" maxlength="128" value="#$backuppath#" />
+                   <div class="xar-form-input-wrapper-after">
+                        <xar:mlstring>Must be writeable chmod 777</xar:mlstring>
+                   </div>
+               </div>
+
+               <div class="xar-form-input-wrapper">
+                    <label for="usetimestamp" class="xar-form-label" title="#$tshelp#">
+                           #$timestampl#
+                    </label>
+                    <xar:if condition="$usetimestamp eq 1">
+                        <input type="checkbox" name="usetimestamp" id="usetimestamp" value="1" checked="checked" />
+                    <xar:else />
+                        <input type="checkbox" name="usetimestamp" id="usetimestamp" value="1" />
+                    </xar:if>
+                </div>
+
+                <div class="xar-form-input-wrapper">
+                    <label for="usedbprefix" class="xar-form-label" title="#$dbprefixhelp#">
+                        #$dbprefixl#
+                    </label>
+                    <xar:if condition="$usedbprefix eq 1">
+                        <input type="checkbox" name="usedbprefix" id="usedbprefix" value="1" checked="checked" />
+                    <xar:else />
+                        <input type="checkbox" name="usedbprefix" id="usedbprefix" value="1" />
+                    </xar:if>
+                </div>
+
+               <div class="xar-form-input-wrapper">
+                    <label for="colnumber" class="xar-form-label" title="#$colnumhelp#">
+                        #$colnumberlabel#
+                    </label>
+                    <input type="text" name="colnumber" id="colnumber" size="2" maxlength="3" value="#$colnumber#" />
+                </div>
+
+              <xar:comment> Later if required
+              <div class="xar-form-input-wrapper">
+                  <label for="lineoption" class="xar-form-label" title="#$linehelp#">
+                       #$lineopl#
+                  </label>
+                  <select name="lineterm" id="lineterm" size="1" tabindex="1">
+                  <xar:if condition="xarModVars::get('sitetools', 'lineterm') eq '\n'">
+                      <option value="\n" selected="selected">#$lineoption1#</option>
+                      <option value="\n\r">#$lineoption2#</option>
+                      <option value="\r">#$lineoption3#</option>
+                   <xar:elseif condition="xarModVars::get('sitetools', 'lineterm') eq '\n\r'" />
+                       <option value="\n">#$lineoption1#</option>
+                       <option value="\n\r" selected="selected">#$lineoption2#</option>
+                       <option value="\r">#$lineoption3#</option>
+                   <xar:elseif condition="xarModVars::get('sitetools', 'lineterm') eq '\r'" />
+                       <option value="\n">#$lineoption1#</option>
+                       <option value="\n\r">#$lineoption2#</option>
+                       <option value="\r" selected="selected">#$lineoption3#</option>
+                   </xar:if>
+                   </select>
+             </div>
+             </xar:comment>
+        </fieldset>
+        <fieldset>
+            <legend>#$schedulingoptions#</legend>
+            <xar:if condition="xarModIsAvailable('scheduler')">
+            <div class="xar-form-input-wrapper">
+                <label for="defaultbktype" class="xar-form-label" title="#$bkdefaulthelp#">
+                        #$defaultbktypel#
+                </label>
+                <select name="defaultbktype" id="defaultbktype">
+                <xar:if condition="xarModVars::get('sitetools', 'defaultbktype') eq 'complete'">
+                    <option value="complete" selected="selected">#$bkoption1#</option>
+                    <option value="standard">#$bkoption2#</option>
+                    <option value="structure">#$bkoption3#</option>
+                <xar:elseif condition="xarModVars::get('sitetools', 'defaultbktype') eq 'standard'" />
+                    <option value="complete">#$bkoption1#</option>
+                    <option value="standard" selected="selected">#$bkoption2#</option>
+                    <option value="structure">#$bkoption3#</option>
+                <xar:elseif condition="xarModVars::get('sitetools', 'defaultbktype') eq 'structure'" />
+                    <option value="complete">#$bkoption1#</option>
+                    <option value="standard">#$bkoption2#</option>
+                    <option value="structure" selected="selected">#$bkoption3#</option>
+                </xar:if>
+                </select>
+            </div>
+             <xar:foreach in="$schedule" key="$what" value="$descr">
+             <div class="xar-form-input-wrapper">
+                 <label for="interval_#$what#" class="xar-form-label" title="#$schedulinghelp#">
+                    #$descr#
+                 </label>
+                 <select name="interval[#$what#]" id="interval_#$what#">
+                     <option value="">#$schedulingoff#</option>
+                     <xar:foreach in="$intervals" key="$name" value="$display">
+                         <xar:if condition="!empty($interval[$what]) and $interval[$what] eq $name">
+                            <option value="#$name#" selected="selected">#$display#</option>
+                         <xar:else/>
+                            <option value="#$name#">#$display#</option>
+                         </xar:if>
+                     </xar:foreach>
+                 </select>
+             </div>
+             </xar:foreach>
+            <div class="xar-form-input-wrapper-after">
+                #$schedulingnote#
+            </div>
+        <xar:else />
+            <div class="xar-form-input-wrapper-after">
+                <xar:mlstring>Please install and activate the Scheduler module to enable scheduling.</xar:mlstring>
+           </div>
+        </xar:if>
+        </fieldset>
+        <fieldset>
+            <div class="xar-form-input-wrapper-after">
+                <input type="submit" value="#$updatebutton#" />
+            </div>
+        </fieldset>
+    </form>
+</div>
+</xar:template>
