@@ -16,8 +16,7 @@
     "autoload": {
         "classmap": ["./"],
         "exclude-from-classmap": [
-            "/ckeditor/class/",
-            "/ckeditor/xarblocks/",
+            "/calendar/pear/",
             "/publications/class/lib/",
             "/workflow/lib/",
             "/vendor/"
