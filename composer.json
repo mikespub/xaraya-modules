@@ -50,11 +50,6 @@
     },
     "autoload": {
         "classmap": ["./"],
-        "exclude-from-classmap": [
-            "/calendar/pear/",
-            "/publications/class/lib/",
-            "/workflow/lib/",
-            "/vendor/"
-        ]
+        "exclude-from-classmap": ["/vendor/"]
     }
 }
