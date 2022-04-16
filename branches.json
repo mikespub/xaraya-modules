@@ -1,0 +1,756 @@
+{
+  "WOnlyPullchnetspan": {
+    "2006-04-09T02:32:44Z": "WOnlyPullchnetspan"
+  },
+  "WOnlyPullchnetspanmodules": {
+    "2011-10-08T09:22:19Z": "WOnlyPullchnetspanmodules"
+  },
+  "WOnlyPullchnetspanmodulesgrader": {
+    "2011-10-08T09:22:19Z": "WOnlyPullchnetspanmodulesgrader"
+  },
+  "accessmethods": {
+    "2009-02-15T20:54:32Z": "com.xaraya.modules.accessmethods"
+  },
+  "addressbook": {
+    "2008-01-08T10:55:35Z": "com.xaraya.modules.addressbook"
+  },
+  "ajax": {
+    "2008-01-14T23:40:31Z": "com.xaraya.modules.ajax"
+  },
+  "amazonfps": {
+    "2011-06-28T14:04:33Z": "com.xaraya.modules.jamaica.amazonfps",
+    "2011-04-13T20:44:26Z": "com.xaraya.modules.jamaica.amazonfps.2.2"
+  },
+  "articles": {
+    "2009-09-06T16:12:35Z": "com.xaraya.modules.articles.unstable",
+    "2012-01-27T09:46:25Z": "com.xaraya.modules.articles",
+    "2011-10-11T10:25:34Z": "com.xaraya.modules.jamaica.articles",
+    "2010-11-07T13:43:33Z": "com.xaraya.modules.jamaica.articles.2.1"
+  },
+  "authemail": {
+    "2010-08-04T22:34:06Z": "com.xaraya.modules.authemail"
+  },
+  "authentication": {
+    "2006-02-27T10:01:38Z": "com.xaraya.modules.authentication"
+  },
+  "authinvision": {
+    "2006-07-11T13:58:35Z": "com.xaraya.modules.authinvision"
+  },
+  "authinvision2": {
+    "2006-04-09T02:32:44Z": "com.xaraya.modules.authinvision2"
+  },
+  "authldap": {
+    "2010-01-05T01:05:24Z": "com.xaraya.modules.authldap"
+  },
+  "authphpbb2": {
+    "2006-07-11T13:06:19Z": "com.xaraya.modules.authphpbb2"
+  },
+  "authsql": {
+    "2006-07-11T10:50:00Z": "com.xaraya.modules.authsql"
+  },
+  "authsso": {
+    "2006-07-11T11:27:52Z": "com.xaraya.modules.authsso"
+  },
+  "authurl": {
+    "2006-07-11T09:39:34Z": "com.xaraya.modules.authurl"
+  },
+  "autodoc": {
+    "2007-06-07T13:35:57Z": "com.xaraya.modules.autodoc.unstable",
+    "2006-06-17T18:32:57Z": "com.xaraya.modules.autodoc"
+  },
+  "autolinks": {
+    "2011-02-05T13:28:39Z": "com.xaraya.modules.autolinks"
+  },
+  "bbcode": {
+    "2009-12-14T00:23:42Z": "com.xaraya.modules.bbcode.aruba",
+    "2010-04-09T12:47:16Z": "com.xaraya.modules.bbcode"
+  },
+  "bible": {
+    "2007-10-24T01:02:51Z": "com.xaraya.modules.bible"
+  },
+  "bkview": {
+    "2007-04-22T15:24:03Z": "com.xaraya.modules.bkview"
+  },
+  "blacklist": {
+    "2005-11-06T05:22:49Z": "com.xaraya.modules.blacklist"
+  },
+  "bloggerapi": {
+    "2007-06-11T15:23:58Z": "com.xaraya.modules.bloggerapi.unstable",
+    "2006-04-14T06:32:44Z": "com.xaraya.modules.bloggerapi"
+  },
+  "cacher": {
+    "2018-02-21T17:00:09Z": "com.xaraya.modules.cacher"
+  },
+  "cachesecurity": {
+    "2005-10-07T12:47:04Z": "com.xaraya.modules.cachesecurity"
+  },
+  "calendar": {
+    "2018-12-25T16:20:06Z": "com.xaraya.modules.bermuda.calendar",
+    "2010-04-10T22:28:03Z": "com.xaraya.modules.calendar"
+  },
+  "carts": {
+    "2007-10-24T01:03:37Z": "com.xaraya.modules.carts"
+  },
+  "categories": {
+    "2008-07-26T14:55:44Z": "com.xaraya.modules.categories.unstable",
+    "2011-02-05T13:29:19Z": "com.xaraya.modules.categories",
+    "2011-11-24T22:35:27Z": "com.xaraya.modules.jamaica.categories",
+    "2010-11-07T13:44:40Z": "com.xaraya.modules.jamaica.categories.2.1"
+  },
+  "censor": {
+    "2006-04-13T11:01:52Z": "com.xaraya.modules.censor"
+  },
+  "changelog": {
+    "2009-01-29T10:23:39Z": "com.xaraya.modules.changelog",
+    "2009-11-05T00:08:52Z": "com.xaraya.modules.jamaica.changelog"
+  },
+  "chat": {
+    "2008-01-13T09:55:44Z": "com.xaraya.modules.chat",
+    "2009-11-06T18:02:11Z": "com.xaraya.modules.jamaica.chat"
+  },
+  "ckeditor": {
+    "2009-10-26T15:17:59Z": "com.xaraya.modules.jamaica.ckeditor",
+    "2010-11-10T19:01:43Z": "com.xaraya.modules.jamaica.ckeditor.2.1",
+    "2011-04-13T19:55:11Z": "com.xaraya.modules.jamaica.ckeditor.2.2"
+  },
+  "comments": {
+    "2020-12-24T21:54:28Z": "com.xaraya.modules.bermuda.comments",
+    "2007-08-26T02:42:54Z": "com.xaraya.modules.comments.experimental",
+    "2007-05-22T15:07:01Z": "com.xaraya.modules.comments.unstable",
+    "2010-04-09T12:52:32Z": "com.xaraya.modules.comments",
+    "2011-10-11T10:56:48Z": "com.xaraya.modules.jamaica.comments",
+    "2011-02-01T22:29:48Z": "com.xaraya.modules.jamaica.comments.2.1",
+    "2011-04-19T15:23:02Z": "com.xaraya.modules.jamaica.comments.2.2"
+  },
+  "commerce": {
+    "2007-10-24T01:06:03Z": "com.xaraya.modules.commerce"
+  },
+  "contact": {
+    "2007-10-24T01:06:55Z": "com.xaraya.modules.contact"
+  },
+  "contactform": {
+    "2011-07-15T19:35:34Z": "com.xaraya.modules.jamaica.contactform",
+    "2011-04-13T19:56:07Z": "com.xaraya.modules.jamaica.contactform.2.2"
+  },
+  "content": {
+    "2011-06-28T13:42:49Z": "com.xaraya.modules.jamaica.content",
+    "2011-06-28T12:16:28Z": "com.xaraya.modules.jamaica.content.2.2"
+  },
+  "converter": {
+    "2006-03-04T15:55:11Z": "com.xaraya.modules.converter"
+  },
+  "courses": {
+    "2010-04-08T15:46:17Z": "com.xaraya.modules.courses"
+  },
+  "cpaint": {
+    "2007-10-24T01:07:42Z": "com.xaraya.modules.cpaint"
+  },
+  "crispbb": {
+    "2018-11-15T17:08:56Z": "com.xaraya.modules.bermuda.crispbb",
+    "2010-01-12T20:47:29Z": "com.xaraya.modules.crispbb.aruba",
+    "2010-02-19T00:13:26Z": "com.xaraya.modules.crispbb",
+    "2011-11-23T18:30:50Z": "com.xaraya.modules.jamaica.crispbb",
+    "2010-11-07T14:33:14Z": "com.xaraya.modules.jamaica.crispbb.2.1",
+    "2010-06-02T06:55:32Z": "com.xaraya.modules.jamaica.crispbb.2.2.0"
+  },
+  "customers": {
+    "2007-10-24T01:08:28Z": "com.xaraya.modules.customers"
+  },
+  "dailydelicious": {
+    "2006-08-27T03:36:09Z": "com.xaraya.modules.dailydelicious"
+  },
+  "dojo": {
+    "2006-09-25T23:29:32Z": "com.xaraya.modules.dojo.unstable"
+  },
+  "dossier": {
+    "2009-03-12T23:37:24Z": "com.xaraya.modules.dossier"
+  },
+  "downloads": {
+    "2011-07-15T19:56:01Z": "com.xaraya.modules.jamaica.downloads"
+  },
+  "dracos": {
+    "2008-06-12T17:55:31Z": "com.xaraya.modules.ratings.dracos"
+  },
+  "dyn_example": {
+    "2007-03-01T13:36:45Z": "com.xaraya.modules.dyn_example",
+    "2011-10-11T11:49:05Z": "com.xaraya.modules.jamaica.dyn_example",
+    "2010-11-07T13:47:27Z": "com.xaraya.modules.jamaica.dyn_example.2.1"
+  },
+  "dynamic_planning": {
+    "2005-07-12T10:15:00Z": "com.xaraya.modules.dynamic_planning"
+  },
+  "eav": {
+    "2014-09-25T07:44:30Z": "com.xaraya.modules.bermuda.eav"
+  },
+  "ebulletin": {
+    "2007-12-02T00:53:24Z": "com.xaraya.modules.ebulletin"
+  },
+  "encyclopedia": {
+    "2006-05-03T11:19:58Z": "com.xaraya.modules.encyclopedia"
+  },
+  "ephemerids": {
+    "2006-05-03T11:48:28Z": "com.xaraya.modules.ephemerids",
+    "2011-10-11T11:58:01Z": "com.xaraya.modules.jamaica.ephemerids"
+  },
+  "events": {
+    "2005-07-19T15:09:36Z": "com.xaraya.modules.events"
+  },
+  "example": {
+    "2011-02-05T13:29:59Z": "com.xaraya.modules.example"
+  },
+  "fedexws": {
+    "2010-05-19T20:23:03Z": "com.xaraya.modules.jamaica.fedexws"
+  },
+  "figlet": {
+    "2006-03-05T13:19:18Z": "com.xaraya.modules.figlet",
+    "2011-10-08T09:22:19Z": "com.xaraya.modules.jamaica.figlet"
+  },
+  "filemanager": {
+    "2007-10-24T01:10:03Z": "com.xaraya.modules.filemanager"
+  },
+  "files": {
+    "2006-05-16T01:39:51Z": "com.xaraya.modules.files"
+  },
+  "filters": {
+    "2010-12-03T15:43:28Z": "com.xaraya.modules.jamaica.filters",
+    "2011-04-13T19:54:40Z": "com.xaraya.modules.jamaica.filters.2.2"
+  },
+  "flashservices": {
+    "2005-07-19T15:19:14Z": "com.xaraya.modules.flashservices"
+  },
+  "flickring": {
+    "2006-09-06T00:59:27Z": "com.xaraya.modules.flickring"
+  },
+  "formantibot": {
+    "2009-04-15T07:30:55Z": "com.xaraya.modules.formantibot"
+  },
+  "fulltext": {
+    "2011-11-10T17:00:49Z": "com.xaraya.modules.jamaica.fulltext"
+  },
+  "gallery": {
+    "2006-12-08T02:30:30Z": "com.xaraya.modules.gallery"
+  },
+  "garder": {
+    "2011-10-08T09:22:19Z": "garder"
+  },
+  "gmaps": {
+    "2007-10-24T01:10:52Z": "com.xaraya.modules.gmaps"
+  },
+  "googlesearch": {
+    "2006-04-21T19:41:17Z": "com.xaraya.modules.googlesearch"
+  },
+  "grader": {
+    "2006-04-09T02:32:44Z": "ch.netspan.xaraya.modules.grader",
+    "2011-10-08T09:22:19Z": "origin/ch.netspan.xaraya.modules.grader"
+  },
+  "headlines": {
+    "2009-10-27T19:33:17Z": "com.xaraya.modules.headlines",
+    "2011-10-11T12:35:56Z": "com.xaraya.modules.jamaica.headlines"
+  },
+  "helpdesk": {
+    "2008-05-28T09:55:54Z": "com.xaraya.modules.helpdesk"
+  },
+  "highlight": {
+    "2007-02-09T14:52:10Z": "com.xaraya.modules.highlight"
+  },
+  "hitcount": {
+    "2008-09-18T09:12:07Z": "com.xaraya.modules.hitcount.unstable",
+    "2006-11-30T05:58:59Z": "com.xaraya.modules.hitcount",
+    "2018-08-21T16:54:40Z": "com.xaraya.modules.jamaica.hitcount",
+    "2010-11-07T13:50:18Z": "com.xaraya.modules.jamaica.hitcount.2.1"
+  },
+  "hookbridge": {
+    "2005-07-19T15:11:25Z": "com.xaraya.modules.hookbridge"
+  },
+  "html": {
+    "2007-06-11T15:43:20Z": "com.xaraya.modules.html.unstable",
+    "2011-02-05T13:34:11Z": "com.xaraya.modules.html",
+    "2011-02-24T15:40:12Z": "com.xaraya.modules.jamaica.html.2.1",
+    "2011-12-13T12:54:27Z": "com.xaraya.modules.jamaica.html.2.2",
+    "2015-09-30T09:45:23Z": "com.xaraya.modules.jamaica.html.2.4"
+  },
+  "htmlarea": {
+    "2007-10-24T01:13:18Z": "com.xaraya.modules.htmlarea"
+  },
+  "icalendar": {
+    "2005-07-09T18:56:34Z": "com.xaraya.modules.icalendar"
+  },
+  "icecast": {
+    "2006-03-05T13:29:51Z": "com.xaraya.modules.icecast"
+  },
+  "ie7": {
+    "2009-01-17T00:31:20Z": "com.xaraya.modules.ie7"
+  },
+  "ievents": {
+    "2011-02-13T18:03:41Z": "com.xaraya.modules.ievents"
+  },
+  "imagefeed": {
+    "2005-10-03T10:40:25Z": "com.xaraya.modules.imagefeed"
+  },
+  "images": {
+    "2008-09-18T11:47:05Z": "com.xaraya.modules.images.unstable",
+    "2013-03-05T22:35:41Z": "com.xaraya.modules.images",
+    "2011-09-07T12:51:42Z": "com.xaraya.modules.jamaica.images",
+    "2010-11-07T13:54:08Z": "com.xaraya.modules.jamaica.images.2.1"
+  },
+  "itsp": {
+    "2008-07-24T15:08:18Z": "com.xaraya.modules.itsp"
+  },
+  "jpgraph": {
+    "2008-08-04T09:18:06Z": "com.xaraya.modules.jpgraph"
+  },
+  "jquery": {
+    "2008-09-18T10:21:07Z": "com.xaraya.modules.jquery.unstable",
+    "2009-05-21T11:53:17Z": "com.xaraya.modules.jquery"
+  },
+  "julian": {
+    "2011-02-13T13:36:40Z": "com.xaraya.modules.julian"
+  },
+  "karma": {
+    "2019-04-16T04:54:24Z": "com.xaraya.modules.bermuda.karma"
+  },
+  "keywords": {
+    "2018-08-21T17:16:26Z": "com.xaraya.modules.jamaica.keywords",
+    "2007-06-12T16:42:35Z": "com.xaraya.modules.keywords.unstable",
+    "2010-04-12T20:40:56Z": "com.xaraya.modules.keywords"
+  },
+  "kupu": {
+    "2005-07-12T10:15:24Z": "com.xaraya.modules.kupu"
+  },
+  "labaccounting": {
+    "2009-02-14T19:23:03Z": "com.xaraya.modules.labaccounting"
+  },
+  "labaffiliate": {
+    "2009-03-26T09:35:36Z": "com.xaraya.modules.labaffiliate"
+  },
+  "labcatalog": {
+    "2007-02-25T06:14:25Z": "com.xaraya.modules.labcatalog"
+  },
+  "labproposals": {
+    "2007-02-25T06:14:25Z": "com.xaraya.modules.labproposals"
+  },
+  "legis": {
+    "2006-07-02T02:59:21Z": "com.xaraya.modules.legis"
+  },
+  "liboauth": {
+    "2010-11-20T23:35:54Z": "com.xaraya.modules.jamaica.liboauth",
+    "2010-10-31T00:37:13Z": "com.xaraya.modules.liboauth"
+  },
+  "libtwitteroauth": {
+    "2010-11-20T23:31:53Z": "com.xaraya.modules.jamaica.libtwitteroauth",
+    "2010-10-31T00:48:22Z": "com.xaraya.modules.libtwitteroauth"
+  },
+  "lists": {
+    "2007-10-24T01:14:59Z": "com.xaraya.modules.lists"
+  },
+  "logconfig": {
+    "2011-01-11T11:06:06Z": "com.xaraya.modules.jamaica.logconfig",
+    "2008-07-17T08:49:21Z": "com.xaraya.modules.logconfig"
+  },
+  "mag": {
+    "2008-09-10T16:01:49Z": "com.xaraya.modules.mag"
+  },
+  "magpie": {
+    "2006-11-02T13:46:07Z": "com.xaraya.modules.magpie"
+  },
+  "mailbag": {
+    "2005-10-15T16:04:04Z": "com.xaraya.modules.mailbag"
+  },
+  "mailer": {
+    "2010-12-22T21:53:17Z": "com.xaraya.modules.jamaica.mailer.2.2"
+  },
+  "maps": {
+    "2008-06-14T17:07:03Z": "com.xaraya.modules.maps"
+  },
+  "markdown": {
+    "2005-10-02T03:15:23Z": "com.xaraya.modules.markdown"
+  },
+  "master": {
+    "2013-06-21T18:54:35Z": "master"
+  },
+  "maxercalls": {
+    "2007-02-01T11:08:19Z": "com.xaraya.modules.maxercalls"
+  },
+  "members": {
+    "2007-06-27T20:09:56Z": "com.xaraya.modules.members.unstable"
+  },
+  "menutree": {
+    "2010-09-30T18:09:57Z": "com.xaraya.modules.jamaica.menutree"
+  },
+  "messages": {
+    "2011-10-11T13:30:00Z": "com.xaraya.modules.jamaica.messages",
+    "2013-10-03T18:21:27Z": "com.xaraya.modules.jamaica.messages.2.1",
+    "2011-04-13T19:54:24Z": "com.xaraya.modules.jamaica.messages.2.2",
+    "2007-11-16T12:54:43Z": "com.xaraya.modules.messages"
+  },
+  "metaweblogapi": {
+    "2007-06-12T17:37:37Z": "com.xaraya.modules.metaweblogapi.unstable",
+    "2006-04-14T06:21:51Z": "com.xaraya.modules.metaweblogapi"
+  },
+  "mime": {
+    "2018-04-01T19:46:16Z": "com.xaraya.modules.bermuda.mime",
+    "2011-07-31T18:29:51Z": "com.xaraya.modules.jamaica.mime",
+    "2008-09-18T10:06:53Z": "com.xaraya.modules.mime.unstable",
+    "2010-04-09T23:45:20Z": "com.xaraya.modules.mime"
+  },
+  "moveabletype": {
+    "2006-04-14T06:12:28Z": "com.xaraya.modules.moveabletype"
+  },
+  "mp3jukebox": {
+    "2007-04-24T01:56:04Z": "com.xaraya.modules.mp3jukebox"
+  },
+  "multisites": {
+    "2009-01-27T09:52:35Z": "com.xaraya.modules.multisites"
+  },
+  "mybookmarks": {
+    "2005-11-26T16:20:20Z": "com.xaraya.modules.mybookmarks"
+  },
+  "nameday": {
+    "2005-07-13T12:47:06Z": "com.xaraya.modules.nameday"
+  },
+  "navigator": {
+    "2007-10-24T01:17:26Z": "com.xaraya.modules.navigator"
+  },
+  "netquery": {
+    "2010-02-02T16:30:08Z": "com.xaraya.modules.netquery"
+  },
+  "newsgroups": {
+    "2010-04-09T16:15:45Z": "com.xaraya.modules.newsgroups"
+  },
+  "newsletter": {
+    "2007-11-09T13:38:15Z": "com.xaraya.modules.newsletter"
+  },
+  "nofollow": {
+    "2009-01-26T22:35:16Z": "com.xaraya.modules.nofollow"
+  },
+  "object": {
+    "2005-07-09T18:57:54Z": "com.xaraya.modules.object"
+  },
+  "opentracker": {
+    "2009-01-24T09:57:24Z": "com.xaraya.modules.opentracker"
+  },
+  "otp": {
+    "2017-02-07T17:31:06Z": "com.xaraya.modules.bermuda.otp"
+  },
+  "overlib": {
+    "2006-05-14T15:11:12Z": "com.xaraya.modules.overlib"
+  },
+  "owner": {
+    "2006-04-16T13:18:05Z": "com.xaraya.modules.owner"
+  },
+  "path": {
+    "2011-02-03T21:19:57Z": "com.xaraya.modules.jamaica.content.path",
+    "2010-12-24T19:35:37Z": "com.xaraya.modules.jamaica.path"
+  },
+  "payments": {
+    "2019-02-19T11:47:51Z": "com.xaraya.modules.bermuda.payments"
+  },
+  "paypalipn": {
+    "2005-07-19T15:15:23Z": "com.xaraya.modules.paypalipn"
+  },
+  "paypalsetup": {
+    "2005-07-12T10:17:03Z": "com.xaraya.modules.paypalsetup"
+  },
+  "permalink": {
+    "2010-10-25T22:17:15Z": "com.xaraya.modules.jamaica.comments.permalink"
+  },
+  "pgrfilemanager": {
+    "2010-10-26T19:07:41Z": "com.xaraya.modules.jamaica.ckeditor.pgrfilemanager"
+  },
+  "photoshare": {
+    "2007-10-24T01:20:57Z": "com.xaraya.modules.photoshare"
+  },
+  "phpldapadmin": {
+    "2007-10-24T01:21:46Z": "com.xaraya.modules.phpldapadmin"
+  },
+  "phplot": {
+    "2006-11-08T14:39:32Z": "com.xaraya.modules.phplot"
+  },
+  "ping": {
+    "2007-05-29T07:49:27Z": "com.xaraya.modules.ping.unstable",
+    "2007-10-24T01:22:35Z": "com.xaraya.modules.ping"
+  },
+  "pmember": {
+    "2009-01-17T22:55:23Z": "com.xaraya.modules.pmember"
+  },
+  "polls": {
+    "2008-01-14T21:33:31Z": "com.xaraya.modules.polls.unstable",
+    "2010-04-10T20:00:04Z": "com.xaraya.modules.polls"
+  },
+  "pop3gateway": {
+    "2005-10-12T07:06:01Z": "com.xaraya.modules.pop3gateway"
+  },
+  "products": {
+    "2007-10-24T01:23:24Z": "com.xaraya.modules.products"
+  },
+  "publications": {
+    "2020-11-17T14:36:01Z": "com.xaraya.modules.bermuda.publications",
+    "2012-04-11T08:42:51Z": "com.xaraya.modules.jamaica.publications"
+  },
+  "pubsub": {
+    "2019-01-12T16:10:53Z": "com.xaraya.modules.pubsub"
+  },
+  "query": {
+    "2011-08-25T08:40:29Z": "com.xaraya.modules.jamaica.query",
+    "2007-06-10T17:02:44Z": "com.xaraya.modules.query.unstable"
+  },
+  "ratings": {
+    "2018-08-21T18:12:18Z": "com.xaraya.modules.jamaica.ratings",
+    "2010-04-02T08:13:35Z": "com.xaraya.modules.ratings"
+  },
+  "realms": {
+    "2016-01-19T10:12:50Z": "com.xaraya.modules.bermuda.realms"
+  },
+  "recommend": {
+    "2008-05-21T08:28:44Z": "com.xaraya.modules.recommend"
+  },
+  "redirecturl": {
+    "2005-10-15T11:22:25Z": "com.xaraya.modules.redirecturl"
+  },
+  "referer": {
+    "2007-10-24T01:24:12Z": "com.xaraya.modules.referer"
+  },
+  "registration": {
+    "2011-11-14T18:05:10Z": "com.xaraya.modules.jamaica.registration",
+    "2011-03-06T17:59:23Z": "com.xaraya.modules.jamaica.registration.2.1",
+    "2011-04-13T20:43:06Z": "com.xaraya.modules.jamaica.registration.2.2",
+    "2007-10-30T08:55:05Z": "com.xaraya.modules.registration.unstable",
+    "2011-02-05T13:34:49Z": "com.xaraya.modules.registration"
+  },
+  "release": {
+    "2015-11-14T10:26:21Z": "com.xaraya.modules.bermuda.release",
+    "2007-10-24T01:25:00Z": "com.xaraya.modules.release",
+    "2015-11-05T21:28:27Z": "release"
+  },
+  "reminders": {
+    "2022-04-15T21:11:53Z": "com.xaraya.modules.bermuda.reminders"
+  },
+  "reports": {
+    "2006-07-24T13:50:37Z": "com.xaraya.modules.reports"
+  },
+  "sandbox": {
+    "2009-12-03T19:22:58Z": "com.xaraya.modules.sandbox",
+    "2011-11-22T18:07:12Z": "com.xaraya.sandbox"
+  },
+  "scheduler": {
+    "2022-04-15T11:51:25Z": "com.xaraya.modules.bermuda.scheduler",
+    "2011-10-11T17:16:27Z": "com.xaraya.modules.jamaica.scheduler",
+    "2010-11-07T13:58:17Z": "com.xaraya.modules.jamaica.scheduler.2.1",
+    "2008-09-18T11:29:10Z": "com.xaraya.modules.scheduler.unstable",
+    "2010-04-10T18:55:20Z": "com.xaraya.modules.scheduler"
+  },
+  "scraper": {
+    "2019-05-20T10:50:48Z": "com.xaraya.modules.bermuda.scraper"
+  },
+  "search": {
+    "2007-06-12T16:48:04Z": "com.xaraya.modules.search.unstable",
+    "2007-03-30T18:05:36Z": "com.xaraya.modules.search"
+  },
+  "security": {
+    "2007-09-27T11:41:27Z": "com.xaraya.modules.security"
+  },
+  "sharecontent": {
+    "2010-02-04T16:39:53Z": "com.xaraya.modules.jamaica.sharecontent",
+    "2010-11-07T13:59:10Z": "com.xaraya.modules.jamaica.sharecontent.2.1",
+    "2008-06-23T08:45:45Z": "com.xaraya.modules.sharecontent"
+  },
+  "shop": {
+    "2010-05-18T09:05:47Z": "com.xaraya.modules.jamaica.shop"
+  },
+  "shopping": {
+    "2005-09-21T21:46:45Z": "com.xaraya.modules.shopping"
+  },
+  "shouter": {
+    "2011-10-11T14:08:01Z": "com.xaraya.modules.jamaica.shouter",
+    "2007-10-24T03:15:33Z": "com.xaraya.modules.shouter"
+  },
+  "sigmapersonnel": {
+    "2008-01-05T17:19:39Z": "com.xaraya.modules.sigmapersonnel"
+  },
+  "simplepie": {
+    "2010-05-17T21:25:32Z": "com.xaraya.modules.jamaica.simplepie",
+    "2008-11-24T16:54:46Z": "com.xaraya.modules.simplepie"
+  },
+  "sitecloud": {
+    "2007-10-24T01:26:39Z": "com.xaraya.modules.sitecloud"
+  },
+  "sitecontact": {
+    "2007-12-13T02:34:00Z": "com.xaraya.modules.sitecontact.unstable",
+    "2009-03-23T15:25:03Z": "com.xaraya.modules.sitecontact"
+  },
+  "sitemapper": {
+    "2017-01-09T19:18:32Z": "com.xaraya.modules.bermuda.sitemapper",
+    "2011-02-12T11:22:48Z": "com.xaraya.modules.jamaica.sitemapper"
+  },
+  "sitesearch": {
+    "2007-08-18T17:14:31Z": "com.xaraya.modules.sitesearch"
+  },
+  "sitetools": {
+    "2009-10-01T12:53:17Z": "com.xaraya.modules.jamaica.sitetools",
+    "2018-01-06T16:21:04Z": "com.xaraya.modules.jamaica.sitetools.2.1",
+    "2007-06-12T17:25:20Z": "com.xaraya.modules.sitetools.unstable",
+    "2010-04-10T15:15:12Z": "com.xaraya.modules.sitetools"
+  },
+  "smilies": {
+    "2008-09-29T05:49:30Z": "com.xaraya.modules.smilies"
+  },
+  "sniffer": {
+    "2011-08-30T10:20:00Z": "com.xaraya.modules.sniffer"
+  },
+  "soapserver": {
+    "2009-05-20T00:46:35Z": "com.xaraya.modules.soapserver"
+  },
+  "stats": {
+    "2009-04-28T19:50:14Z": "com.xaraya.modules.stats"
+  },
+  "subitems": {
+    "2009-03-02T00:21:18Z": "com.xaraya.modules.subitems"
+  },
+  "surveys": {
+    "2007-01-08T11:23:14Z": "com.xaraya.modules.surveys"
+  },
+  "tasks": {
+    "2006-03-06T20:49:19Z": "com.xaraya.modules.tasks"
+  },
+  "timezone": {
+    "2006-07-30T12:47:44Z": "com.xaraya.modules.timezone"
+  },
+  "tinymce": {
+    "2009-04-04T17:40:14Z": "com.xaraya.modules.tinymce"
+  },
+  "tinymce3": {
+    "2010-04-10T10:30:17Z": "com.xaraya.modules.tinymce3"
+  },
+  "todolist": {
+    "2006-02-10T13:36:09Z": "com.xaraya.modules.todolist"
+  },
+  "trackback": {
+    "2007-05-29T06:30:39Z": "com.xaraya.modules.trackback.unstable",
+    "2009-01-18T14:44:17Z": "com.xaraya.modules.trackback"
+  },
+  "translations": {
+    "2019-05-17T16:40:17Z": "com.xaraya.modules.jamaica.translations",
+    "2010-11-07T14:02:53Z": "com.xaraya.modules.jamaica.translations.2.1",
+    "2008-09-18T13:53:14Z": "com.xaraya.modules.translations.unstable",
+    "2009-03-10T21:43:53Z": "com.xaraya.modules.translations"
+  },
+  "twitter": {
+    "2011-02-03T19:17:02Z": "com.xaraya.modules.jamaica.twitter",
+    "2010-11-26T02:26:42Z": "com.xaraya.modules.jamaica.twitter.2.1",
+    "2011-10-11T14:15:31Z": "com.xaraya.modules.jamaica.twitter.2.3",
+    "2010-11-18T22:19:19Z": "com.xaraya.modules.twitter"
+  },
+  "uploads": {
+    "2011-10-03T15:16:55Z": "com.xaraya.modules.bermuda.uploads",
+    "2011-08-01T20:01:06Z": "com.xaraya.modules.jamaica.uploads",
+    "2007-06-12T16:14:53Z": "com.xaraya.modules.uploads.unstable",
+    "2010-04-10T00:01:23Z": "com.xaraya.modules.uploads"
+  },
+  "userpoints": {
+    "2006-08-14T11:39:30Z": "com.xaraya.modules.userpoints"
+  },
+  "uspsws": {
+    "2010-05-19T20:31:02Z": "com.xaraya.modules.jamaica.uspsws"
+  },
+  "vanilla": {
+    "2009-01-14T15:48:27Z": "com.xaraya.modules.vanilla"
+  },
+  "vendors": {
+    "2007-10-24T01:29:11Z": "com.xaraya.modules.vendors"
+  },
+  "weather": {
+    "2011-10-11T14:24:25Z": "com.xaraya.modules.jamaica.weather",
+    "2008-01-02T20:21:22Z": "com.xaraya.modules.weather"
+  },
+  "webdavserver": {
+    "2005-07-07T17:48:19Z": "com.xaraya.modules.webdavserver"
+  },
+  "webshare": {
+    "2007-04-12T17:20:56Z": "com.xaraya.modules.webshare"
+  },
+  "weirdmind": {
+    "2005-10-03T10:38:35Z": "com.xaraya.modules.weirdmind"
+  },
+  "wiki": {
+    "2009-01-25T12:58:47Z": "com.xaraya.modules.wiki"
+  },
+  "window": {
+    "2009-01-25T16:55:37Z": "com.xaraya.modules.window"
+  },
+  "wizards": {
+    "2006-07-20T12:59:40Z": "com.xaraya.modules.wizards"
+  },
+  "workflow": {
+    "2013-08-06T13:44:22Z": "com.xaraya.modules.jamaica.workflow",
+    "2010-11-07T14:04:20Z": "com.xaraya.modules.jamaica.workflow.2.1",
+    "2007-11-08T12:19:43Z": "com.xaraya.modules.workflow.unstable",
+    "2007-10-24T01:29:58Z": "com.xaraya.modules.workflow"
+  },
+  "wurfl": {
+    "2013-10-03T18:38:29Z": "com.xaraya.modules.jamaica.wurfl"
+  },
+  "xarayatesting": {
+    "2013-11-24T14:20:27Z": "com.xaraya.modules.bermuda.xarayatesting",
+    "2018-01-11T19:18:04Z": "com.xaraya.modules.jamaica.xarayatesting",
+    "2010-11-07T14:05:40Z": "com.xaraya.modules.jamaica.xarayatesting.2.1"
+  },
+  "xarbb": {
+    "2010-04-09T15:23:04Z": "com.xaraya.modules.xarbb"
+  },
+  "xarcachemanager": {
+    "2011-01-10T15:12:00Z": "com.xaraya.modules.jamaica.xarcachemanager",
+    "2011-02-20T17:10:23Z": "com.xaraya.modules.jamaica.xarcachemanager.2.1",
+    "2009-10-30T15:56:01Z": "com.xaraya.modules.xarcachemanager"
+  },
+  "xarcpshop": {
+    "2007-10-24T01:30:49Z": "com.xaraya.modules.xarcpshop"
+  },
+  "xardplink": {
+    "2005-12-09T17:06:07Z": "com.xaraya.modules.xardplink"
+  },
+  "xarldap": {
+    "2006-03-07T13:08:43Z": "com.xaraya.modules.xarldap"
+  },
+  "xarlinkme": {
+    "2007-12-02T04:15:43Z": "com.xaraya.modules.xarlinkme"
+  },
+  "xarpages": {
+    "2011-11-15T19:24:50Z": "com.xaraya.modules.jamaica.xarpages",
+    "2010-11-07T14:08:58Z": "com.xaraya.modules.jamaica.xarpages.2.1",
+    "2008-09-18T13:30:35Z": "com.xaraya.modules.xarpages.unstable",
+    "2013-03-29T22:32:11Z": "com.xaraya.modules.xarpages"
+  },
+  "xartelnet": {
+    "2005-10-03T10:39:05Z": "com.xaraya.modules.xartelnet"
+  },
+  "xen": {
+    "2006-07-25T12:33:47Z": "com.xaraya.modules.xen"
+  },
+  "xlink": {
+    "2006-04-13T16:26:19Z": "com.xaraya.modules.xlink"
+  },
+  "xmlrpcserver": {
+    "2007-05-02T09:14:28Z": "com.xaraya.modules.xmlrpcserver.unstable",
+    "2006-09-29T05:17:03Z": "com.xaraya.modules.xmlrpcserver"
+  },
+  "xmlrpcsystemapi": {
+    "2007-05-02T09:13:54Z": "com.xaraya.modules.xmlrpcsystemapi.unstable",
+    "2006-03-07T10:53:34Z": "com.xaraya.modules.xmlrpcsystemapi"
+  },
+  "xmlrpcvalidatorapi": {
+    "2007-06-12T18:03:18Z": "com.xaraya.modules.xmlrpcvalidatorapi.unstable",
+    "2006-03-07T10:57:03Z": "com.xaraya.modules.xmlrpcvalidatorapi"
+  },
+  "xorba": {
+    "2006-11-21T18:11:11Z": "com.xaraya.modules.xorba.unstable"
+  },
+  "xproject": {
+    "2007-04-12T12:09:04Z": "com.xaraya.modules.xproject"
+  },
+  "xslt": {
+    "2006-03-07T08:09:34Z": "com.xaraya.modules.xslt"
+  },
+  "xtasks": {
+    "2009-03-01T17:20:53Z": "com.xaraya.modules.xtasks"
+  }
+}
