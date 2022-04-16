@@ -1,6 +1,8 @@
 # xaraya-modules
 
-The cleaned-up modules have been moved to separate repos in the new https://github.com/xaraya-modules organization, and submitted as individual packages of type 'xaraya-module' at https://packagist.org/?type=xaraya-module
+The cleaned-up modules have been moved to separate repositories in the new https://github.com/xaraya-modules *organization*, and submitted as individual packages of type 'xaraya-module' at https://packagist.org/?type=xaraya-module
+
+The original modules are available as [branches](branches.json) in the old https://github.com/xaraya/modules *repository*
 
 | Package | Repository | Original Branch |
 | ------- | ---------- | --------------- |
