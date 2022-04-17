@@ -1,4 +1,4 @@
-# xaraya/modules metapackage
+# xaraya/modules bundle
 
 The cleaned-up modules have been moved to separate repositories in the new https://github.com/xaraya-modules *organization*, and submitted as individual packages of type 'xaraya-module' at https://packagist.org/?type=xaraya-module
 

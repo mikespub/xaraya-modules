@@ -1,6 +1,6 @@
 {
     "name": "xaraya/modules",
-    "type": "metapackage",
+    "type": "xaraya-bundle",
     "description": "Collection of modules to extend Xaraya's functionality",
     "license": "GPL-2.0-or-later",
     "extra": {
