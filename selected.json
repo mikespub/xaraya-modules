@@ -30,5 +30,6 @@
   "publications": "com.xaraya.modules.bermuda.publications",
   "comments": "com.xaraya.modules.bermuda.comments",
   "scheduler": "com.xaraya.modules.bermuda.scheduler",
-  "reminders": "com.xaraya.modules.bermuda.reminders"
+  "reminders": "com.xaraya.modules.bermuda.reminders",
+  "logconfig": "com.xaraya.modules.bermuda.logconfig"
 }

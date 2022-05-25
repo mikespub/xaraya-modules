@@ -151,7 +151,7 @@
   "libtwitteroauth": "com.xaraya.modules.jamaica.libtwitteroauth",
   "liboauth": "com.xaraya.modules.jamaica.liboauth",
   "mailer": "com.xaraya.modules.jamaica.mailer.2.2",
-  "logconfig": "com.xaraya.modules.jamaica.logconfig",
+  "logconfig": "com.xaraya.modules.bermuda.logconfig",
   "path": "com.xaraya.modules.jamaica.content.path",
   "autolinks": "com.xaraya.modules.autolinks",
   "example": "com.xaraya.modules.example",
