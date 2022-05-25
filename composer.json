@@ -23,6 +23,7 @@
         "xaraya/images": "Handles image manipulation with resizing/cropping/scaling/rotating and various filters",
         "xaraya/karma": "A generic Web 2.0 module",
         "xaraya/keywords": "Assign keywords to module items (taxonomy) and look up items by keyword",
+        "xaraya/logconfig": "Module for Configuration the Logging System",
         "xaraya/messages": "Xaraya Messages module",
         "xaraya/mime": "Hook based module that returns the content-type of a given file.",
         "xaraya/otp": "A generic Web 2.0 module",
