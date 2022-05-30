@@ -19,6 +19,7 @@ The original modules are available as [branches](branches.json) in the old https
 | xaraya/images | https://github.com/xaraya-modules/images | [com.xaraya.modules.images](https://github.com/xaraya/modules/tree/com.xaraya.modules.images) |
 | xaraya/karma | https://github.com/xaraya-modules/karma | [com.xaraya.modules.bermuda.karma](https://github.com/xaraya/modules/tree/com.xaraya.modules.bermuda.karma) |
 | xaraya/keywords | https://github.com/xaraya-modules/keywords | [com.xaraya.modules.jamaica.keywords](https://github.com/xaraya/modules/tree/com.xaraya.modules.jamaica.keywords) |
+| xaraya/logconfig | https://github.com/xaraya-modules/logconfig | [com.xaraya.modules.bermuda.logconfig](https://github.com/xaraya/modules/tree/com.xaraya.modules.bermuda.logconfig) |
 | xaraya/messages | https://github.com/xaraya-modules/messages | [com.xaraya.modules.jamaica.messages.2.1](https://github.com/xaraya/modules/tree/com.xaraya.modules.jamaica.messages.2.1) |
 | xaraya/mime | https://github.com/xaraya-modules/mime | [com.xaraya.modules.bermuda.mime](https://github.com/xaraya/modules/tree/com.xaraya.modules.bermuda.mime) |
 | xaraya/otp | https://github.com/xaraya-modules/otp | [com.xaraya.modules.bermuda.otp](https://github.com/xaraya/modules/tree/com.xaraya.modules.bermuda.otp) |
