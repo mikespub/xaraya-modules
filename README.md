@@ -10,6 +10,7 @@ The original modules are available as [branches](branches.json) in the old https
 | xaraya/cachemanager | https://github.com/xaraya-modules/cachemanager | [com.xaraya.modules.jamaica.xarcachemanager](https://github.com/xaraya/modules/tree/com.xaraya.modules.jamaica.xarcachemanager) |
 | xaraya/cacher | https://github.com/xaraya-modules/cacher | [com.xaraya.modules.cacher](https://github.com/xaraya/modules/tree/com.xaraya.modules.cacher) |
 | xaraya/calendar | https://github.com/xaraya-modules/calendar | [com.xaraya.modules.bermuda.calendar](https://github.com/xaraya/modules/tree/com.xaraya.modules.bermuda.calendar) |
+| xaraya/changelog | https://github.com/xaraya-modules/changelog | [com.xaraya.modules.jamaica.changelog](https://github.com/xaraya/modules/tree/com.xaraya.modules.jamaica.changelog) |
 | xaraya/ckeditor | https://github.com/xaraya-modules/ckeditor | [com.xaraya.modules.jamaica.ckeditor.2.2](https://github.com/xaraya/modules/tree/com.xaraya.modules.jamaica.ckeditor.2.2) |
 | xaraya/comments | https://github.com/xaraya-modules/comments | [com.xaraya.modules.bermuda.comments](https://github.com/xaraya/modules/tree/com.xaraya.modules.bermuda.comments) |
 | xaraya/crispbb | https://github.com/xaraya-modules/crispbb | [com.xaraya.modules.bermuda.crispbb](https://github.com/xaraya/modules/tree/com.xaraya.modules.bermuda.crispbb) |
