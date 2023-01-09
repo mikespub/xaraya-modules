@@ -14,6 +14,7 @@
         "xaraya/cachemanager": "Manage the output cache system of Xaraya",
         "xaraya/cacher": "A generic Web 2.0 module",
         "xaraya/calendar": "Calendar System",
+        "xaraya/changelog": "Keep track of changes to module items",
         "xaraya/ckeditor": "A WYSIWYG editor module",
         "xaraya/comments": "Allows users to post comments on items",
         "xaraya/crispbb": "Feature rich forum module for Xaraya",

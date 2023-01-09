@@ -31,5 +31,6 @@
   "comments": "com.xaraya.modules.bermuda.comments",
   "scheduler": "com.xaraya.modules.bermuda.scheduler",
   "reminders": "com.xaraya.modules.bermuda.reminders",
-  "logconfig": "com.xaraya.modules.bermuda.logconfig"
+  "logconfig": "com.xaraya.modules.bermuda.logconfig",
+  "changelog": "com.xaraya.modules.jamaica.changelog"
 }

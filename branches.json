@@ -2,12 +2,6 @@
   "WOnlyPullchnetspan": {
     "2006-04-09T02:32:44Z": "WOnlyPullchnetspan"
   },
-  "WOnlyPullchnetspanmodules": {
-    "2011-10-08T09:22:19Z": "WOnlyPullchnetspanmodules"
-  },
-  "WOnlyPullchnetspanmodulesgrader": {
-    "2011-10-08T09:22:19Z": "WOnlyPullchnetspanmodulesgrader"
-  },
   "accessmethods": {
     "2009-02-15T20:54:32Z": "com.xaraya.modules.accessmethods"
   },
@@ -230,18 +224,11 @@
   "gallery": {
     "2006-12-08T02:30:30Z": "com.xaraya.modules.gallery"
   },
-  "garder": {
-    "2011-10-08T09:22:19Z": "garder"
-  },
   "gmaps": {
     "2007-10-24T01:10:52Z": "com.xaraya.modules.gmaps"
   },
   "googlesearch": {
     "2006-04-21T19:41:17Z": "com.xaraya.modules.googlesearch"
-  },
-  "grader": {
-    "2006-04-09T02:32:44Z": "ch.netspan.xaraya.modules.grader",
-    "2011-10-08T09:22:19Z": "origin/ch.netspan.xaraya.modules.grader"
   },
   "headlines": {
     "2009-10-27T19:33:17Z": "com.xaraya.modules.headlines",
@@ -344,6 +331,7 @@
     "2007-10-24T01:14:59Z": "com.xaraya.modules.lists"
   },
   "logconfig": {
+    "2022-05-06T13:53:51Z": "com.xaraya.modules.bermuda.logconfig",
     "2011-01-11T11:06:06Z": "com.xaraya.modules.jamaica.logconfig",
     "2008-07-17T08:49:21Z": "com.xaraya.modules.logconfig"
   },
@@ -523,7 +511,7 @@
     "2015-11-05T21:28:27Z": "release"
   },
   "reminders": {
-    "2022-04-15T21:11:53Z": "com.xaraya.modules.bermuda.reminders"
+    "2022-06-27T16:18:55Z": "com.xaraya.modules.bermuda.reminders"
   },
   "reports": {
     "2006-07-24T13:50:37Z": "com.xaraya.modules.reports"
@@ -533,7 +521,7 @@
     "2011-11-22T18:07:12Z": "com.xaraya.sandbox"
   },
   "scheduler": {
-    "2022-04-15T11:51:25Z": "com.xaraya.modules.bermuda.scheduler",
+    "2022-05-06T10:46:39Z": "com.xaraya.modules.bermuda.scheduler",
     "2011-10-11T17:16:27Z": "com.xaraya.modules.jamaica.scheduler",
     "2010-11-07T13:58:17Z": "com.xaraya.modules.jamaica.scheduler.2.1",
     "2008-09-18T11:29:10Z": "com.xaraya.modules.scheduler.unstable",
@@ -681,7 +669,7 @@
     "2006-07-20T12:59:40Z": "com.xaraya.modules.wizards"
   },
   "workflow": {
-    "2013-08-06T13:44:22Z": "com.xaraya.modules.jamaica.workflow",
+    "2022-04-25T15:49:44Z": "com.xaraya.modules.jamaica.workflow",
     "2010-11-07T14:04:20Z": "com.xaraya.modules.jamaica.workflow.2.1",
     "2007-11-08T12:19:43Z": "com.xaraya.modules.workflow.unstable",
     "2007-10-24T01:29:58Z": "com.xaraya.modules.workflow"
