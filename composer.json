@@ -8,7 +8,6 @@
             "dev-master": "2.4.x-dev"
         }
     },
-    "require": {},
     "suggest": {
         "xaraya/apischemas": "Play with API schemas",
         "xaraya/cachemanager": "Manage the output cache system of Xaraya",
@@ -53,5 +52,25 @@
     "autoload": {
         "classmap": ["./"],
         "exclude-from-classmap": ["/vendor/"]
+    },
+    "require-dev": {
+        "xaraya/apischemas": "dev-master",
+        "xaraya/cachemanager": "dev-master",
+        "xaraya/calendar": "dev-master",
+        "xaraya/changelog": "dev-master",
+        "xaraya/ckeditor": "dev-master",
+        "xaraya/comments": "dev-master",
+        "xaraya/hitcount": "dev-master",
+        "xaraya/images": "dev-master",
+        "xaraya/keywords": "dev-master",
+        "xaraya/logconfig": "dev-master",
+        "xaraya/messages": "dev-master",
+        "xaraya/mime": "dev-master",
+        "xaraya/properties": "dev-master",
+        "xaraya/publications": "dev-master",
+        "xaraya/ratings": "dev-master",
+        "xaraya/scheduler": "dev-master",
+        "xaraya/uploads": "dev-master",
+        "xaraya/workflow": "dev-master"
     }
 }
