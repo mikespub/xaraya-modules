@@ -53,7 +53,7 @@
         "classmap": ["./"],
         "exclude-from-classmap": ["/vendor/"]
     },
-    "require-dev": {
+    "require": {
         "xaraya/apischemas": "dev-master",
         "xaraya/cachemanager": "dev-master",
         "xaraya/calendar": "dev-master",
