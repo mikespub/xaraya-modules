@@ -47,12 +47,16 @@
     },
     "config": {
         "optimize-autoloader": true,
-        "sort-packages": true
+        "sort-packages": true,
+        "preferred-install": {
+            "xaraya/properties": "source"
+        }
     },
     "autoload": {
         "classmap": ["./"],
         "exclude-from-classmap": ["/vendor/"]
     },
+    "minimum-stability": "dev",
     "require": {
         "xaraya/apischemas": "dev-master",
         "xaraya/cachemanager": "dev-master",
