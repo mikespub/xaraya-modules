@@ -6,6 +6,7 @@ The original modules are available as [branches](branches.json) in the old https
 
 | Package | Repository | Original Branch |
 | ------- | ---------- | --------------- |
+| xaraya/library | https://github.com/xaraya-modules/library | - |
 | xaraya/apischemas | https://github.com/xaraya-modules/apischemas | - |
 | xaraya/cachemanager | https://github.com/xaraya-modules/cachemanager | [com.xaraya.modules.jamaica.xarcachemanager](https://github.com/xaraya/modules/tree/com.xaraya.modules.jamaica.xarcachemanager) |
 | xaraya/cacher | https://github.com/xaraya-modules/cacher | [com.xaraya.modules.cacher](https://github.com/xaraya/modules/tree/com.xaraya.modules.cacher) |
