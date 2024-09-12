@@ -5,7 +5,7 @@
     "license": "GPL-2.0-or-later",
     "extra": {
         "branch-alias": {
-            "dev-master": "2.4.x-dev"
+            "dev-master": "2.5.x-dev"
         }
     },
     "suggest": {
@@ -63,6 +63,7 @@
         "exclude-from-classmap": ["/vendor/"]
     },
     "minimum-stability": "dev",
+    "prefer-stable": true,
     "require": {
         "xaraya/apischemas": "dev-master",
         "xaraya/cachemanager": "dev-master",
@@ -73,7 +74,7 @@
         "xaraya/hitcount": "dev-master",
         "xaraya/images": "dev-master",
         "xaraya/keywords": "dev-master",
-        "xaraya/library": "dev-main",
+        "xaraya/library": "^2.5",
         "xaraya/logconfig": "dev-master",
         "xaraya/messages": "dev-master",
         "xaraya/mime": "dev-master",
@@ -82,6 +83,6 @@
         "xaraya/ratings": "dev-master",
         "xaraya/scheduler": "dev-master",
         "xaraya/uploads": "dev-master",
-        "xaraya/workflow": "dev-master"
+        "xaraya/workflow": "^2.5"
     }
 }
