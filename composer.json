@@ -74,7 +74,7 @@
         "xaraya/hitcount": "dev-master",
         "xaraya/images": "dev-master",
         "xaraya/keywords": "dev-master",
-        "xaraya/library": "^2.5",
+        "xaraya/library": "dev-main",
         "xaraya/logconfig": "dev-master",
         "xaraya/messages": "dev-master",
         "xaraya/mime": "dev-master",
@@ -82,6 +82,7 @@
         "xaraya/publications": "dev-master",
         "xaraya/ratings": "dev-master",
         "xaraya/scheduler": "dev-master",
+        "xaraya/skeleton": "dev-main",
         "xaraya/uploads": "dev-master",
         "xaraya/workflow": "^2.5"
     }
