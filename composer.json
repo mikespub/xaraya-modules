@@ -84,6 +84,6 @@
         "xaraya/scheduler": "dev-master",
         "xaraya/skeleton": "dev-main",
         "xaraya/uploads": "dev-master",
-        "xaraya/workflow": "^2.5"
+        "xaraya/workflow": "^2.6"
     }
 }
